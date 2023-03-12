@@ -1,5 +1,6 @@
 package com.example.mechaapp.features
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.example.mechaapp.databinding.ActivityMainBinding
@@ -10,5 +11,9 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        binding.keDaftar.setOnClickListener {
+            startActivity(Intent(this, Register::class.java))
+        }
     }
 }
