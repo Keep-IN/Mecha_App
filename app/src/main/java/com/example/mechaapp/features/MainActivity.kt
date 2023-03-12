@@ -1,4 +1,4 @@
-package com.example.mechaapp
+package com.example.mechaapp.features
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
