@@ -15,6 +15,27 @@
         android:theme="@style/Theme.MechaApp"
         tools:targetApi="31">
         <activity
+            android:name=".PerbaikanBan2"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".PerbaikanBan"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".LayananDarurat"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
             android:name=".OpenApp2"
             android:exported="false">
             <meta-data
