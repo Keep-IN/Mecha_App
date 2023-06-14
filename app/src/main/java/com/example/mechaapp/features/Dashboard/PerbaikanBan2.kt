@@ -1,11 +1,12 @@
-package com.example.mechaapp
+package com.example.mechaapp.features.Dashboard
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.example.mechaapp.R
 
-class PerbaikanBan : AppCompatActivity() {
+class PerbaikanBan2 : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_perbaikan_ban)
+        setContentView(R.layout.activity_perbaikan_ban2)
     }
 }
