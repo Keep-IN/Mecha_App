@@ -4,8 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".features.Dashboard.LayananDarurat">
-
+    tools:context=".features.Dashboard.LayananBan">
     <FrameLayout
         android:id="@+id/frameLayout"
         android:layout_width="409dp"
@@ -36,7 +35,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="20dp"
                 android:fontFamily="@font/poppins"
-                android:text="Layanan Darurat"
+                android:text="Perbaikan Ban"
                 android:textColor="#FFFFFF"
                 android:textStyle="bold"
                 app:layout_constraintBottom_toBottomOf="parent"
@@ -63,7 +62,7 @@
             android:background="#D4EEEC">
 
             <ImageView
-                android:id="@+id/imgPiw5"
+                android:id="@+id/imgPiw3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="30dp"
@@ -75,13 +74,13 @@
                 app:srcCompat="@drawable/ic_montor" />
 
             <TextView
-                android:id="@+id/txtPiw7"
+                android:id="@+id/txtPiw4"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="104dp"
                 android:layout_marginTop="25dp"
                 android:fontFamily="@font/poppins"
-                android:text=" Mogok Di Jalan"
+                android:text="Ganti Ban"
                 android:textColor="#000000"
                 android:textSize="16dp"
                 android:textStyle="bold"
@@ -89,29 +88,29 @@
                 app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
-                android:id="@+id/txtPiw10"
+                android:id="@+id/txtPiw5"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="4dp"
                 android:fontFamily="@font/poppins"
                 android:text="Estimasi Harga"
                 android:textColor="#000000"
-                app:layout_constraintStart_toStartOf="@+id/txtPiw7"
-                app:layout_constraintTop_toBottomOf="@+id/txtPiw7" />
+                app:layout_constraintStart_toStartOf="@+id/txtPiw4"
+                app:layout_constraintTop_toBottomOf="@+id/txtPiw4" />
 
             <TextView
-                android:id="@+id/txtPiw9"
+                android:id="@+id/txtPiw6"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="4dp"
                 android:fontFamily="@font/poppins"
                 android:text="Rp 50.000"
                 android:textColor="#000000"
-                app:layout_constraintStart_toStartOf="@+id/txtPiw10"
-                app:layout_constraintTop_toBottomOf="@+id/txtPiw10" />
+                app:layout_constraintStart_toStartOf="@+id/txtPiw5"
+                app:layout_constraintTop_toBottomOf="@+id/txtPiw5" />
 
             <ImageView
-                android:id="@+id/imgPiw6"
+                android:id="@+id/imgPiw4"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="19dp"
@@ -155,7 +154,7 @@
                 android:layout_marginStart="104dp"
                 android:layout_marginTop="25dp"
                 android:fontFamily="@font/poppins"
-                android:text="Tambal Ban"
+                android:text="Ganti Velg Ban"
                 android:textColor="#000000"
                 android:textSize="16dp"
                 android:textStyle="bold"
@@ -177,7 +176,7 @@
                 android:id="@+id/textView9"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="2dp"
+                android:layout_marginTop="4dp"
                 android:fontFamily="@font/poppins"
                 android:text="Rp 50.000"
                 android:textColor="#000000"
@@ -193,6 +192,7 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 app:srcCompat="@drawable/ic_up" />
+
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.cardview.widget.CardView>
 </androidx.constraintlayout.widget.ConstraintLayout>
