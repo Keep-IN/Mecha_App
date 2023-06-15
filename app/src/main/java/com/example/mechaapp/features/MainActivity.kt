@@ -1,8 +1,9 @@
-package com.example.mechaapp
+package com.example.mechaapp.features
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.example.mechaapp.features.Register.Register
 import com.example.mechaapp.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
