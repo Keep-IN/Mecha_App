@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.example.mechaapp.features.Register.Register
 import com.example.mechaapp.databinding.ActivityMainBinding
+import com.example.mechaapp.features.Dashboard.NavbarContainer
 
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
@@ -15,6 +16,10 @@ class MainActivity : AppCompatActivity() {
 
         binding.keDaftar.setOnClickListener {
             startActivity(Intent(this, Register::class.java))
+        }
+
+        binding.btnToLogin.setOnClickListener {
+            startActivity(Intent(this, NavbarContainer::class.java))
         }
     }
 }
