@@ -15,6 +15,9 @@
         android:theme="@style/Theme.MechaApp"
         tools:targetApi="31">
         <activity
+            android:name=".features.Dashboard.LayananPerbaikan"
+            android:exported="false" />
+        <activity
             android:name=".features.Dashboard.LayananBan"
             android:exported="false" />
         <activity

@@ -4,7 +4,86 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".features.Dashboard.LayananBan">
+    tools:context=".features.Dashboard.LayananPerbaikan">
+
+    <com.google.android.material.card.MaterialCardView
+        android:layout_width="0dp"
+        android:layout_height="120dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="24dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cardView2" >
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#D4EEEC">
+
+            <TextView
+                android:id="@+id/textView10"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="104dp"
+                android:layout_marginTop="24dp"
+                android:fontFamily="@font/poppins"
+                android:text="Karburator Motor"
+                android:textColor="#000000"
+                android:textSize="16dp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageView
+                android:id="@+id/imageView10"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="28dp"
+                android:layout_marginTop="31dp"
+                android:layout_marginBottom="25dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.0"
+                app:srcCompat="@drawable/ic_montor" />
+
+            <TextView
+                android:id="@+id/textView12"
+                android:layout_width="0dp"
+                android:layout_height="24dp"
+                android:layout_marginTop="1dp"
+                android:fontFamily="@font/poppins"
+                android:text="Rp 50.000"
+                android:textColor="#000000"
+                app:layout_constraintStart_toStartOf="@+id/textView11"
+                app:layout_constraintTop_toBottomOf="@+id/textView11" />
+
+            <ImageView
+                android:id="@+id/imageView11"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="16dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.489"
+                app:srcCompat="@drawable/ic_up" />
+
+            <TextView
+                android:id="@+id/textView11"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:fontFamily="@font/poppins"
+                android:text="Estimasi Harga"
+                android:textColor="#000000"
+                app:layout_constraintStart_toStartOf="@+id/textView10"
+                app:layout_constraintTop_toBottomOf="@+id/textView10" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </com.google.android.material.card.MaterialCardView>
+
     <FrameLayout
         android:id="@+id/frameLayout"
         android:layout_width="409dp"
@@ -35,7 +114,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="20dp"
                 android:fontFamily="@font/poppins"
-                android:text="Perbaikan Ban"
+                android:text="Rawat Kendaraan"
                 android:textColor="#FFFFFF"
                 android:textStyle="bold"
                 app:layout_constraintBottom_toBottomOf="parent"
@@ -62,7 +141,7 @@
             android:background="#D4EEEC">
 
             <ImageView
-                android:id="@+id/imgPiw3"
+                android:id="@+id/imgPiw1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="30dp"
@@ -74,13 +153,13 @@
                 app:srcCompat="@drawable/ic_montor" />
 
             <TextView
-                android:id="@+id/txtPiw4"
+                android:id="@+id/txtPiw1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="104dp"
                 android:layout_marginTop="25dp"
                 android:fontFamily="@font/poppins"
-                android:text="Ganti Ban"
+                android:text="Ganti Oli Motor"
                 android:textColor="#000000"
                 android:textSize="16dp"
                 android:textStyle="bold"
@@ -88,29 +167,29 @@
                 app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
-                android:id="@+id/txtPiw5"
+                android:id="@+id/txtPiw2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="4dp"
                 android:fontFamily="@font/poppins"
                 android:text="Estimasi Harga"
                 android:textColor="#000000"
-                app:layout_constraintStart_toStartOf="@+id/txtPiw4"
-                app:layout_constraintTop_toBottomOf="@+id/txtPiw4" />
+                app:layout_constraintStart_toStartOf="@+id/txtPiw1"
+                app:layout_constraintTop_toBottomOf="@+id/txtPiw1" />
 
             <TextView
-                android:id="@+id/txtPiw6"
+                android:id="@+id/txtPiw3"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="4dp"
+                android:layout_marginTop="2dp"
                 android:fontFamily="@font/poppins"
                 android:text="Rp 50.000"
                 android:textColor="#000000"
-                app:layout_constraintStart_toStartOf="@+id/txtPiw5"
-                app:layout_constraintTop_toBottomOf="@+id/txtPiw5" />
+                app:layout_constraintStart_toStartOf="@+id/txtPiw2"
+                app:layout_constraintTop_toBottomOf="@+id/txtPiw2" />
 
             <ImageView
-                android:id="@+id/imgPiw4"
+                android:id="@+id/imgPiw2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="19dp"
@@ -122,6 +201,7 @@
     </com.google.android.material.card.MaterialCardView>
 
     <com.google.android.material.card.MaterialCardView
+        android:id="@+id/cardView2"
         android:layout_width="0dp"
         android:layout_height="120dp"
         android:layout_marginStart="24dp"
@@ -129,12 +209,13 @@
         android:layout_marginEnd="24dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/cardView" >
+        app:layout_constraintTop_toBottomOf="@+id/cardView">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:background="#D4EEEC">
+
             <ImageView
                 android:id="@+id/imageView8"
                 android:layout_width="wrap_content"
@@ -154,7 +235,7 @@
                 android:layout_marginStart="104dp"
                 android:layout_marginTop="25dp"
                 android:fontFamily="@font/poppins"
-                android:text="Ganti Velg Ban"
+                android:text="Injeksi Motor"
                 android:textColor="#000000"
                 android:textSize="16dp"
                 android:textStyle="bold"
@@ -176,7 +257,7 @@
                 android:id="@+id/textView9"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="4dp"
+                android:layout_marginTop="2dp"
                 android:fontFamily="@font/poppins"
                 android:text="Rp 50.000"
                 android:textColor="#000000"

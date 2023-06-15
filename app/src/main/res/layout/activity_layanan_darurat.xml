@@ -45,7 +45,7 @@
         </androidx.constraintlayout.widget.ConstraintLayout>
     </FrameLayout>
 
-    <androidx.cardview.widget.CardView
+    <com.google.android.material.card.MaterialCardView
         android:id="@+id/cardView"
         android:layout_width="0dp"
         android:layout_height="120dp"
@@ -120,9 +120,9 @@
                 app:layout_constraintTop_toTopOf="parent"
                 app:srcCompat="@drawable/ic_up" />
         </androidx.constraintlayout.widget.ConstraintLayout>
-    </androidx.cardview.widget.CardView>
+    </com.google.android.material.card.MaterialCardView>
 
-    <androidx.cardview.widget.CardView
+    <com.google.android.material.card.MaterialCardView
         android:layout_width="0dp"
         android:layout_height="120dp"
         android:layout_marginStart="24dp"
@@ -194,5 +194,5 @@
                 app:layout_constraintTop_toTopOf="parent"
                 app:srcCompat="@drawable/ic_up" />
         </androidx.constraintlayout.widget.ConstraintLayout>
-    </androidx.cardview.widget.CardView>
+    </com.google.android.material.card.MaterialCardView>
 </androidx.constraintlayout.widget.ConstraintLayout>
