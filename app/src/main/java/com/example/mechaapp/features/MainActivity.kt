@@ -6,6 +6,7 @@ import android.os.Bundle
 import com.example.mechaapp.features.Register.Register
 import com.example.mechaapp.databinding.ActivityMainBinding
 import com.example.mechaapp.features.Dashboard.NavbarContainer
+import com.example.mechaapp.partner.home2.NavbarContainer2
 
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
@@ -19,7 +20,7 @@ class MainActivity : AppCompatActivity() {
         }
 
         binding.btnToLogin.setOnClickListener {
-            startActivity(Intent(this, NavbarContainer::class.java))
+            startActivity(Intent(this, NavbarContainer2::class.java))
         }
     }
 }
