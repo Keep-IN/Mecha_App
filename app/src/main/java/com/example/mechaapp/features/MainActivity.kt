@@ -8,6 +8,7 @@ import androidx.core.widget.doOnTextChanged
 import com.example.mechaapp.ForgetPassword
 import com.example.mechaapp.features.Register.Register
 import com.example.mechaapp.databinding.ActivityMainBinding
+import com.example.mechaapp.features.Dashboard.NavbarContainer
 
 class MainActivity : AppCompatActivity(), MainActivityContract {
     private lateinit var binding: ActivityMainBinding
@@ -103,6 +104,10 @@ class MainActivity : AppCompatActivity(), MainActivityContract {
         when(code){
             5 -> binding.tilemailLogin.error=message
             6 -> binding.tilpwLogin.error=message
+        }
+
+        binding.btnToLogin.setOnClickListener {
+            startActivity(Intent(this, NavbarContainer::class.java))
         }
     }
 }
