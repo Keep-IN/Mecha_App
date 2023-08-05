@@ -27,14 +27,14 @@
             android:name=".features.Dashboard.LayananDarurat"
             android:exported="false" />
         <activity
-            android:name=".ForgetPassword2"
+            android:name=".features.ForgetPassword.ForgetPassword2"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity
-            android:name=".ForgetPassword"
+            android:name=".features.ForgetPassword.ForgetPassword"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
