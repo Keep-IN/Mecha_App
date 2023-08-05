@@ -27,11 +27,11 @@
                 android:text="Kata Sandi"
                 android:textColor="#333333"
                 android:textSize="12dp"
-                app:layout_constraintBottom_toTopOf="@+id/textInputLayout2"
-                app:layout_constraintStart_toStartOf="@+id/textInputLayout2" />
+                app:layout_constraintBottom_toTopOf="@+id/tilpwLogin"
+                app:layout_constraintStart_toStartOf="@+id/tilpwLogin" />
 
             <Button
-                android:id="@+id/keDaftar"
+                android:id="@+id/btntoDaftar"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="24dp"
@@ -46,7 +46,7 @@
                 app:layout_constraintTop_toBottomOf="@+id/imageView6" />
 
             <TextView
-                android:id="@+id/textView2"
+                android:id="@+id/tvForget"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="33dp"
@@ -54,8 +54,8 @@
                 android:text="Lupa Kata Sandi ?"
                 android:textColor="@color/teal_200"
                 android:textSize="14sp"
-                app:layout_constraintEnd_toEndOf="@+id/textInputLayout2"
-                app:layout_constraintTop_toBottomOf="@+id/textInputLayout2" />
+                app:layout_constraintEnd_toEndOf="@+id/tilpwLogin"
+                app:layout_constraintTop_toBottomOf="@+id/tilpwLogin" />
 
             <ImageView
                 android:id="@+id/imageView"
@@ -79,20 +79,20 @@
                 android:fontFamily="@font/poppins_semibold"
                 android:text="Login"
                 android:textAllCaps="false"
-                app:layout_constraintEnd_toEndOf="@+id/textInputLayout2"
-                app:layout_constraintStart_toStartOf="@+id/textInputLayout2"
-                app:layout_constraintTop_toBottomOf="@+id/textView2" />
+                app:layout_constraintEnd_toEndOf="@+id/tilpwLogin"
+                app:layout_constraintStart_toStartOf="@+id/tilpwLogin"
+                app:layout_constraintTop_toBottomOf="@+id/tvForget" />
 
             <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/textInputLayout2"
+                android:id="@+id/tilpwLogin"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="34dp"
                 app:boxStrokeWidth="0dp"
                 app:boxStrokeWidthFocused="0dp"
-                app:layout_constraintEnd_toEndOf="@+id/textInputLayout"
-                app:layout_constraintStart_toStartOf="@+id/textInputLayout"
-                app:layout_constraintTop_toBottomOf="@+id/textInputLayout"
+                app:layout_constraintEnd_toEndOf="@+id/tilemailLogin"
+                app:layout_constraintStart_toStartOf="@+id/tilemailLogin"
+                app:layout_constraintTop_toBottomOf="@+id/tilemailLogin"
                 app:startIconDrawable="@drawable/ic_lock"
                 app:startIconTint="@color/purple_200">
 
@@ -100,7 +100,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:background="@drawable/bg_field"
-                    android:hint="Password" />
+                    android:paddingTop="10dp" />
             </com.google.android.material.textfield.TextInputLayout>
 
             <TextView
@@ -111,8 +111,8 @@
                 android:text="Email"
                 android:textColor="#333333"
                 android:textSize="12dp"
-                app:layout_constraintBottom_toTopOf="@+id/textInputLayout"
-                app:layout_constraintStart_toStartOf="@+id/textInputLayout" />
+                app:layout_constraintBottom_toTopOf="@+id/tilemailLogin"
+                app:layout_constraintStart_toStartOf="@+id/tilemailLogin" />
 
             <TextView
                 android:id="@+id/textView"
@@ -137,7 +137,7 @@
                 app:srcCompat="@drawable/bawah" />
 
             <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/textInputLayout"
+                android:id="@+id/tilemailLogin"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="23dp"
@@ -155,7 +155,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:background="@drawable/bg_field"
-                    android:hint="Username" />
+                    android:paddingTop="10dp" />
             </com.google.android.material.textfield.TextInputLayout>
         </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>
