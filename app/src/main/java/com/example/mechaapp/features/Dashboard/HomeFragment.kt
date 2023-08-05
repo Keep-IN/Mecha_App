@@ -7,8 +7,8 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.mechaapp.databinding.FragmentHomeBinding
-import com.example.mechaapp.features.data.adapter.SpotlightListAdapter
-import com.example.mechaapp.features.data.model.DataSpotlight
+import com.example.mechaapp.data.adapter.SpotlightListAdapter
+import com.example.mechaapp.data.model.DataSpotlight
 
 class HomeFragment : Fragment() {
     private  lateinit var binding: FragmentHomeBinding

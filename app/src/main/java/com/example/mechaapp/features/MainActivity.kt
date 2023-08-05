@@ -3,12 +3,13 @@ package com.example.mechaapp.features
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.Toast
 import androidx.core.widget.doOnTextChanged
-import com.example.mechaapp.ForgetPassword
+import com.example.mechaapp.features.Login.ForgetPassword
 import com.example.mechaapp.features.Register.Register
 import com.example.mechaapp.databinding.ActivityMainBinding
 import com.example.mechaapp.features.Dashboard.NavbarContainer
+import com.example.mechaapp.features.Login.MainActivityContract
+import com.example.mechaapp.features.Login.MainActivityPresenter
 
 class MainActivity : AppCompatActivity(), MainActivityContract {
     private lateinit var binding: ActivityMainBinding
