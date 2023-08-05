@@ -8,6 +8,7 @@ import com.example.mechaapp.features.Login.ForgetPassword
 import com.example.mechaapp.features.Register.Register
 import com.example.mechaapp.databinding.ActivityMainBinding
 import com.example.mechaapp.features.Dashboard.NavbarContainer
+import com.example.mechaapp.partner.home2.NavbarContainer2
 import com.example.mechaapp.features.Login.MainActivityContract
 import com.example.mechaapp.features.Login.MainActivityPresenter
 
@@ -108,7 +109,7 @@ class MainActivity : AppCompatActivity(), MainActivityContract {
         }
 
         binding.btnToLogin.setOnClickListener {
-            startActivity(Intent(this, NavbarContainer::class.java))
+            startActivity(Intent(this, NavbarContainer2::class.java))
         }
     }
 }
