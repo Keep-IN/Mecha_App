@@ -39,6 +39,7 @@
                 android:value="" />
         </activity>
         <activity
+
             android:name=".features.Login.ForgetPassword"
             android:exported="false">
             <meta-data

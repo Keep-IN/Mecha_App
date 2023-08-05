@@ -7,13 +7,162 @@
     android:layout_height="match_parent"
     tools:context=".features.History.HistoryFragment">
 
-    <TextView
-        android:id="@+id/textView21"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="HistoryFragment"
-        app:layout_constraintBottom_toBottomOf="parent"
+    <HorizontalScrollView
+        android:id="@+id/ScrollViewHistory"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginBottom="1dp"
+        app:layout_constraintBottom_toTopOf="@+id/rvHistory"
+        app:layout_constraintEnd_toEndOf="@+id/cardView3"
+        app:layout_constraintStart_toStartOf="@+id/cardView3"
+        app:layout_constraintTop_toBottomOf="@+id/cardView3">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent">
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/cvDibatalkanHistory"
+                android:layout_width="80dp"
+                android:layout_height="0dp"
+                android:layout_marginStart="15dp"
+                app:cardCornerRadius="8dp"
+                app:layout_constraintBottom_toBottomOf="@+id/cvProsesHistory"
+                app:layout_constraintStart_toEndOf="@+id/cvProsesHistory"
+                app:layout_constraintTop_toTopOf="@+id/cvProsesHistory"
+                app:strokeColor="#1BCABB"
+                app:strokeWidth="2dp">
+
+                <TextView
+                    android:id="@+id/tvDibatalkanHistory"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:fontFamily="@font/poppins_medium"
+                    android:text="Dibatalkan"
+                    android:textColor="#000000"
+                    android:textSize="12dp" />
+            </com.google.android.material.card.MaterialCardView>
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/cvProsesHistory"
+                android:layout_width="80dp"
+                android:layout_height="30dp"
+                android:layout_marginStart="15dp"
+                app:cardCornerRadius="8dp"
+                app:layout_constraintBottom_toBottomOf="@+id/cvSelesaiHistory"
+                app:layout_constraintStart_toEndOf="@+id/cvSelesaiHistory"
+                app:layout_constraintTop_toTopOf="@+id/cvSelesaiHistory"
+                app:strokeColor="#1BCABB"
+                app:strokeWidth="2dp">
+
+                <TextView
+                    android:id="@+id/tvProsesHistory"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:fontFamily="@font/poppins_medium"
+                    android:text="Proses"
+                    android:textColor="#000000"
+                    android:textSize="12dp" />
+            </com.google.android.material.card.MaterialCardView>
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/cvSelesaiHistory"
+                android:layout_width="80dp"
+                android:layout_height="30dp"
+                android:layout_marginStart="15dp"
+                app:cardCornerRadius="8dp"
+                app:layout_constraintBottom_toBottomOf="@+id/cvSemuaHistory"
+                app:layout_constraintStart_toEndOf="@+id/cvSemuaHistory"
+                app:layout_constraintTop_toTopOf="@+id/cvSemuaHistory"
+                app:strokeColor="#1BCABB"
+                app:strokeWidth="2dp">
+
+                <TextView
+                    android:id="@+id/tvSelesaiHistory"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:fontFamily="@font/poppins_medium"
+                    android:text="Selesai"
+                    android:textColor="#000000"
+                    android:textSize="12dp" />
+            </com.google.android.material.card.MaterialCardView>
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/cvSemuaHistory"
+                android:layout_width="80dp"
+                android:layout_height="30dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="24dp"
+                android:layout_marginBottom="20dp"
+                app:cardBackgroundColor="#1BCABB"
+                app:cardCornerRadius="8dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.107">
+
+                <TextView
+                    android:id="@+id/tvSemuaHistory"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:fontFamily="@font/poppins_medium"
+                    android:text="Semua"
+                    android:textColor="#FFFFFF"
+                    android:textSize="12dp" />
+            </com.google.android.material.card.MaterialCardView>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </HorizontalScrollView>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardView3"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        app:cardBackgroundColor="#1BCABB"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:id="@+id/btnBackHistory"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="24dp"
+                android:layout_marginTop="15dp"
+                android:src="@drawable/ic_btnback"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/textView13"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="175dp"
+                android:layout_marginTop="18dp"
+                android:layout_marginEnd="175dp"
+                android:fontFamily="@font/poppins_bold"
+                android:gravity="center"
+                android:text="Riwayat"
+                android:textColor="#FFFFFF"
+                android:textSize="14dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.cardview.widget.CardView>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvHistory"
+        android:layout_width="409dp"
+        android:layout_height="755dp"
+        android:layout_marginTop="75dp"
+        app:layout_constraintTop_toBottomOf="@+id/cardView3"
+        tools:layout_editor_absoluteX="1dp" />
 </androidx.constraintlayout.widget.ConstraintLayout>
