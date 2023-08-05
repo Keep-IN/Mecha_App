@@ -7,13 +7,233 @@
     android:layout_height="match_parent"
     tools:context=".features.Dashboard.HomeFragment">
 
-    <TextView
-        android:id="@+id/textView23"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="HomeFragment"
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <FrameLayout
+                android:id="@+id/frameLayout7"
+                android:layout_width="0dp"
+                android:layout_height="55dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/rvSpotlight">
+
+                <TextView
+                    android:id="@+id/textView25"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="18dp"
+                    android:fontFamily="@font/poppins_semibold"
+                    android:paddingLeft="24dp"
+                    android:text="Layanan yang tersedia"
+                    android:textColor="#000000" />
+            </FrameLayout>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rvSpotlight"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="3dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/frameLayout6" />
+
+            <FrameLayout
+                android:id="@+id/frameLayout6"
+                android:layout_width="0dp"
+                android:layout_height="55dp"
+                android:layout_marginTop="4dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/materialCardView">
+
+                <TextView
+                    android:id="@+id/textView23"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="24dp"
+                    android:layout_marginTop="20dp"
+                    android:fontFamily="@font/poppins_semibold"
+                    android:text="Promo For You"
+                    android:textColor="#000000"
+                    android:textSize="16sp" />
+            </FrameLayout>
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/materialCardView"
+                android:layout_width="match_parent"
+                android:layout_height="66dp"
+                android:backgroundTint="#1BCABB">
+
+                <ImageView
+                    android:id="@+id/imageView15"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="right"
+                    android:paddingTop="6dp"
+                    android:paddingRight="20dp"
+                    android:src="@drawable/fotopropil" />
+
+                <TextView
+                    android:id="@+id/textView13"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/poppins_semibold"
+                    android:paddingLeft="24dp"
+                    android:paddingTop="10dp"
+                    android:text="Selamat Datang"
+                    android:textColor="#FFFFFF"
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:id="@+id/textView20"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/poppins_medium"
+                    android:paddingLeft="24dp"
+                    android:paddingTop="40dp"
+                    android:text="Jacob Jones"
+                    android:textColor="#FFFFFF" />
+            </com.google.android.material.card.MaterialCardView>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cardView3"
+                android:layout_width="355dp"
+                android:layout_height="112dp"
+                android:backgroundTint="#1BCABB"
+                app:cardCornerRadius="8dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/frameLayout7">
+
+                <TextView
+                    android:id="@+id/textView27"
+                    android:layout_width="239dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="12dp"
+                    android:layout_marginTop="58dp"
+                    android:fontFamily="@font/poppins_medium"
+                    android:text="Panggil montir terdekat untuk melakukan perbaikan secara langsung"
+                    android:textColor="#FFFFFF"
+                    android:textSize="10sp" />
+
+                <ImageView
+                    android:id="@+id/imageView16"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="right"
+                    android:layout_marginTop="24dp"
+                    android:layout_marginRight="12dp"
+                    android:src="@drawable/ic_layanan_motor" />
+
+                <TextView
+                    android:id="@+id/textView26"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="12dp"
+                    android:layout_marginTop="24dp"
+                    android:fontFamily="@font/poppins_bold"
+                    android:text="Layanan Darurat"
+                    android:textColor="#FFFFFF"
+                    android:textSize="20sp" />
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cardView4"
+                android:layout_width="355dp"
+                android:layout_height="112dp"
+                android:layout_marginTop="9dp"
+                android:backgroundTint="#1BCABB"
+                app:cardCornerRadius="8dp"
+                app:layout_constraintEnd_toEndOf="@+id/cardView3"
+                app:layout_constraintStart_toStartOf="@+id/cardView3"
+                app:layout_constraintTop_toBottomOf="@+id/cardView3">
+
+                <TextView
+                    android:id="@+id/textView28"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="12dp"
+                    android:layout_marginTop="24dp"
+                    android:fontFamily="@font/poppins_bold"
+                    android:text="Perbaikan Ban"
+                    android:textColor="#FFFFFF"
+                    android:textSize="20sp" />
+
+                <ImageView
+                    android:id="@+id/imageView17"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="right"
+                    android:layout_marginTop="24dp"
+                    android:layout_marginRight="12dp"
+                    android:src="@drawable/ic_layanan_tambal" />
+
+                <TextView
+                    android:id="@+id/textView29"
+                    android:layout_width="234dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="12dp"
+                    android:layout_marginTop="58dp"
+                    android:fontFamily="@font/poppins_medium"
+                    android:text="Panggil montir terdekat untuk memperbaiki ban anda"
+                    android:textColor="#FFFFFF"
+                    android:textSize="10sp" />
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="355dp"
+                android:layout_height="112dp"
+                android:layout_marginTop="12dp"
+                android:layout_marginBottom="20dp"
+                android:backgroundTint="#1BCABB"
+                app:cardCornerRadius="8dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="@+id/cardView4"
+                app:layout_constraintStart_toStartOf="@+id/cardView4"
+                app:layout_constraintTop_toBottomOf="@+id/cardView4">
+
+                <TextView
+                    android:id="@+id/textView31"
+                    android:layout_width="231dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="12dp"
+                    android:layout_marginTop="58dp"
+                    android:fontFamily="@font/poppins_medium"
+                    android:text="Panggil montir terdekat untuk memperbaiki kendaraan anda"
+                    android:textColor="#FFFFFF"
+                    android:textSize="10sp" />
+
+                <ImageView
+                    android:id="@+id/imageView18"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="right"
+                    android:layout_marginTop="24dp"
+                    android:layout_marginRight="12dp"
+                    android:src="@drawable/ic_layanan_rawat" />
+
+                <TextView
+                    android:id="@+id/textView30"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="12dp"
+                    android:layout_marginTop="24dp"
+                    android:fontFamily="@font/poppins_bold"
+                    android:text="Rawat Kendaraan"
+                    android:textColor="#FFFFFF"
+                    android:textSize="20sp" />
+            </androidx.cardview.widget.CardView>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+
 </androidx.constraintlayout.widget.ConstraintLayout>
