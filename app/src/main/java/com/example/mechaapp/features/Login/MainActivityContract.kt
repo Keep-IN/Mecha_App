@@ -1,4 +1,4 @@
-package com.example.mechaapp.features
+package com.example.mechaapp.features.Login
 
 interface MainActivityContract {
     fun onLoading()
