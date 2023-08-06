@@ -5,12 +5,16 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.mechaapp.R
 import com.example.mechaapp.databinding.FragmentChatBinding
 import com.example.mechaapp.databinding.FragmentHomeBinding
+import com.example.mechaapp.features.Data.Adapter.ChatAdapter
+import com.example.mechaapp.features.Data.Model.DataChat
 
 class ChatFragment : Fragment() {
     private  lateinit var binding: FragmentChatBinding
+    private val chatAdapter: ChatAdapter by lazy { ChatAdapter() }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -22,5 +26,10 @@ class ChatFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        val layoutManager = LinearLayoutManager(activity)
+        chatAdapter.submitList(DataChat.chatList)
+        binding.rvChat.adapter = chatAdapter
+        binding.rvChat.layoutManager = layoutManager
+
     }
 }

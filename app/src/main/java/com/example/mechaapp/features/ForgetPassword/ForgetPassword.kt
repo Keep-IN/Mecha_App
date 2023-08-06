@@ -1,7 +1,8 @@
-package com.example.mechaapp
+package com.example.mechaapp.features.ForgetPassword
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.example.mechaapp.R
 
 class ForgetPassword : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {

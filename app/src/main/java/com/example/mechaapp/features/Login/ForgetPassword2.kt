@@ -1,11 +1,12 @@
-package com.example.mechaapp
+package com.example.mechaapp.features.Login
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.example.mechaapp.R
 
-class LandingPage : AppCompatActivity() {
+class ForgetPassword2 : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_landing_page)
+        setContentView(R.layout.activity_forget_password2)
     }
 }
