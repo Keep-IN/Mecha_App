@@ -109,7 +109,7 @@ class MainActivity : AppCompatActivity(), MainActivityContract {
         }
 
         binding.btnToLogin.setOnClickListener {
-            startActivity(Intent(this, NavbarContainer2::class.java))
+            startActivity(Intent(this, NavbarContainer::class.java))
         }
     }
 }
