@@ -1,4 +1,4 @@
-package com.example.mechaapp.partner.features2.adapter2
+package com.example.mechaapp.partner.data2.adapter2
 
 import android.graphics.Color
 import android.view.LayoutInflater
@@ -6,7 +6,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.mechaapp.databinding.FragmentHome2Binding
 import com.example.mechaapp.databinding.RiwayatTransaksiListBinding
-import com.example.mechaapp.partner.features2.data2.RiwayatItemModel2
+import com.example.mechaapp.partner.data2.RiwayatItemModel2
 
 class HistoryListAdapter2 : RecyclerView.Adapter<HistoryListAdapter2.ViewHolder>() {
     private  var itemListener: ((RiwayatItemModel2) -> Unit)? = null

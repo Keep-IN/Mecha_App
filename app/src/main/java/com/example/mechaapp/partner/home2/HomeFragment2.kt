@@ -1,5 +1,6 @@
 package com.example.mechaapp.partner.home2
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -7,10 +8,9 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.mechaapp.databinding.FragmentHome2Binding
-import com.example.mechaapp.features.data.adapter.SpotlightListAdapter
-import com.example.mechaapp.features.data.model.DataSpotlight
-import com.example.mechaapp.partner.features2.adapter2.HistoryListAdapter2
-import com.example.mechaapp.partner.features2.data2.DataRiwayat
+import com.example.mechaapp.partner.data2.adapter2.HistoryListAdapter2
+import com.example.mechaapp.partner.features2.ambilpesan.AmbilPesan
+import com.example.mechaapp.partner.data2.DataRiwayat
 
 class HomeFragment2 : Fragment() {
     private  lateinit var binding: FragmentHome2Binding
@@ -21,6 +21,10 @@ class HomeFragment2 : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         binding = FragmentHome2Binding.inflate(layoutInflater, container, false)
+
+        binding.cvambilPesan.setOnClickListener {
+            startActivity(Intent(activity, AmbilPesan::class.java ))
+        }
         return binding.root
     }
 
@@ -31,5 +35,6 @@ class HomeFragment2 : Fragment() {
         adapterHistory.submitList(DataRiwayat.riwayathomeList)
         binding.rvMekanik.adapter = adapterHistory
         binding.rvMekanik.layoutManager = layoutManager
-}
     }
+
+}

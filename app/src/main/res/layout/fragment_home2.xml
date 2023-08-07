@@ -21,13 +21,13 @@
                 android:layout_width="0dp"
                 android:layout_height="0.5dp"
                 android:background="@android:color/black"
-                app:layout_constraintBottom_toTopOf="@+id/cardView7"
+                app:layout_constraintBottom_toTopOf="@+id/cvambilPesan"
                 app:layout_constraintEnd_toEndOf="@+id/cardView6"
                 app:layout_constraintStart_toStartOf="@+id/cardView6"
                 app:layout_constraintTop_toBottomOf="@+id/cardView6" />
 
             <androidx.cardview.widget.CardView
-                android:id="@+id/cardView7"
+                android:id="@+id/cvambilPesan"
                 android:layout_width="0dp"
                 android:layout_height="60dp"
                 android:layout_marginTop="37dp"
@@ -202,7 +202,7 @@
                 android:layout_marginTop="1dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/cardView7">
+                app:layout_constraintTop_toBottomOf="@+id/cvambilPesan">
 
                 <TextView
                     android:id="@+id/textView40"

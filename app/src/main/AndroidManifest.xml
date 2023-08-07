@@ -17,14 +17,18 @@
         android:theme="@style/Theme.MechaApp"
         tools:targetApi="31">
         <activity
+            android:name=".partner.features2.History2.Detail.DetailPesanan"
+            android:exported="false" />
+        <activity
+            android:name=".partner.features2.ambilpesan.AmbilPesan"
+            android:exported="false" />
+        <activity
             android:name=".partner.home2.NavbarContainer2"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
-            android:name=".features.Map.MapAddress"
-            android:exported="false" />
         <activity
             android:name=".features.Dashboard.NavbarContainer"
             android:exported="false" />
@@ -45,7 +49,6 @@
                 android:value="" />
         </activity>
         <activity
-
             android:name=".features.Login.ForgetPassword"
             android:exported="false">
             <meta-data
@@ -60,6 +63,7 @@
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
@@ -88,7 +92,6 @@
         <activity
             android:name=".features.MainActivity"
             android:exported="true">
-
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />

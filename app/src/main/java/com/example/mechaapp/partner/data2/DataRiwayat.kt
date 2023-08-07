@@ -1,4 +1,4 @@
-package com.example.mechaapp.partner.features2.data2
+package com.example.mechaapp.partner.data2
 
 object DataRiwayat {
     val riwayathomeList = mutableListOf(
