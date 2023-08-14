@@ -60,6 +60,40 @@ class NetworkClient {
             return request.build()
         }
 
+        fun requestLogin(endpoint: String,email: String, password: String, method: METHOD = METHOD.POST, jsonBody: String? = null): Request {
+            val requestBody = FormBody.Builder()
+                .add("email", email)
+                .add("password", password)
+                .build()
+            val request = Request.Builder()
+                .url("$BASE_URL$endpoint")
+                .post(requestBody)
+
+            if(jsonBody != null){
+                request.method(method.name, jsonBody.toRequestBody())
+            }
+
+            return request.build()
+        }
+
+        fun requestResgis(endpoint: String, nama: String, no_telp: String, email: String, password: String, method: METHOD = METHOD.POST, jsonBody: String? = null): Request{
+            val requestBody = FormBody.Builder()
+                .add("nama", nama)
+                .add("no_telp", no_telp)
+                .add("email", email)
+                .add("password", password)
+                .build()
+            val request = Request.Builder()
+                .url("$BASE_URL$endpoint")
+                .post(requestBody)
+
+            if (jsonBody != null){
+                request.method(method.name, jsonBody.toRequestBody())
+            }
+
+            return request.build()
+        }
+
         // TODO: ADD ORDER REQUEST BODY WITH ORDER ITEM MODEL
         fun postWithBearerToken (endpoint: String, token:String, method: METHOD = METHOD.POST, jsonBody: String? = null): Request {
             val requestBody = FormBody.Builder()

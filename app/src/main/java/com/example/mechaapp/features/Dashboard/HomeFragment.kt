@@ -1,5 +1,6 @@
 package com.example.mechaapp.features.Dashboard
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -8,7 +9,8 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.mechaapp.databinding.FragmentHomeBinding
 import com.example.mechaapp.data.adapter.SpotlightListAdapter
-import com.example.mechaapp.data.model.DataSpotlight
+import com.example.mechaapp.data.Model.DataSpotlight
+import com.example.mechaapp.features.Dashboard.Layanan.GantiBan.LayananBan
 
 class HomeFragment : Fragment() {
     private  lateinit var binding: FragmentHomeBinding
@@ -30,6 +32,10 @@ class HomeFragment : Fragment() {
         adapterSpotlight.submitList(DataSpotlight.spotlightList)
         binding.rvSpotlight.adapter = adapterSpotlight
         binding.rvSpotlight.layoutManager = layoutManagerHorizontal
+
+        binding.cvTireFix.setOnClickListener {
+            startActivity(Intent(activity, LayananBan::class.java))
+        }
     }
 
 }

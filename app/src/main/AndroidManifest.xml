@@ -29,13 +29,13 @@
             android:name=".features.Dashboard.NavbarContainer"
             android:exported="false" />
         <activity
-            android:name=".features.Dashboard.LayananPerbaikan"
+            android:name=".features.Dashboard.Layanan.Service.LayananPerbaikan"
             android:exported="false" />
         <activity
-            android:name=".features.Dashboard.LayananBan"
+            android:name=".features.Dashboard.Layanan.GantiBan.LayananBan"
             android:exported="false" />
         <activity
-            android:name=".features.Dashboard.LayananDarurat"
+            android:name=".features.Dashboard.Layanan.Emergency.LayananDarurat"
             android:exported="false" />
         <activity
             android:name=".features.Login.ForgetPassword2"

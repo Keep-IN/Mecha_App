@@ -5,7 +5,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.mechaapp.databinding.SpotlightListViewBinding
-import com.example.mechaapp.data.model.SpotlightItemModel
+import com.example.mechaapp.data.Model.SpotlightItemModel
 
 class SpotlightListAdapter : RecyclerView.Adapter<SpotlightListAdapter.ViewHolder>()
 {
