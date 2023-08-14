@@ -1,4 +1,4 @@
-package com.example.mechaapp.data.model
+package com.example.mechaapp.data.Model
 
 object DataSpotlight {
     val spotlightList = mutableListOf(

@@ -148,7 +148,7 @@
             </androidx.cardview.widget.CardView>
 
             <androidx.cardview.widget.CardView
-                android:id="@+id/cardView4"
+                android:id="@+id/cvTireFix"
                 android:layout_width="355dp"
                 android:layout_height="112dp"
                 android:layout_marginTop="9dp"
@@ -198,9 +198,9 @@
                 android:backgroundTint="#1BCABB"
                 app:cardCornerRadius="8dp"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="@+id/cardView4"
-                app:layout_constraintStart_toStartOf="@+id/cardView4"
-                app:layout_constraintTop_toBottomOf="@+id/cardView4">
+                app:layout_constraintEnd_toEndOf="@+id/cvTireFix"
+                app:layout_constraintStart_toStartOf="@+id/cvTireFix"
+                app:layout_constraintTop_toBottomOf="@+id/cvTireFix">
 
                 <TextView
                     android:id="@+id/textView31"
