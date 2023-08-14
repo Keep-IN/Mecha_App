@@ -5,7 +5,9 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.example.mechaapp.R
 import com.example.mechaapp.databinding.ActivityLandingPageBinding
+import com.example.mechaapp.features.Login.ForgetPassword
 import com.example.mechaapp.features.MainActivity
+import com.example.mechaapp.features.Register.Register
 
 class LandingPage : AppCompatActivity() {
     private lateinit var binding: ActivityLandingPageBinding
@@ -14,8 +16,12 @@ class LandingPage : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
 
-        binding.btnLogin.setOnClickListener {
-            startActivity(Intent(this, MainActivity::class.java))
+        binding.cvLandinglogin.setOnClickListener {
+            startActivity(Intent(this, MainActivity::class.java ))
+        }
+
+        binding.tvLandingdaftar.setOnClickListener {
+            startActivity(Intent(this, Register::class.java ))
         }
     }
 }
