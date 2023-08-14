@@ -5,8 +5,6 @@ class MainActivityPresenter (
         ) {
     private var isEmailValid = false
     private var isPasswordValid = false
-    private var isEmailCorrect = false
-    private var isPasswordCorrect = false
 
     fun onAttach(view: MainActivityContract){
         this.view
@@ -35,26 +33,11 @@ class MainActivityPresenter (
         }
         return isPasswordValid
     }
-    fun validateCredential(email: String, password: String){
-        //dummy email + password
-        isEmailCorrect= email == "Mecha@gmail.com"
-        isPasswordCorrect = password == "12345678Mecha"
-
-        when(isEmailCorrect){
-            //fungsi cek email
-            true -> view.onErrorEmpty(7)
-            false -> view.onErrorFalse(5, "Email anda tidak terdaftar!")
-        }
-
-        when(isPasswordCorrect){
-            //fungsi cek password
-            true -> view.onErrorEmpty(8)
-            false -> view.onErrorFalse(6, "Password salah!")
-        }
-
-        //testing email+password bener atau salah
-        if(isEmailCorrect && isPasswordCorrect) {
+    fun validateCredential(){
+        if(isEmailValid && isPasswordValid){
             view.onSuccesLogin()
+        }else {
+            view.onErrorLogin()
         }
     }
 }

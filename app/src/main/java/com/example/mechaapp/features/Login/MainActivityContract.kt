@@ -7,7 +7,7 @@ interface MainActivityContract {
     fun onSuccesUsername()
     fun onSuccesPassword()
     fun onSuccesLogin()
-    fun onErrorLogin(code: Int, message: String)
+    fun onErrorLogin()
     fun onErrorEmpty(code: Int)
     fun onErrorFalse(code: Int, message: String)
 }
