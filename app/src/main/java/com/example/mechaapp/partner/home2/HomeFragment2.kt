@@ -7,8 +7,6 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.mechaapp.databinding.FragmentHome2Binding
-import com.example.mechaapp.features.data.adapter.SpotlightListAdapter
-import com.example.mechaapp.features.data.model.DataSpotlight
 import com.example.mechaapp.partner.features2.adapter2.HistoryListAdapter2
 import com.example.mechaapp.partner.features2.data2.DataRiwayat
 
