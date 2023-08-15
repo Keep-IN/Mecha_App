@@ -1,4 +1,4 @@
-package com.example.mechaapp.features.Login
+package com.example.mechaapp.features.Login.AlertDialog
 
 import android.app.Dialog
 import android.content.Intent
@@ -26,7 +26,7 @@ class AlertDialogLoginSucces: DialogFragment() {
         binding = AlertDialogLoginBinding.inflate(layoutInflater, container, false)
         dialog?.requestWindowFeature(Window.FEATURE_NO_TITLE)
         dialog?.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
-        dialog?.setCanceledOnTouchOutside(false)
+        dialog?.setCanceledOnTouchOutside(true)
         return binding.root
     }
 

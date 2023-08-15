@@ -5,12 +5,12 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.mechaapp.databinding.SpotlightListViewBinding
-import com.example.mechaapp.data.Model.SpotlightItemModel
+import com.example.mechaapp.data.Model.SpotLightItemModel
 
 class SpotlightListAdapter : RecyclerView.Adapter<SpotlightListAdapter.ViewHolder>()
 {
-    private var itemListener: ((SpotlightItemModel) -> Unit)? = null
-    private val data: MutableList<SpotlightItemModel> = mutableListOf()
+    private var itemListener: ((SpotLightItemModel) -> Unit)? = null
+    private val data: MutableList<SpotLightItemModel> = mutableListOf()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         return ViewHolder(
@@ -24,7 +24,7 @@ class SpotlightListAdapter : RecyclerView.Adapter<SpotlightListAdapter.ViewHolde
 
     override fun getItemCount(): Int = data.size
 
-    fun submitList(list: List<SpotlightItemModel>) {
+    fun submitList(list: List<SpotLightItemModel>) {
         val initSize = itemCount
         data.clear()
         notifyItemRangeRemoved(0, initSize)
@@ -33,7 +33,7 @@ class SpotlightListAdapter : RecyclerView.Adapter<SpotlightListAdapter.ViewHolde
     }
 
     inner class ViewHolder(private val binding: SpotlightListViewBinding) : RecyclerView.ViewHolder(binding.root) {
-        fun setData(item: SpotlightItemModel, Listener: ((SpotlightItemModel) -> Unit)?) {
+        fun setData(item: SpotLightItemModel, Listener: ((SpotLightItemModel) -> Unit)?) {
 
             binding.root.setOnClickListener {
                 Listener?.invoke(item)

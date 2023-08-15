@@ -1,10 +1,25 @@
 package com.example.mechaapp.features.Login
 
+import com.example.mechaapp.data.Api.UserAPI
+import com.example.mechaapp.data.Network.ResponseStatus
+import kotlinx.coroutines.CoroutineDispatcher
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.Job
+import kotlinx.coroutines.SupervisorJob
+import kotlinx.coroutines.launch
+import kotlin.coroutines.CoroutineContext
+
 class MainActivityPresenter (
-    private val view: MainActivityContract
-        ) {
+    private val view: MainActivityContract,
+    private val api: UserAPI,
+    uiContext: CoroutineContext = Dispatchers.Main
+){
     private var isEmailValid = false
     private var isPasswordValid = false
+
+    private val supervisorJob: Job = SupervisorJob()
+    private val scope = CoroutineScope(supervisorJob + uiContext)
 
     fun onAttach(view: MainActivityContract){
         this.view
@@ -33,11 +48,22 @@ class MainActivityPresenter (
         }
         return isPasswordValid
     }
-    fun validateCredential(){
-        if(isEmailValid && isPasswordValid){
-            view.onSuccesLogin()
-        }else {
-            view.onErrorLogin()
+//    fun validateCredential(){
+//        if(isEmailValid && isPasswordValid){
+//            view.onSuccesLogin()
+//        }else {
+//            view.onErrorLogin()
+//        }
+//    }
+
+    fun loginUser(email: String, password: String){
+        api.loginUser(email, password){
+            scope.launch {
+                when(it){
+                    is ResponseStatus.Success -> view.onSuccesLogin(it.data)
+                    is ResponseStatus.Failed -> view.onErrorLogin()
+                }
+            }
         }
     }
 }
