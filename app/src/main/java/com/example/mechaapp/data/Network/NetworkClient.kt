@@ -11,7 +11,7 @@ import java.util.concurrent.TimeUnit
 
 class NetworkClient {
     companion object {
-        private const val BASE_URL = "https://53c8-182-253-183-16.ngrok-free.app/api"
+        private const val BASE_URL = "https://5558-182-2-83-137.ngrok-free.app/api"
         private val headerInterceptor: Interceptor = Interceptor {
             val request = it.request().newBuilder()
             request
@@ -78,7 +78,7 @@ class NetworkClient {
 
         fun requestResgis(endpoint: String, nama: String, no_telp: String, email: String, password: String, method: METHOD = METHOD.POST, jsonBody: String? = null): Request{
             val requestBody = FormBody.Builder()
-                .add("nama", nama)
+                .add("name", nama)
                 .add("no_telp", no_telp)
                 .add("email", email)
                 .add("password", password)
