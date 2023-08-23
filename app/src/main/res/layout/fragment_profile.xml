@@ -5,5 +5,168 @@
     android:id="@+id/frameLayout3"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/ic_bg_profile"
     tools:context=".features.profile.ProfileFragment">
+
+    <com.google.android.material.card.MaterialCardView
+        android:layout_width="match_parent"
+        android:layout_height="590dp"
+        android:layout_marginTop="22dp"
+        app:cardCornerRadius="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView47" >
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/textView51"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="50dp"
+                android:fontFamily="@font/poppins_medium"
+                android:text="Hapus Akun"
+                android:textColor="@android:color/holo_red_dark"
+                android:textSize="18dp"
+                app:layout_constraintStart_toStartOf="@+id/textView50"
+                app:layout_constraintTop_toBottomOf="@+id/textView50" />
+
+            <ImageView
+                android:id="@+id/imageView29"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="24dp"
+                android:layout_marginTop="56dp"
+                android:src="@drawable/ic_setting_delete"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/imageView28" />
+
+            <TextView
+                android:id="@+id/textView50"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="45dp"
+                android:fontFamily="@font/poppins_medium"
+                android:text="Keluar Akun"
+                android:textColor="@color/black"
+                android:textSize="18dp"
+                app:layout_constraintStart_toStartOf="@+id/textView49"
+                app:layout_constraintTop_toBottomOf="@+id/textView49" />
+
+            <ImageView
+                android:id="@+id/imageView28"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="24dp"
+                android:layout_marginTop="56dp"
+                android:src="@drawable/ic_setting_logout"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/imageView27" />
+
+            <TextView
+                android:id="@+id/textView49"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="45dp"
+                android:fontFamily="@font/poppins_medium"
+                android:text="Bantuan"
+                android:textColor="@color/black"
+                android:textSize="18dp"
+                app:layout_constraintStart_toStartOf="@+id/textView48"
+                app:layout_constraintTop_toBottomOf="@+id/textView48" />
+
+            <ImageView
+                android:id="@+id/imageView26"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="24dp"
+                android:layout_marginTop="44dp"
+                android:src="@drawable/ic_setting_sandi"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageView
+                android:id="@+id/imageView27"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="26dp"
+                android:layout_marginTop="56dp"
+                android:src="@drawable/ic_setting_help"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/imageView26" />
+
+            <TextView
+                android:id="@+id/textView48"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="42dp"
+                android:fontFamily="@font/poppins_medium"
+                android:text=" Ganti Kata Sandi"
+                android:textColor="@color/black"
+                android:textSize="18dp"
+                app:layout_constraintStart_toEndOf="@+id/imageView26"
+                app:layout_constraintTop_toTopOf="parent" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </com.google.android.material.card.MaterialCardView>
+
+    <TextView
+        android:id="@+id/textView47"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="100dp"
+        android:layout_marginEnd="97dp"
+        android:fontFamily="@font/poppins_medium"
+        android:text="jacobjones123@gmail.com"
+        android:textColor="@color/white"
+        android:textSize="12dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView46" />
+
+    <TextView
+        android:id="@+id/textView46"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="11dp"
+        android:fontFamily="@font/poppins_medium"
+        android:text="Jacob Jones"
+        android:textColor="#F8F8F8"
+        android:textSize="14dp"
+        app:layout_constraintStart_toStartOf="@+id/imageView22"
+        app:layout_constraintTop_toBottomOf="@+id/imageView24" />
+
+    <ImageView
+        android:id="@+id/imageView22"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="125dp"
+        android:layout_marginTop="109dp"
+        android:layout_marginEnd="125dp"
+        android:src="@drawable/img_profile_bg"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/imageView24"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="113dp"
+        android:src="@drawable/img_profile_setting"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/imageView25"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="11dp"
+        android:src="@drawable/ic_edit_profile"
+        app:layout_constraintEnd_toEndOf="@+id/imageView22"
+        app:layout_constraintTop_toBottomOf="@+id/imageView24" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
