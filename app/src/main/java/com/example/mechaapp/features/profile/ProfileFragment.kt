@@ -12,6 +12,7 @@ import androidx.viewbinding.ViewBindings
 import com.example.mechaapp.R
 import com.example.mechaapp.databinding.FragmentHistoryBinding
 import com.example.mechaapp.databinding.FragmentProfileBinding
+import com.example.mechaapp.features.Login.AlertDialogLoginSucces
 import com.example.mechaapp.features.Login.ForgetPassword
 
 class ProfileFragment : Fragment() {
@@ -28,8 +29,13 @@ class ProfileFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        binding.ivEdit.setOnClickListener() {
-            startActivity(Intent(activity, EditProfile::class.java ))
+        binding.apply {
+            ivEdit.setOnClickListener {
+                startActivity(Intent(activity, EditProfile::class.java))
+            }
+            cvOut.setOnClickListener {
+                AlertDialogKeluarAkun().show(childFragmentManager,"test")
+            }
         }
     }
 
