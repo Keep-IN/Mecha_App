@@ -23,13 +23,13 @@ class MainActivityPresenter (
     }
     fun validatePassword(password: String): Boolean {
         //validasi email lebih dari 7 karakter
-        isPasswordValid = password.length > 7
+        isPasswordValid = password.contains ("^(?=.*[0-9])(?=.*[a-zA-Z])[a-zA-Z0-9]{8,}\$".toRegex())
 
 
         if (isPasswordValid) {
             view.onErrorEmpty(3)
         }else {
-            view.onError(4, "Password minimal 8 huruf.")
+            view.onError(4, "Password minimal 8 huruf dan kata sandi harus terdiri dari angka dan huruf.")
         }
         return isPasswordValid
     }

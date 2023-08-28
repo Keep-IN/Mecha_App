@@ -23,7 +23,7 @@ class RegisterPresenter(
         }
 
         fun validatePassword (password: String): Boolean {
-            val isPasswordValid = password.contains ("^(?=.*[a-zA-Z])(?=.*\\d).{8,}\$".toRegex())
+            val isPasswordValid = password.contains ("^(?=.*[0-9])(?=.*[a-zA-Z])[a-zA-Z0-9]{8,}\$".toRegex())
             if (isPasswordValid) {
                 view.onErrorSuccess(2,"")
             } else {
