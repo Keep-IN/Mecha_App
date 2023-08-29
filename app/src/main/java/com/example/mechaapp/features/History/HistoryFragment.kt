@@ -9,6 +9,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.mechaapp.databinding.FragmentHistoryBinding
+import com.example.mechaapp.features.DetailPesanan.DetailPesanan
 import com.example.mechaapp.features.data.adapter.HistoryListAdapter
 import com.example.mechaapp.features.data.model.DataRiwayat
 import com.example.mechaapp.features.data.model.RiwayatItemModel
@@ -32,7 +33,7 @@ class HistoryFragment : Fragment() {
         adapterHistory.submitList(DataRiwayat.riwayatList)
         binding.rvHistory.adapter = adapterHistory
         binding.rvHistory.layoutManager = layoutManager
-       // adapterHistory.setOnclickItem(rvClickListener)
+        adapterHistory.setOnclickItem(rvClickListener)
 
 
         binding.cvSemuaHistory.setOnClickListener() {
@@ -100,8 +101,8 @@ class HistoryFragment : Fragment() {
             }
         }
     }
-  //  private val rvClickListener: (RiwayatItemModel) -> Unit =
-     //   { item ->
-     //       startActivity(Intent(activity, DetilHistory::class.java))
-     //   }
+    private val rvClickListener: (RiwayatItemModel) -> Unit =
+        { item ->
+            startActivity(Intent(activity, DetailPesanan::class.java))
+        }
 }

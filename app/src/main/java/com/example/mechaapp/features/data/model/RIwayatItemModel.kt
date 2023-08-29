@@ -5,7 +5,7 @@ import kotlinx.parcelize.Parcelize
 
 
 @Parcelize
-class RiwayatItemModel (
+data class RiwayatItemModel (
     val id: String,
     val title: String,
     val pemesan: String,
