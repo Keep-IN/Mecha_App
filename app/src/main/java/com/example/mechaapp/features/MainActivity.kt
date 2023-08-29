@@ -6,16 +6,16 @@ import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
 import androidx.core.widget.doOnTextChanged
+import com.example.mechaapp.data.Api.UserAPI
+import com.example.mechaapp.data.Model.LoginResponse
 import com.example.mechaapp.features.Login.ForgetPassword
 import com.example.mechaapp.features.Register.Register
 import com.example.mechaapp.databinding.ActivityMainBinding
 import com.example.mechaapp.features.Dashboard.NavbarContainer
-import com.example.mechaapp.features.Login.AlertDialogLoginGagal
-import com.example.mechaapp.features.Login.AlertDialogLoginSucces
-import com.example.mechaapp.partner.home2.NavbarContainer2
+import com.example.mechaapp.features.Login.AlertDialog.AlertDialogLoginGagal
+import com.example.mechaapp.features.Login.AlertDialog.AlertDialogLoginSucces
 import com.example.mechaapp.features.Login.MainActivityContract
 import com.example.mechaapp.features.Login.MainActivityPresenter
-import com.example.mechaapp.features.OnBoard.LandingPage
 
 class MainActivity : AppCompatActivity(), MainActivityContract {
     private lateinit var binding: ActivityMainBinding
@@ -36,7 +36,7 @@ class MainActivity : AppCompatActivity(), MainActivityContract {
 
         binding.btnToLogin.isEnabled = false
 
-        presenter = MainActivityPresenter(this).apply{
+        presenter = MainActivityPresenter(this, UserAPI()).apply{
             onAttach(this@MainActivity)
         }
 
@@ -57,7 +57,7 @@ class MainActivity : AppCompatActivity(), MainActivityContract {
             startActivity(Intent(this, Register::class.java ))
         }
         binding.btnToLogin.setOnClickListener {
-            presenter.validateCredential()
+            presenter.loginUser(binding.tilemailLogin.editText?.text.toString(), binding.tilpwLogin.editText?.text.toString())
         }
     }
 
@@ -91,7 +91,7 @@ class MainActivity : AppCompatActivity(), MainActivityContract {
         TODO("Not yet implemented")
     }
 
-    override fun onSuccesLogin() {
+    override fun onSuccesLogin(user: LoginResponse?) {
         AlertDialogLoginSucces().show(supportFragmentManager,"test")
         Handler(Looper.getMainLooper()).postDelayed({
             startActivity(Intent(this, NavbarContainer::class.java))
