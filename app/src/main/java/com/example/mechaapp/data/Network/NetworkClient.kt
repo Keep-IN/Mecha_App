@@ -11,7 +11,7 @@ import java.util.concurrent.TimeUnit
 
 class NetworkClient {
     companion object {
-        private const val BASE_URL = "https://fe93-2001-448a-4049-249e-6d2e-442-5330-47af.ngrok-free.app/api"
+        private const val BASE_URL = "https://53c8-182-253-183-16.ngrok-free.app/api"
         private val headerInterceptor: Interceptor = Interceptor {
             val request = it.request().newBuilder()
             request

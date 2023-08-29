@@ -1,5 +1,6 @@
 package com.example.mechaapp.data.Model
 
-data class SpotLightItemModel (
+
+data class SpotlightItemModel(
     val img: String
-    )
+)
