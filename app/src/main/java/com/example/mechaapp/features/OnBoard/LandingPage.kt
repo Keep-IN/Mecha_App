@@ -16,11 +16,11 @@ class LandingPage : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
 
-        binding.cvLandinglogin.setOnClickListener {
+        binding.btntoLogin.setOnClickListener {
             startActivity(Intent(this, MainActivity::class.java ))
         }
 
-        binding.tvLandingdaftar.setOnClickListener {
+        binding.btnToRegis.setOnClickListener {
             startActivity(Intent(this, Register::class.java ))
         }
     }
