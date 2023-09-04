@@ -1,13 +1,28 @@
 package com.example.mechaapp.features.Register
 
+import com.example.mechaapp.data.Api.UserAPI
+import com.example.mechaapp.data.Network.ResponseStatus
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.Job
+import kotlinx.coroutines.SupervisorJob
+import kotlinx.coroutines.launch
+import okhttp3.Dispatcher
+import kotlin.coroutines.CoroutineContext
+
 class RegisterPresenter(
-    private val view:RegisterContract
+    private val view:RegisterContract,
+    private val api: UserAPI,
+    uiContext: CoroutineContext = Dispatchers.Main
     ) {
     private  var isEmailValid = false
     private var isPasswordValid = false
     private var isTelephoneValid = false
     private var isValidateRepassword =  false
     private var isEmailAvailable = false
+
+    private val supervisorJob: Job = SupervisorJob()
+    private val scope = CoroutineScope(supervisorJob + uiContext)
 
     fun onAtach(view: RegisterContract) {
         this.view
@@ -23,7 +38,7 @@ class RegisterPresenter(
         }
 
         fun validatePassword (password: String): Boolean {
-            val isPasswordValid = password.contains ("^(?=.*[a-zA-Z])(?=.*\\d).{8,}\$".toRegex())
+            val isPasswordValid = password.contains ("^(?=.*[0-9])(?=.*[a-zA-Z])[a-zA-Z0-9]{8,}\$".toRegex())
             if (isPasswordValid) {
                 view.onErrorSuccess(2,"")
             } else {
@@ -45,7 +60,10 @@ class RegisterPresenter(
         fun validateRepassword (password: String, repassword: String) : Boolean {
             isValidateRepassword = repassword.equals(password)
             if (isValidateRepassword) {
+                view.onErrorSuccess(7, "")
+            } else {
                 view.onError(5,"Password tidak sama")
+
             }
             return isValidateRepassword
         }
@@ -57,4 +75,14 @@ class RegisterPresenter(
             }
             return isEmailAvailable
         }
+    fun regisUser(nama: String, email: String, notelp: String, password: String){
+        api.regisUser(nama,email,notelp,password) {
+            scope.launch {
+                when(it){
+                    is ResponseStatus.Success -> view.onSuccesRegister(it.data)
+                    is ResponseStatus.Failed -> view.onErrorSignup()
+                }
+            }
+        }
+    }
 }

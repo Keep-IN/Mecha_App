@@ -26,6 +26,10 @@
             android:exported="false" />
         <activity
             android:name=".features.DetailPesanan.DetailPesanan"
+            android:name=".features.profile.AlertDialogKeluarAkun"
+            android:exported="false" />
+        <activity
+            android:name=".features.profile.EditProfile"
             android:exported="false" />
         <activity
             android:name=".partner.home2.NavbarContainer2"

@@ -35,7 +35,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="24dp"
-                android:layout_marginBottom="20dp"
+                android:layout_marginBottom="40dp"
                 android:background="@drawable/bg_field"
                 android:text="Sign Up"
                 android:textAllCaps="false"
@@ -88,8 +88,12 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="34dp"
+                app:passwordToggleEnabled="true"
+                app:passwordToggleTint="@color/purple_500"
                 app:boxStrokeWidth="0dp"
                 app:boxStrokeWidthFocused="0dp"
+                app:passwordToggleEnabled="true"
+                app:passwordToggleTint="@color/purple_500"
                 app:layout_constraintEnd_toEndOf="@+id/tilemailLogin"
                 app:layout_constraintStart_toStartOf="@+id/tilemailLogin"
                 app:layout_constraintTop_toBottomOf="@+id/tilemailLogin"
@@ -97,9 +101,11 @@
                 app:startIconTint="@color/purple_200">
 
                 <com.google.android.material.textfield.TextInputEditText
+                    android:inputType="textPassword"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:background="@drawable/bg_field"
+                    android:inputType="textPassword"
                     android:digits="AaBbCcDdEeFfGgHhIiJjKkLlMmNnOoPpQqRrSsTtUuVvWwXxYyZz1234567890"
                     android:paddingTop="10dp" />
             </com.google.android.material.textfield.TextInputLayout>

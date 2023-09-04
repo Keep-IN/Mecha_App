@@ -2,6 +2,7 @@ package com.example.mechaapp.data.Api
 
 import com.example.mechaapp.data.Model.DataToken
 import com.example.mechaapp.data.Model.LoginResponse
+import com.example.mechaapp.data.Model.RegisResponse
 import com.example.mechaapp.data.Model.UserList
 import com.example.mechaapp.data.Model.UserModel
 import com.example.mechaapp.data.Network.NetworkClient
@@ -75,6 +76,44 @@ class UserAPI {
                         val moshi = Moshi.Builder().build()
                         val adapter: JsonAdapter<LoginResponse> = moshi.adapter(LoginResponse::class.java)
                         val user = adapter.fromJson(response.body?.string() ?: "")
+                        onResponse.invoke(
+                            ResponseStatus.Success(
+                                data = user,
+                                method = "POST",
+                                status = true
+                            )
+                        )
+                    } else {
+                        onResponse.invoke(
+                            mapFailedResponse(response)
+                        )
+                    }
+                    response.body?.close()
+                }
+
+            })
+    }
+    fun regisUser(nama: String, email: String, notelp: String, password: String, onResponse: (ResponseStatus<RegisResponse?>) -> Unit ) {
+        val request = NetworkClient.requestResgis(registerEndpoint, nama, email, notelp, password)
+        NetworkClient
+            .client
+            .newCall(request)
+            .enqueue(object: Callback{
+                override fun onFailure(call: Call, e: IOException) {
+                    onResponse.invoke(
+                        ResponseStatus.Failed(
+                            code =  +1,
+                            message = e.message.toString(),
+                            throwable = e
+                        )
+                    )
+                }
+
+                override fun onResponse(call: Call, response: Response) {
+                    if(response.isSuccessful) {
+                        val moshi = Moshi.Builder().build()
+                        val adapter: JsonAdapter<RegisResponse> = moshi.adapter(RegisResponse::class.java)
+                        val user = adapter.fromJson(response.body?.string() ?:"")
                         onResponse.invoke(
                             ResponseStatus.Success(
                                 data = user,
