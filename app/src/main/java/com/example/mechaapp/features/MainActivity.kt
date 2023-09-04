@@ -116,6 +116,5 @@ class MainActivity : AppCompatActivity(), MainActivityContract {
             5 -> binding.tilemailLogin.error=message
             6 -> binding.tilpwLogin.error=message
         }
-
     }
 }
