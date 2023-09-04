@@ -1,12 +1,25 @@
 package com.example.mechaapp.features.Login
 
+import com.example.mechaapp.data.Api.UserAPI
+import com.example.mechaapp.data.Network.ResponseStatus
+import kotlinx.coroutines.CoroutineDispatcher
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.Job
+import kotlinx.coroutines.SupervisorJob
+import kotlinx.coroutines.launch
+import kotlin.coroutines.CoroutineContext
+
 class MainActivityPresenter (
-    private val view: MainActivityContract
-        ) {
+    private val view: MainActivityContract,
+    private val api: UserAPI,
+    uiContext: CoroutineContext = Dispatchers.Main
+){
     private var isEmailValid = false
     private var isPasswordValid = false
-    private var isEmailCorrect = false
-    private var isPasswordCorrect = false
+
+    private val supervisorJob: Job = SupervisorJob()
+    private val scope = CoroutineScope(supervisorJob + uiContext)
 
     fun onAttach(view: MainActivityContract){
         this.view
@@ -25,36 +38,32 @@ class MainActivityPresenter (
     }
     fun validatePassword(password: String): Boolean {
         //validasi email lebih dari 7 karakter
-        isPasswordValid = password.length > 7
+        isPasswordValid = password.contains ("^(?=.*[0-9])(?=.*[a-zA-Z])[a-zA-Z0-9]{8,}\$".toRegex())
 
 
         if (isPasswordValid) {
             view.onErrorEmpty(3)
         }else {
-            view.onError(4, "Password minimal 8 huruf.")
+            view.onError(4, "Password minimal 8 huruf dan kata sandi harus terdiri dari angka dan huruf.")
         }
         return isPasswordValid
     }
-    fun validateCredential(email: String, password: String){
-        //dummy email + password
-        isEmailCorrect= email == "Mecha@gmail.com"
-        isPasswordCorrect = password == "12345678Mecha"
+//    fun validateCredential(){
+//        if(isEmailValid && isPasswordValid){
+//            view.onSuccesLogin()
+//        }else {
+//            view.onErrorLogin()
+//        }
+//    }
 
-        when(isEmailCorrect){
-            //fungsi cek email
-            true -> view.onErrorEmpty(7)
-            false -> view.onErrorFalse(5, "Email anda tidak terdaftar!")
-        }
-
-        when(isPasswordCorrect){
-            //fungsi cek password
-            true -> view.onErrorEmpty(8)
-            false -> view.onErrorFalse(6, "Password salah!")
-        }
-
-        //testing email+password bener atau salah
-        if(isEmailCorrect && isPasswordCorrect) {
-            view.onSuccesLogin()
+    fun loginUser(email: String, password: String){
+        api.loginUser(email, password){
+            scope.launch {
+                when(it){
+                    is ResponseStatus.Success -> view.onSuccesLogin(it.data)
+                    is ResponseStatus.Failed -> view.onErrorLogin()
+                }
+            }
         }
     }
 }

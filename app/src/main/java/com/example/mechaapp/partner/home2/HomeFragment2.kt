@@ -11,6 +11,8 @@ import com.example.mechaapp.databinding.FragmentHome2Binding
 import com.example.mechaapp.partner.data2.adapter2.HistoryListAdapter2
 import com.example.mechaapp.partner.features2.ambilpesan.AmbilPesan
 import com.example.mechaapp.partner.data2.DataRiwayat
+import com.example.mechaapp.partner.features2.adapter2.HistoryListAdapter2
+import com.example.mechaapp.partner.features2.data2.DataRiwayat
 
 class HomeFragment2 : Fragment() {
     private  lateinit var binding: FragmentHome2Binding

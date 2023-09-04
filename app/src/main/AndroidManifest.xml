@@ -21,6 +21,19 @@
             android:exported="false" />
         <activity
             android:name=".partner.features2.ambilpesan.AmbilPesan"
+            android:name=".features.DetailPesanan.MetodePembayaran"
+            android:exported="false"
+            android:label="@string/title_activity_metode_pembayaran"
+            android:theme="@style/Theme.MechaApp" />
+        <activity
+            android:name=".features.DetailPesanan.DetailPesananBank"
+            android:exported="false" />
+        <activity
+            android:name=".features.DetailPesanan.DetailPesanan"
+            android:name=".features.profile.AlertDialogKeluarAkun"
+            android:exported="false" />
+        <activity
+            android:name=".features.profile.EditProfile"
             android:exported="false" />
         <activity
             android:name=".partner.home2.NavbarContainer2"
@@ -33,13 +46,13 @@
             android:name=".features.Dashboard.NavbarContainer"
             android:exported="false" />
         <activity
-            android:name=".features.Dashboard.LayananPerbaikan"
+            android:name=".features.Dashboard.Layanan.Service.LayananPerbaikan"
             android:exported="false" />
         <activity
-            android:name=".features.Dashboard.LayananBan"
+            android:name=".features.Dashboard.Layanan.GantiBan.LayananBan"
             android:exported="false" />
         <activity
-            android:name=".features.Dashboard.LayananDarurat"
+            android:name=".features.Dashboard.Layanan.Emergency.LayananDarurat"
             android:exported="false" />
         <activity
             android:name=".features.Login.ForgetPassword2"

@@ -3,8 +3,11 @@ package com.example.mechaapp.features.Register
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.Toast
 import com.example.mechaapp.R
 import androidx.core.widget.doOnTextChanged
+import com.example.mechaapp.data.Api.UserAPI
+import com.example.mechaapp.data.Model.RegisResponse
 import com.example.mechaapp.databinding.ActivityRegisterBinding
 import com.example.mechaapp.features.MainActivity
 
@@ -53,10 +56,10 @@ class Register : AppCompatActivity(), RegisterContract {
         }
 
         binding.btnSign.setOnClickListener{
-            startActivity(Intent(this, MainActivity::class.java))
+           presenter.regisUser(binding.etName.editText?.text.toString(),binding.etEmail.editText?.text.toString(),binding.etPhone.editText?.text.toString(),binding.etPassword.editText?.text.toString())
         }
 
-        presenter = RegisterPresenter(this).apply {
+        presenter = RegisterPresenter(this, UserAPI()).apply {
             onAtach(this@Register)
         }
     }
@@ -87,12 +90,12 @@ class Register : AppCompatActivity(), RegisterContract {
         }
     }
 
-    override fun onSuccesRegister() {
-        TODO("Not yet implemented")
+    override fun onSuccesRegister(user: RegisResponse?) {
+        startActivity(Intent(this,MainActivity::class.java))
     }
 
     override fun onErrorSignup() {
-        TODO("Not yet implemented")
+        Toast.makeText(this, "gagal", Toast.LENGTH_SHORT).show()
     }
 
     override fun onErrorSuccess(code: Int, message: String) {
