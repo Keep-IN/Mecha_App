@@ -56,7 +56,7 @@ class Register : AppCompatActivity(), RegisterContract {
         }
 
         binding.btnSign.setOnClickListener{
-           presenter.regisUser(binding.etName.editText?.text.toString(),binding.etEmail.editText?.text.toString(),binding.etPhone.editText?.text.toString(),binding.etPassword.editText?.text.toString())
+           presenter.regisUser(binding.etName.editText?.text.toString(),binding.etPhone.editText?.text.toString(),binding.etEmail.editText?.text.toString(),binding.etPassword.editText?.text.toString())
         }
 
         presenter = RegisterPresenter(this, UserAPI()).apply {
@@ -94,8 +94,8 @@ class Register : AppCompatActivity(), RegisterContract {
         startActivity(Intent(this,MainActivity::class.java))
     }
 
-    override fun onErrorSignup() {
-        Toast.makeText(this, "gagal", Toast.LENGTH_SHORT).show()
+    override fun onErrorSignup(message: String) {
+        Toast.makeText(this, message, Toast.LENGTH_SHORT).show()
     }
 
     override fun onErrorSuccess(code: Int, message: String) {

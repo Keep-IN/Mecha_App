@@ -80,7 +80,7 @@ class RegisterPresenter(
             scope.launch {
                 when(it){
                     is ResponseStatus.Success -> view.onSuccesRegister(it.data)
-                    is ResponseStatus.Failed -> view.onErrorSignup()
+                    is ResponseStatus.Failed -> view.onErrorSignup(it.message)
                 }
             }
         }

@@ -12,7 +12,6 @@ import androidx.viewbinding.ViewBindings
 import com.example.mechaapp.R
 import com.example.mechaapp.databinding.FragmentHistoryBinding
 import com.example.mechaapp.databinding.FragmentProfileBinding
-import com.example.mechaapp.features.Login.AlertDialogLoginSucces
 import com.example.mechaapp.features.Login.ForgetPassword
 
 class ProfileFragment : Fragment() {

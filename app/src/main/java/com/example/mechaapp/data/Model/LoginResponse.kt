@@ -6,6 +6,8 @@ import com.squareup.moshi.JsonClass
 data class LoginResponse(
     val status: Int,
     val token: String,
+    val nama: String,
+    val email: String,
     val role: Int,
-    val msg: String
+    val verified: Boolean
 )
