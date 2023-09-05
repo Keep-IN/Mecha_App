@@ -21,16 +21,20 @@
             android:exported="false" />
         <activity
             android:name=".partner.features2.ambilpesan.AmbilPesan"
-            android:name=".features.DetailPesanan.MetodePembayaran"
             android:exported="false"
             android:label="@string/title_activity_metode_pembayaran"
             android:theme="@style/Theme.MechaApp" />
         <activity
+            android:name=".features.DetailPesanan.MetodePembayaran"
+            android:exported="false" />
+        <activity
             android:name=".features.DetailPesanan.DetailPesananBank"
             android:exported="false" />
         <activity
-            android:name=".features.DetailPesanan.DetailPesanan"
             android:name=".features.profile.AlertDialogKeluarAkun"
+            android:exported="false" />
+        <activity
+            android:name=".features.DetailPesanan.DetailPesanan"
             android:exported="false" />
         <activity
             android:name=".features.profile.EditProfile"
