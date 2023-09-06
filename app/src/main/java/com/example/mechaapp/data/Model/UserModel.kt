@@ -6,4 +6,5 @@ data class UserModel (
     val no_telp: String,
     val email: String,
     val password: String,
+    val order: List<OrderModel> = listOf()
 )

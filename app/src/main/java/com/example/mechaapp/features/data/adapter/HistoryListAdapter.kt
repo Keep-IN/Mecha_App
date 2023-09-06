@@ -5,13 +5,14 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.RecyclerView.Recycler
+import com.example.mechaapp.data.Model.OrderModel
 import com.example.mechaapp.databinding.HistoryListViewBinding
 import com.example.mechaapp.features.data.model.RiwayatItemModel
 
 class HistoryListAdapter: RecyclerView.Adapter<HistoryListAdapter.ViewHolder>()
 {
-    private  var itemListener: ((RiwayatItemModel) -> Unit)? = null
-    private  val data: MutableList<RiwayatItemModel> = mutableListOf()
+    private  var itemListener: ((OrderModel) -> Unit)? = null
+    private  val data: MutableList<OrderModel> = mutableListOf()
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         return ViewHolder(
             HistoryListViewBinding.inflate(LayoutInflater.from(parent.context), parent, false)
@@ -24,7 +25,7 @@ class HistoryListAdapter: RecyclerView.Adapter<HistoryListAdapter.ViewHolder>()
 
     override fun getItemCount(): Int = data.size
 
-    fun submitList(list: List<RiwayatItemModel>) {
+    fun submitList(list: List<OrderModel>) {
         val initSize = itemCount
         data.clear()
         notifyItemRangeRemoved(0, initSize)
@@ -33,7 +34,7 @@ class HistoryListAdapter: RecyclerView.Adapter<HistoryListAdapter.ViewHolder>()
     }
 
     inner class ViewHolder(private val binding: HistoryListViewBinding): RecyclerView.ViewHolder(binding.root) {
-        fun setData(item: RiwayatItemModel, listener: ((RiwayatItemModel) -> Unit)?){
+        fun setData(item: OrderModel, listener: ((OrderModel) -> Unit)?){
             when (item.status) {
                 "Dijadwalkan" -> {
                     binding.tvStatusLayanan.setTextColor(Color.parseColor("#358F80"))
@@ -50,14 +51,14 @@ class HistoryListAdapter: RecyclerView.Adapter<HistoryListAdapter.ViewHolder>()
             }
             with(binding){
                 tvIdLayanan.text = "Id pesanan : ${item.id}"
-                tvLayananHistory.text = item.title
-                tvTanggalLayanan.text = item.date
+                tvLayananHistory.text = item.name_services
+                tvTanggalLayanan.text = item.created_at
                 tvStatusLayanan.text = item.status
-                tvLayananTambal.text = item.pemesan
+                tvLayananTambal.text = item.sum
             }
         }
     }
-    fun setOnclickItem(listener: ((RiwayatItemModel) -> Unit)?){
+    fun setOnclickItem(listener: ((OrderModel) -> Unit)?){
         this.itemListener = listener
     }
 }
