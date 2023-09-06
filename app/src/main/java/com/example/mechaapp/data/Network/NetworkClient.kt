@@ -31,8 +31,8 @@ class NetworkClient {
                             if (BuildConfig.DEBUG) HttpLoggingInterceptor.Level.BODY else HttpLoggingInterceptor.Level.NONE
                     }
                 )
-                .callTimeout(timeout = 5L, unit = TimeUnit.SECONDS)
-                .connectTimeout(timeout = 2L, unit = TimeUnit.SECONDS)
+                .callTimeout(timeout = 8L, unit = TimeUnit.SECONDS)
+                .connectTimeout(timeout = 4L, unit = TimeUnit.SECONDS)
                 .build()
         }
 
@@ -78,7 +78,7 @@ class NetworkClient {
 
         fun requestResgis(endpoint: String, nama: String, no_telp: String, email: String, password: String, method: METHOD = METHOD.POST, jsonBody: String? = null): Request{
             val requestBody = FormBody.Builder()
-                .add("nama", nama)
+                .add("name", nama)
                 .add("no_telp", no_telp)
                 .add("email", email)
                 .add("password", password)

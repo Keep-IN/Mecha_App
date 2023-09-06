@@ -1,0 +1,257 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".partner.features2.bayartagihan.BayarTagihan">
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardView13"
+        android:layout_width="0dp"
+        android:layout_height="66dp"
+        app:cardBackgroundColor="@color/purple_200"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:id="@+id/imageView36"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="24dp"
+                android:layout_marginTop="18dp"
+                android:src="@drawable/ic_btnback"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/textView82"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="72dp"
+                android:layout_marginTop="18dp"
+                android:fontFamily="@font/poppins_bold"
+                android:text="Bayar Tagihan"
+                android:textColor="@color/white"
+                android:textSize="16dp"
+                app:layout_constraintStart_toEndOf="@+id/imageView36"
+                app:layout_constraintTop_toTopOf="parent" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardView15"
+        android:layout_width="0dp"
+        android:layout_height="77dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="10dp"
+        app:cardBackgroundColor="@color/backgroundcard"
+        app:cardCornerRadius="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cardView13" >
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/textView84"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="12dp"
+                android:layout_marginTop="12dp"
+                android:fontFamily="@font/poppins_semibold"
+                android:text="Total Tagihan"
+                android:textColor="@color/black"
+                android:textSize="20dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/textView85"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:fontFamily="@font/poppins"
+                android:text="Bayar sebelum"
+                android:textColor="@color/black"
+                android:textSize="10dp"
+                app:layout_constraintStart_toStartOf="@+id/textView84"
+                app:layout_constraintTop_toBottomOf="@+id/textView84" />
+
+            <TextView
+                android:id="@+id/textView86"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="2dp"
+                android:layout_marginTop="8dp"
+                android:fontFamily="@font/poppins"
+                android:text="23 Oktober 2023"
+                android:textColor="@color/design_default_color_error"
+                android:textSize="10dp"
+                app:layout_constraintStart_toEndOf="@+id/textView85"
+                app:layout_constraintTop_toBottomOf="@+id/textView84" />
+
+            <TextView
+                android:id="@+id/textView87"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:layout_marginEnd="12dp"
+                android:fontFamily="@font/poppins_semibold"
+                android:text="Rp50.000"
+                android:textColor="#006A76"
+                android:textSize="20dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardView16"
+        android:layout_width="0dp"
+        android:layout_height="131dp"
+        android:layout_marginTop="16dp"
+        app:cardBackgroundColor="@color/backgroundcard"
+        app:cardCornerRadius="8dp"
+        app:layout_constraintEnd_toEndOf="@+id/cardView15"
+        app:layout_constraintStart_toStartOf="@+id/cardView15"
+        app:layout_constraintTop_toBottomOf="@+id/cardView15" >
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:id="@+id/imageView38"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="12dp"
+                android:layout_marginTop="12dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/ic_logo_bank" />
+
+            <TextView
+                android:id="@+id/textView88"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="13dp"
+                android:fontFamily="@font/poppins_medium"
+                android:text="Bank BCA"
+                android:textColor="@color/black"
+                android:textSize="12dp"
+                app:layout_constraintStart_toEndOf="@+id/imageView38"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/textView89"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:fontFamily="@font/poppins"
+                android:text="No. Rekening :"
+                android:textColor="@color/black"
+                android:textSize="10dp"
+                app:layout_constraintStart_toStartOf="@+id/textView88"
+                app:layout_constraintTop_toBottomOf="@+id/textView88" />
+
+            <TextView
+                android:id="@+id/tvsourceCopy"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:fontFamily="@font/poppins_semibold"
+                android:text="0123 4567 8987 6543"
+                android:textColor="#00A496"
+                android:textSize="16dp"
+                app:layout_constraintStart_toStartOf="@+id/textView89"
+                app:layout_constraintTop_toBottomOf="@+id/textView89" />
+
+            <TextView
+                android:id="@+id/tvCopy"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="65dp"
+                android:layout_marginEnd="27dp"
+                android:fontFamily="@font/poppins_medium"
+                android:text="SALIN"
+                android:textColor="#006A76"
+                android:textSize="14dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/textView92"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:fontFamily="@font/poppins"
+                android:text="Proses verifikasi kurang dari 10 menit setelah pembayaran dilakukan"
+                android:textColor="#00A496"
+                android:textSize="8dp"
+                app:layout_constraintStart_toStartOf="@+id/tvsourceCopy"
+                app:layout_constraintTop_toBottomOf="@+id/tvsourceCopy" />
+
+            <TextView
+                android:id="@+id/textView93"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:fontFamily="@font/poppins"
+                android:text="Pastikan kamu mentransfer ke no rekening yang tertera di atas."
+                android:textSize="8dp"
+                app:layout_constraintStart_toStartOf="@+id/textView92"
+                app:layout_constraintTop_toBottomOf="@+id/textView92" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="0dp"
+        android:layout_height="169dp"
+        android:layout_marginTop="16dp"
+        app:cardBackgroundColor="@color/backgroundcard"
+        app:cardCornerRadius="8dp"
+        app:layout_constraintEnd_toEndOf="@+id/cardView16"
+        app:layout_constraintStart_toStartOf="@+id/cardView16"
+        app:layout_constraintTop_toBottomOf="@+id/cardView16" >
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/textView94"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="12dp"
+                android:layout_marginTop="12dp"
+                android:fontFamily="@font/poppins_bold"
+                android:text="Petunjuk Transfer ATM"
+                android:textColor="@color/black"
+                android:textSize="14dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/textView95"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:fontFamily="@font/poppins"
+                android:text="• Pilih fitur transfer\n• Pilih tambah penerima\n• Masukkan bank tujuan dan No Rekening yang tertera\n• Masukkan nominal tagihan\n• Transfer"
+                android:textColor="@color/black"
+                android:textSize="12dp"
+                app:layout_constraintStart_toStartOf="@+id/textView94"
+                app:layout_constraintTop_toBottomOf="@+id/textView94" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.cardview.widget.CardView>
+</androidx.constraintlayout.widget.ConstraintLayout>
