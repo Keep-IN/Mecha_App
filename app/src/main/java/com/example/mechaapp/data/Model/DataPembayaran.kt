@@ -1,6 +1,4 @@
-package com.example.mechaapp.features.Data.Model
-
-import com.example.mechaapp.features.data.model.RiwayatItemModel
+package com.example.mechaapp.data.Model
 
 object DataPembayaran {
     val metodeList = mutableListOf(

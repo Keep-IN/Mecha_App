@@ -12,9 +12,7 @@ import com.example.mechaapp.data.Model.DataOrder
 import com.example.mechaapp.data.Model.OrderModel
 import com.example.mechaapp.databinding.FragmentHistoryBinding
 import com.example.mechaapp.features.DetailPesanan.DetailPesanan
-import com.example.mechaapp.features.data.adapter.HistoryListAdapter
-import com.example.mechaapp.features.data.model.DataRiwayat
-import com.example.mechaapp.features.data.model.RiwayatItemModel
+import com.example.mechaapp.data.adapter.HistoryListAdapter
 
 class HistoryFragment : Fragment() {
     private lateinit var binding: FragmentHistoryBinding

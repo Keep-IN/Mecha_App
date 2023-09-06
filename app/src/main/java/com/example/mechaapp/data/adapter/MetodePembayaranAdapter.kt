@@ -1,14 +1,11 @@
-package com.example.mechaapp.features.Data.Adapter
+package com.example.mechaapp.data.adapter
 
-import android.graphics.Color
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
-import com.example.mechaapp.databinding.HistoryListViewBinding
 import com.example.mechaapp.databinding.MetodeListViewBinding
-import com.example.mechaapp.features.Data.Model.MetodeItemModel
-import com.example.mechaapp.features.data.model.RiwayatItemModel
+import com.example.mechaapp.data.Model.MetodeItemModel
 
 class MetodePembayaranAdapter: RecyclerView.Adapter<MetodePembayaranAdapter.ViewHolder>() {
     private  var itemListener: ((MetodeItemModel) -> Unit)? = null

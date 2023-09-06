@@ -1,4 +1,4 @@
-package com.example.mechaapp.partner.data2
+package com.example.mechaapp.data.Model
 
 import kotlinx.parcelize.Parcelize
 import android.os.Parcelable

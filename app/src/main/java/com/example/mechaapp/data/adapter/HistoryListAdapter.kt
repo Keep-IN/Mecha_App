@@ -1,13 +1,11 @@
-package com.example.mechaapp.features.data.adapter
+package com.example.mechaapp.data.adapter
 
 import android.graphics.Color
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import androidx.recyclerview.widget.RecyclerView.Recycler
 import com.example.mechaapp.data.Model.OrderModel
 import com.example.mechaapp.databinding.HistoryListViewBinding
-import com.example.mechaapp.features.data.model.RiwayatItemModel
 
 class HistoryListAdapter: RecyclerView.Adapter<HistoryListAdapter.ViewHolder>()
 {

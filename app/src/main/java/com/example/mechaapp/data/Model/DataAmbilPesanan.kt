@@ -1,4 +1,4 @@
-package com.example.mechaapp.partner.data2
+package com.example.mechaapp.data.Model
 
 object DataAmbilPesanan {
     val ambilpesanList = mutableListOf(
