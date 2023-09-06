@@ -1,4 +1,4 @@
-package com.example.mechaapp.features.Data.Model
+package com.example.mechaapp.data.Model
 
 object DataChat {
     val chatList = mutableListOf(

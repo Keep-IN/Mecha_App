@@ -1,12 +1,10 @@
-package com.example.mechaapp.partner.data2.adapter2
+package com.example.mechaapp.data.adapter
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.mechaapp.databinding.AmbilPesananListBinding
-import com.example.mechaapp.databinding.RiwayatTransaksiListBinding
-import com.example.mechaapp.partner.data2.AmbilItemModel
-import com.example.mechaapp.partner.data2.RiwayatItemModel2
+import com.example.mechaapp.data.Model.AmbilItemModel
 
 class AmbilListAdapter : RecyclerView.Adapter<AmbilListAdapter.ViewHolder>() {
     private  var itemListener: ((AmbilItemModel) -> Unit)? = null

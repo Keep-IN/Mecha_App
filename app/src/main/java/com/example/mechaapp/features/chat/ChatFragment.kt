@@ -6,11 +6,9 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.mechaapp.R
 import com.example.mechaapp.databinding.FragmentChatBinding
-import com.example.mechaapp.databinding.FragmentHomeBinding
-import com.example.mechaapp.features.Data.Adapter.ChatAdapter
-import com.example.mechaapp.features.Data.Model.DataChat
+import com.example.mechaapp.data.adapter.ChatAdapter
+import com.example.mechaapp.data.Model.DataChat
 
 class ChatFragment : Fragment() {
     private  lateinit var binding: FragmentChatBinding

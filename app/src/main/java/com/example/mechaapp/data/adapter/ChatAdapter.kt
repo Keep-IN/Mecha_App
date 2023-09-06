@@ -1,12 +1,11 @@
-package com.example.mechaapp.features.Data.Adapter
+package com.example.mechaapp.data.adapter
 
-import android.graphics.Color
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.mechaapp.databinding.ChatListViewBinding
-import com.example.mechaapp.features.Data.Model.ChatItemModel
+import com.example.mechaapp.data.Model.ChatItemModel
 
 class ChatAdapter: RecyclerView.Adapter<ChatAdapter.ViewHolder>() {
 

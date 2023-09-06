@@ -5,8 +5,8 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.mechaapp.databinding.ActivityAmbilpesanBinding
-import com.example.mechaapp.partner.data2.adapter2.AmbilListAdapter
-import com.example.mechaapp.partner.data2.DataAmbilPesanan
+import com.example.mechaapp.data.adapter.AmbilListAdapter
+import com.example.mechaapp.data.Model.DataAmbilPesanan
 import com.example.mechaapp.partner.home2.HomeFragment2
 
 class AmbilPesan : AppCompatActivity() {

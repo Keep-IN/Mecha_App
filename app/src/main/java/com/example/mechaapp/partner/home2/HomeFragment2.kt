@@ -8,9 +8,9 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.mechaapp.databinding.FragmentHome2Binding
-import com.example.mechaapp.partner.data2.adapter2.HistoryListAdapter2
+import com.example.mechaapp.data.adapter.HistoryListAdapter2
 import com.example.mechaapp.partner.features2.ambilpesan.AmbilPesan
-import com.example.mechaapp.partner.data2.DataRiwayat
+import com.example.mechaapp.data.Model.DataRiwayatMontir
 
 class HomeFragment2 : Fragment() {
     private  lateinit var binding: FragmentHome2Binding
@@ -32,7 +32,7 @@ class HomeFragment2 : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         val layoutManager = LinearLayoutManager(activity)
-        adapterHistory.submitList(DataRiwayat.riwayathomeList)
+        adapterHistory.submitList(DataRiwayatMontir.riwayathomeList)
         binding.rvMekanik.adapter = adapterHistory
         binding.rvMekanik.layoutManager = layoutManager
     }
