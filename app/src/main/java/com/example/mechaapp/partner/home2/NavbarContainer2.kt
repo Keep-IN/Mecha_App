@@ -12,6 +12,7 @@ import com.example.mechaapp.features.chat.ChatFragment
 import com.example.mechaapp.features.profile.ProfileFragment
 import com.example.mechaapp.partner.features2.history2.HistoryFragment2
 
+
 class NavbarContainer2 : AppCompatActivity() {
     private lateinit var binding: ActivityNavbarContainer2Binding
     override fun onCreate(savedInstanceState: Bundle?) {

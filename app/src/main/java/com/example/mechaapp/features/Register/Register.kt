@@ -19,7 +19,7 @@ class Register : AppCompatActivity(), RegisterContract {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
 
-        binding.btnSign.setOnClickListener{
+        binding.btnSignup.setOnClickListener{
             startActivity(Intent(this, MainActivity::class.java))
         }
 
@@ -51,11 +51,11 @@ class Register : AppCompatActivity(), RegisterContract {
             presenter.validateRepassword(binding.etPassword.editText?.text.toString(),binding.etConpass.editText?.text.toString())
         }
 
-        binding.btnSign.setOnClickListener{
+        binding.btnSignup.setOnClickListener{
             presenter.emailAvailable(binding.etEmail.editText?.text.toString())
         }
 
-        binding.btnSign.setOnClickListener{
+        binding.btnSignup.setOnClickListener{
            presenter.regisUser(binding.etName.editText?.text.toString(),binding.etPhone.editText?.text.toString(),binding.etEmail.editText?.text.toString(),binding.etPassword.editText?.text.toString())
         }
 
@@ -65,7 +65,7 @@ class Register : AppCompatActivity(), RegisterContract {
     }
 
     private fun validateInput(){
-        binding.btnSign.isEnabled =
+        binding.btnSignup.isEnabled =
             binding.etEmail.editText?.text.toString().isNotBlank() &&
                     binding.etPhone.editText?.text.toString().isNotBlank() &&
                     binding.etPassword.editText?.text.toString().isNotBlank() &&
