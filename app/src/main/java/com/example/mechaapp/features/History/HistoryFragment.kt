@@ -8,6 +8,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.mechaapp.data.Model.DataOrder
+import com.example.mechaapp.data.Model.OrderModel
 import com.example.mechaapp.databinding.FragmentHistoryBinding
 import com.example.mechaapp.features.DetailPesanan.DetailPesanan
 import com.example.mechaapp.features.data.adapter.HistoryListAdapter
@@ -30,14 +32,14 @@ class HistoryFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         val layoutManager = LinearLayoutManager(activity)
-        adapterHistory.submitList(DataRiwayat.riwayatList)
+        adapterHistory.submitList(DataOrder.orderList)
         binding.rvHistory.adapter = adapterHistory
         binding.rvHistory.layoutManager = layoutManager
         adapterHistory.setOnclickItem(rvClickListener)
 
 
         binding.cvSemuaHistory.setOnClickListener() {
-            adapterHistory.submitList(DataRiwayat.riwayatList)
+            adapterHistory.submitList(DataOrder.orderList)
             binding.apply {
                 cvSemuaHistory.setCardBackgroundColor(Color.parseColor("#1BCABB"))
                 tvSemuaHistory.setTextColor(Color.parseColor("#FFFFFF"))
@@ -51,7 +53,7 @@ class HistoryFragment : Fragment() {
         }
 
         binding.cvProsesHistory.setOnClickListener() {
-            val filteredHistory = DataRiwayat.riwayatList.filter {
+            val filteredHistory = DataOrder.orderList.filter {
                 it.status.contains("Diproses")
             }
             adapterHistory.submitList(filteredHistory)
@@ -68,7 +70,7 @@ class HistoryFragment : Fragment() {
         }
 
         binding.cvDibatalkanHistory.setOnClickListener() {
-            val filteredHistory = DataRiwayat.riwayatList.filter {
+            val filteredHistory = DataOrder.orderList.filter {
                 it.status.contains("Dibatalkan")
             }
             adapterHistory.submitList(filteredHistory)
@@ -85,7 +87,7 @@ class HistoryFragment : Fragment() {
         }
 
         binding.cvSelesaiHistory.setOnClickListener() {
-            val filteredHistory = DataRiwayat.riwayatList.filter {
+            val filteredHistory = DataOrder.orderList.filter {
                 it.status.contains("Selesai")
             }
             adapterHistory.submitList(filteredHistory)
@@ -101,7 +103,7 @@ class HistoryFragment : Fragment() {
             }
         }
     }
-    private val rvClickListener: (RiwayatItemModel) -> Unit =
+    private val rvClickListener: (OrderModel) -> Unit =
         { item ->
             startActivity(Intent(activity, DetailPesanan::class.java))
         }

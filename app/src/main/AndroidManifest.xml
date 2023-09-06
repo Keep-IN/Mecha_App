@@ -20,6 +20,12 @@
                 android:name=".features.Map.ConfirmationOrder"
                 android:exported="false" />
         <activity
+            android:name=".features.Map.MapAddress"
+            android:exported="false" />
+        <activity
+            android:name=".partner.features2.History2.Detail.DetailPesanan"
+            android:exported="false" />
+        <activity
                 android:name=".features.DetailPesanan.DetailPesananTransfer"
                 android:exported="false" />
         <activity
