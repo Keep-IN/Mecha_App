@@ -7,5 +7,4 @@ data class LoginResponse(
     val status: Int,
     val token: String,
     val role: Int,
-    val msg: String
 )
