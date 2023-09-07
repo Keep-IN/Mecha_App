@@ -2,6 +2,7 @@ package com.example.mechaapp.features.Map
 
 import android.Manifest
 import android.content.Context
+import android.content.Intent
 import android.content.pm.PackageManager
 import android.location.Address
 import android.location.Geocoder
@@ -47,6 +48,11 @@ class MapAddress : AppCompatActivity(), OnMapReadyCallback {
         requestLocationUpdates()
         binding.fabMyLoc.setOnClickListener {
             requestLocationUpdates()
+        }
+        binding.btnOrderNow.setOnClickListener {
+            startActivity(Intent(this, ConfirmationOrder::class.java).apply {
+                putExtra("alamat", DataAddress.address)
+            })
         }
     }
     override fun onStart() {
@@ -113,9 +119,9 @@ class MapAddress : AppCompatActivity(), OnMapReadyCallback {
                 val zoomLevel = 17f
                 val cameraUpdate = CameraUpdateFactory.newLatLngZoom(currentLocation, zoomLevel)
                 googleMap.animateCamera(cameraUpdate)
-//                binding.btnLocation.setOnClickListener {
-//                    googleMap.animateCamera(cameraUpdate)
-//                }
+                binding.fabMyLoc.setOnClickListener {
+                    googleMap.animateCamera(cameraUpdate)
+                }
 
                 DataAddress.address = getAddress(applicationContext, DataAddress.latitude, DataAddress.longitude)
                 binding.tilLokasi.editText?.setText(DataAddress.address)
@@ -125,7 +131,7 @@ class MapAddress : AppCompatActivity(), OnMapReadyCallback {
                         .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_RED))
                         .title("Current Location")
                 )
-                DataAddress.mapUrl = createMapUrl(DataAddress.latitude, DataAddress.longitude)
+                DataAddress.mapUrl = createMapUrl(DataAddress.longitude, DataAddress.latitude)
             }
         }
     }
@@ -150,7 +156,7 @@ class MapAddress : AppCompatActivity(), OnMapReadyCallback {
         val urlBuilder = StringBuilder("https://www.google.com/maps?q=")
         urlBuilder.append("$longitude, $latitude")
         if (DataAddress.address.isNotBlank()) {
-            urlBuilder.append("&q=$latitude,$longitude(${DataAddress.address})")
+            urlBuilder.append("&q=$longitude,$latitude(${DataAddress.address})")
         }
         if (mapType.isNotBlank()) {
             urlBuilder.append("&t=$mapType")

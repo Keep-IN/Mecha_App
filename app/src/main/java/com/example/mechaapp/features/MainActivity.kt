@@ -7,6 +7,7 @@ import android.os.Handler
 import android.os.Looper
 import androidx.core.widget.doOnTextChanged
 import com.example.mechaapp.data.Api.UserAPI
+import com.example.mechaapp.data.Model.DataToken
 import com.example.mechaapp.data.Model.LoginResponse
 import com.example.mechaapp.features.Login.ForgetPassword
 import com.example.mechaapp.features.Register.Register
@@ -16,6 +17,7 @@ import com.example.mechaapp.features.Login.AlertDialog.AlertDialogLoginGagal
 import com.example.mechaapp.features.Login.AlertDialog.AlertDialogLoginSucces
 import com.example.mechaapp.features.Login.MainActivityContract
 import com.example.mechaapp.features.Login.MainActivityPresenter
+import com.example.mechaapp.partner.home2.NavbarContainer2
 
 class MainActivity : AppCompatActivity(), MainActivityContract {
     private lateinit var binding: ActivityMainBinding
@@ -92,9 +94,15 @@ class MainActivity : AppCompatActivity(), MainActivityContract {
     }
 
     override fun onSuccesLogin(user: LoginResponse?) {
+        DataToken.token = user?.token.toString()
         AlertDialogLoginSucces().show(supportFragmentManager,"test")
         Handler(Looper.getMainLooper()).postDelayed({
-            startActivity(Intent(this, NavbarContainer::class.java))
+            if (user != null) {
+                when(user.role){
+                    1 -> startActivity(Intent(this, NavbarContainer::class.java))
+                    2 -> startActivity(Intent(this, NavbarContainer2::class.java))
+                }
+            }
             finish()
         }, 2000)
     }
