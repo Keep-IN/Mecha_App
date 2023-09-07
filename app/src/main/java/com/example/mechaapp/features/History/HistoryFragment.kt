@@ -52,7 +52,7 @@ class HistoryFragment : Fragment() {
 
         binding.cvProsesHistory.setOnClickListener() {
             val filteredHistory = DataOrder.orderList.filter {
-                it.status.contains("Diproses")
+                it.status?.contains("Diproses") ?: false
             }
             adapterHistory.submitList(filteredHistory)
             binding.apply {
@@ -69,7 +69,7 @@ class HistoryFragment : Fragment() {
 
         binding.cvDibatalkanHistory.setOnClickListener() {
             val filteredHistory = DataOrder.orderList.filter {
-                it.status.contains("Dibatalkan")
+                it.status?.contains("Dibatalkan") ?: false
             }
             adapterHistory.submitList(filteredHistory)
             binding.apply {
@@ -86,7 +86,7 @@ class HistoryFragment : Fragment() {
 
         binding.cvSelesaiHistory.setOnClickListener() {
             val filteredHistory = DataOrder.orderList.filter {
-                it.status.contains("Selesai")
+                it.status?.contains("Selesai") ?: false
             }
             adapterHistory.submitList(filteredHistory)
             binding.apply {
