@@ -41,7 +41,9 @@ class ChatAdapter: RecyclerView.Adapter<ChatAdapter.ViewHolder>() {
                 Glide
                     .with(binding.root.context)
                     .load(item.fotopengguna)
+                    .centerCrop()
                     .into(binding.chatProfile)
+
                 tvNamaPengguna.text = item.namapengguna
                 tvIsiChat.text = item.isichat
                 tvHariChat.text = item.hari

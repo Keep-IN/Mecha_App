@@ -6,6 +6,7 @@ import android.os.Bundle
 import com.example.mechaapp.R
 import com.example.mechaapp.databinding.ActivityDetailPesananBinding
 import com.example.mechaapp.databinding.ActivityMainBinding
+import com.example.mechaapp.features.History.HistoryFragment
 import com.example.mechaapp.features.Login.ForgetPassword
 
 class DetailPesanan : AppCompatActivity() {
@@ -16,6 +17,9 @@ class DetailPesanan : AppCompatActivity() {
         setContentView(binding.root)
         binding.cvMetode.setOnClickListener {
             startActivity(Intent(this, MetodePembayaran::class.java ))
+        }
+        binding.ivBackdetail.setOnClickListener {
+            startActivity(Intent(this, HistoryFragment::class.java ))
         }
     }
 }

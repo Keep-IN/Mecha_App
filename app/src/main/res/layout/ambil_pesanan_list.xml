@@ -24,7 +24,7 @@
             android:layout_height="match_parent">
 
             <ImageView
-                android:id="@+id/imageView22"
+                android:id="@+id/ivBackdetail"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp"
@@ -73,7 +73,7 @@
                 android:layout_marginStart="3dp"
                 android:layout_marginTop="3dp"
                 android:text="-7.695467766..."
-                app:layout_constraintStart_toEndOf="@+id/imageView22"
+                app:layout_constraintStart_toEndOf="@+id/ivBackdetail"
                 app:layout_constraintTop_toBottomOf="@+id/tvMerkKendaraan" />
 
             <TextView

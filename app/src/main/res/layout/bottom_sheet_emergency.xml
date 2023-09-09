@@ -59,7 +59,7 @@
         app:layout_constraintTop_toBottomOf="@+id/textView24" />
 
     <TextView
-        android:id="@+id/textView33"
+        android:id="@+id/tvNamamekanik"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:drawableStart="@drawable/baseline_circle_24"
@@ -81,8 +81,8 @@
         android:text="Estimasi Harga"
         android:textColor="#000000"
         android:textSize="16sp"
-        app:layout_constraintStart_toStartOf="@+id/textView33"
-        app:layout_constraintTop_toBottomOf="@+id/textView33" />
+        app:layout_constraintStart_toStartOf="@+id/tvNamamekanik"
+        app:layout_constraintTop_toBottomOf="@+id/tvNamamekanik" />
 
     <TextView
         android:id="@+id/textView37"
