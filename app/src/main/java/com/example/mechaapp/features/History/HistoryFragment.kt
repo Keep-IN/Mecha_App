@@ -47,6 +47,8 @@ class HistoryFragment : Fragment() {
                 tvDibatalkanHistory.setTextColor(Color.parseColor("#000000"))
                 cvSelesaiHistory.setCardBackgroundColor(Color.parseColor("#FFFFFF"))
                 tvSelesaiHistory.setTextColor(Color.parseColor("#000000"))
+                cvMenungguHistory.setCardBackgroundColor(Color.parseColor("#FFFFFF"))
+                tvMenungguHistory.setTextColor(Color.parseColor("#FFFFFF"))
             }
         }
 
@@ -64,6 +66,8 @@ class HistoryFragment : Fragment() {
                 tvDibatalkanHistory.setTextColor(Color.parseColor("#000000"))
                 cvSelesaiHistory.setCardBackgroundColor(Color.parseColor("#FFFFFF"))
                 tvSelesaiHistory.setTextColor(Color.parseColor("#000000"))
+                cvMenungguHistory.setCardBackgroundColor(Color.parseColor("#FFFFFF"))
+                tvMenungguHistory.setTextColor(Color.parseColor("#FFFFFF"))
             }
         }
 
@@ -81,6 +85,8 @@ class HistoryFragment : Fragment() {
                 tvDibatalkanHistory.setTextColor(Color.parseColor("#FFFFFF"))
                 cvSelesaiHistory.setCardBackgroundColor(Color.parseColor("#FFFFFF"))
                 tvSelesaiHistory.setTextColor(Color.parseColor("#000000"))
+                cvMenungguHistory.setCardBackgroundColor(Color.parseColor("#FFFFFF"))
+                tvMenungguHistory.setTextColor(Color.parseColor("#FFFFFF"))
             }
         }
 
@@ -98,6 +104,27 @@ class HistoryFragment : Fragment() {
                 tvDibatalkanHistory.setTextColor(Color.parseColor("#000000"))
                 cvSelesaiHistory.setCardBackgroundColor(Color.parseColor("#1BCABB"))
                 tvSelesaiHistory.setTextColor(Color.parseColor("#FFFFFF"))
+                cvMenungguHistory.setCardBackgroundColor(Color.parseColor("#FFFFFF"))
+                tvMenungguHistory.setTextColor(Color.parseColor("#FFFFFF"))
+            }
+        }
+
+        binding.cvMenungguHistory.setOnClickListener() {
+            val filteredHistory = DataOrder.orderList.filter {
+                it.status?.contains("Selesai") ?: false
+            }
+            adapterHistory.submitList(filteredHistory)
+            binding.apply {
+                cvSemuaHistory.setCardBackgroundColor(Color.parseColor("#FFFFFF"))
+                tvSemuaHistory.setTextColor(Color.parseColor("#000000"))
+                cvProsesHistory.setCardBackgroundColor(Color.parseColor("#FFFFFF"))
+                tvProsesHistory.setTextColor(Color.parseColor("#000000"))
+                cvDibatalkanHistory.setCardBackgroundColor(Color.parseColor("#FFFFFF"))
+                tvDibatalkanHistory.setTextColor(Color.parseColor("#000000"))
+                cvSelesaiHistory.setCardBackgroundColor(Color.parseColor("#FFFFFF"))
+                tvSelesaiHistory.setTextColor(Color.parseColor("#FFFFFF"))
+                cvMenungguHistory.setCardBackgroundColor(Color.parseColor("#1BCABB"))
+                tvMenungguHistory.setTextColor(Color.parseColor("#FFFFFF"))
             }
         }
     }

@@ -101,10 +101,8 @@
                 android:layout_width="80dp"
                 android:layout_height="30dp"
                 android:layout_marginStart="16dp"
-                android:layout_marginEnd="26dp"
                 app:cardCornerRadius="8dp"
                 app:layout_constraintBottom_toBottomOf="@+id/cvProcessHistory"
-                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/cvProcessHistory"
                 app:layout_constraintTop_toTopOf="@+id/cvProcessHistory"
                 app:strokeColor="#1BCABB"
@@ -120,6 +118,29 @@
                     android:textColor="#000000"
                     android:textSize="12dp" />
             </com.google.android.material.card.MaterialCardView>
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/cvWaitingHistory"
+                android:layout_width="80dp"
+                android:layout_height="0dp"
+                android:layout_marginStart="15dp"
+                app:layout_constraintBottom_toBottomOf="@+id/cvDeclineHistory"
+                app:layout_constraintStart_toEndOf="@+id/cvDeclineHistory"
+                app:layout_constraintTop_toTopOf="@+id/cvDeclineHistory"
+                app:strokeColor="#1BCABB"
+                app:strokeWidth="2dp">
+
+                <TextView
+                    android:id="@+id/tvWaitingHistory"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:fontFamily="@font/poppins_medium"
+                    android:text="Menunggu"
+                    android:textColor="@color/black"
+                    android:textSize="12dp" />
+            </com.google.android.material.card.MaterialCardView>
+
         </androidx.constraintlayout.widget.ConstraintLayout>
     </HorizontalScrollView>
 

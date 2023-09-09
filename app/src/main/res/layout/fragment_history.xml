@@ -14,12 +14,38 @@
         android:layout_marginBottom="1dp"
         app:layout_constraintBottom_toTopOf="@+id/rvHistory"
         app:layout_constraintEnd_toEndOf="@+id/cardView3"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="@+id/cardView3"
-        app:layout_constraintTop_toBottomOf="@+id/cardView3">
+        app:layout_constraintTop_toBottomOf="@+id/cardView3"
+        app:layout_constraintVertical_bias="1.0">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="wrap_content"
             android:layout_height="match_parent">
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/cvMenungguHistory"
+                android:layout_width="80dp"
+                android:layout_height="0dp"
+                android:layout_marginStart="15dp"
+                app:strokeColor="#1BCABB"
+                app:strokeWidth="2dp"
+                app:cardCornerRadius="8dp"
+                app:layout_constraintBottom_toBottomOf="@+id/cvDibatalkanHistory"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/cvDibatalkanHistory"
+                app:layout_constraintTop_toTopOf="@+id/cvDibatalkanHistory">
+
+                <TextView
+                    android:id="@+id/tvMenungguHistory"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:fontFamily="@font/poppins_medium"
+                    android:text="Menunggu"
+                    android:textColor="@color/black"
+                    android:textSize="12dp" />
+            </com.google.android.material.card.MaterialCardView>
 
             <com.google.android.material.card.MaterialCardView
                 android:id="@+id/cvDibatalkanHistory"
