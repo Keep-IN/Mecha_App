@@ -49,7 +49,7 @@ class HistoryListAdapter: RecyclerView.Adapter<HistoryListAdapter.ViewHolder>()
             }
             with(binding){
                 tvIdLayanan.text = "Id pesanan : ${item.id}"
-                tvLayananHistory.text = item.name_services
+                tvLayananHistory.text = item.name_service
                 tvTanggalLayanan.text = item.created_at
                 tvStatusLayanan.text = item.status
                 tvLayananTambal.text = item.sum

@@ -2,6 +2,7 @@ package com.example.mechaapp.data.Api
 
 import android.util.Log
 import com.example.mechaapp.data.Model.DataToken
+import com.example.mechaapp.data.Model.OrderGetResponse
 import com.example.mechaapp.data.Model.OrderModel
 import com.example.mechaapp.data.Model.OrderResponse
 import com.example.mechaapp.data.Model.RegisResponse
@@ -21,7 +22,7 @@ import java.io.IOException
 class OrderAPI {
     private val orderEndpoint = "/orders"
 
-    fun getOrder(onResponse: (ResponseStatus<List<OrderModel>>)-> Unit){
+    fun getAllOrder(onResponse: (ResponseStatus<OrderGetResponse?>)-> Unit){
         val request = NetworkClient.getWithBearerToken(orderEndpoint, DataToken.token)
         NetworkClient
             .client.newCall(request)
@@ -37,15 +38,48 @@ class OrderAPI {
                 }
 
                 override fun onResponse(call: Call, response: Response) {
-                    val data = deserializeJson<UserModel>(response.body?.string() ?: "")
+                    Log.d("Response", "Status Code: ${response.code} Msg: ${response.body.toString()}")
                     if (response.isSuccessful){
-                        if (data != null) {
-                            onResponse.invoke(ResponseStatus.Success(
-                                data = data.order,
-                                method = "GET",
-                                status = true
-                            ))
-                        }
+                        val data = deserializeJson<OrderGetResponse>(response.body?.string() ?: "") ?: OrderGetResponse(0,"")
+                        onResponse.invoke(ResponseStatus.Success(
+                            data = data,
+                            method = "GET",
+                            status = true
+                        ))
+                    } else {
+                        onResponse.invoke(
+                            mapFailedResponse(response)
+                        )
+                    }
+                    response.body?.close()
+                }
+
+            })
+    }
+
+    fun getOrder(onResponse: (ResponseStatus<OrderResponse?>)-> Unit){
+        val request = NetworkClient.getWithBearerToken(orderEndpoint, DataToken.token)
+        NetworkClient
+            .client.newCall(request)
+            .enqueue(object : Callback{
+                override fun onFailure(call: Call, e: IOException) {
+                    onResponse.invoke(
+                        ResponseStatus.Failed(
+                            code = -1,
+                            message = e.message.toString(),
+                            throwable = e
+                        )
+                    )
+                }
+
+                override fun onResponse(call: Call, response: Response) {
+                    val data = deserializeJson<OrderResponse>(response.body?.string() ?: "") ?: OrderResponse(0,"")
+                    if (response.isSuccessful){
+                        onResponse.invoke(ResponseStatus.Success(
+                            data = data,
+                            method = "GET",
+                            status = true
+                        ))
                     } else {
                         onResponse.invoke(
                             mapFailedResponse(response)
