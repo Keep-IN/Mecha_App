@@ -7,16 +7,23 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.mechaapp.R
+import com.example.mechaapp.data.Api.OrderAPI
+import com.example.mechaapp.data.Model.DataToken
+import com.example.mechaapp.data.Model.HistoryGetResponse
+import com.example.mechaapp.data.Model.OrderModel
 import com.example.mechaapp.databinding.FragmentHistory2Binding
 import com.example.mechaapp.partner.features2.adapter2.HistoryFragmentAdapter
 import com.example.mechaapp.partner.features2.data2.DataRiwayatFragment
 import com.example.mechaapp.partner.features2.data2.RiwayatFragmentItemModel
 
-class HistoryFragment2 : Fragment() {
+class HistoryFragment2 : Fragment(), HistoryContract2 {
     private lateinit var binding: FragmentHistory2Binding
     private val adapterHistory: HistoryFragmentAdapter by lazy {HistoryFragmentAdapter() }
+    private lateinit var presenter: HistoryPresenter2
+    private lateinit var dataHistory: List<OrderModel>
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -27,15 +34,19 @@ class HistoryFragment2 : Fragment() {
     }
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        presenter = HistoryPresenter2(this, OrderAPI()).apply {
+            onAttach(this@HistoryFragment2)
+        }
 
         val layoutManager = LinearLayoutManager(activity)
-        adapterHistory.submitList(DataRiwayatFragment.riwayatfragmentList)
         binding.rvhistoryFragment.adapter = adapterHistory
         binding.rvhistoryFragment.layoutManager = layoutManager
+        presenter.getHistory(DataToken.idUser)
+
 
 
         binding.cvAllHistory.setOnClickListener() {
-            adapterHistory.submitList(DataRiwayatFragment.riwayatfragmentList)
+            adapterHistory.submitList(dataHistory)
             binding.apply {
                 cvAllHistory.setCardBackgroundColor(Color.parseColor("#56AB91"))
                 tvAllHistory.setTextColor(Color.parseColor("#FFFFFF"))
@@ -51,8 +62,8 @@ class HistoryFragment2 : Fragment() {
         }
 
         binding.cvDoneHistory.setOnClickListener() {
-            val filteredHistory = DataRiwayatFragment.riwayatfragmentList.filter {
-                it.status.contains("Selesai")
+            val filteredHistory = dataHistory.filter {
+                it.status?.contains("Selesai") ?: false
             }
             adapterHistory.submitList(filteredHistory)
             binding.apply {
@@ -70,8 +81,8 @@ class HistoryFragment2 : Fragment() {
         }
 
         binding.cvProcessHistory.setOnClickListener() {
-            val filteredHistory = DataRiwayatFragment.riwayatfragmentList.filter {
-                it.status.contains("Dibatalkan")
+            val filteredHistory = dataHistory.filter {
+                it.status?.contains("Dibatalkan") ?: false
             }
             adapterHistory.submitList(filteredHistory)
             binding.apply {
@@ -89,8 +100,8 @@ class HistoryFragment2 : Fragment() {
         }
 
         binding.cvDeclineHistory.setOnClickListener() {
-            val filteredHistory = DataRiwayatFragment.riwayatfragmentList.filter {
-                it.status.contains("Selesai")
+            val filteredHistory = dataHistory.filter {
+                it.status?.contains("Selesai") ?: false
             }
             adapterHistory.submitList(filteredHistory)
             binding.apply {
@@ -108,8 +119,8 @@ class HistoryFragment2 : Fragment() {
         }
 
         binding.cvWaitingHistory.setOnClickListener() {
-            val filteredHistory = DataRiwayatFragment.riwayatfragmentList.filter {
-                it.status.contains("Selesai")
+            val filteredHistory = dataHistory.filter {
+                it.status?.contains("Selesai") ?: false
             }
             adapterHistory.submitList(filteredHistory)
             binding.apply {
@@ -125,5 +136,16 @@ class HistoryFragment2 : Fragment() {
                 tvWaitingHistory.setTextColor(Color.parseColor("#FFFFFF"))
             }
         }
+    }
+
+    override fun onSucces(history: HistoryGetResponse?) {
+        if (history != null) {
+            adapterHistory.submitList(history.history)
+            dataHistory = history.history
+        }
+    }
+
+    override fun onFailed(msg: String) {
+        Toast.makeText(activity, "gagal", Toast.LENGTH_SHORT).show()
     }
 }
