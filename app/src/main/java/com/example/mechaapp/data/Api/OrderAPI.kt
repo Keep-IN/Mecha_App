@@ -2,6 +2,7 @@ package com.example.mechaapp.data.Api
 
 import android.util.Log
 import com.example.mechaapp.data.Model.DataToken
+import com.example.mechaapp.data.Model.HistoryGetResponse
 import com.example.mechaapp.data.Model.OrderGetResponse
 import com.example.mechaapp.data.Model.OrderModel
 import com.example.mechaapp.data.Model.OrderResponse
@@ -45,7 +46,7 @@ class OrderAPI {
                 override fun onResponse(call: Call, response: Response) {
                     Log.d("Response", "Status Code: ${response.code} Msg: ${response.body.toString()}")
                     if (response.isSuccessful){
-                        val data = deserializeJson<OrderGetResponse>(response.body?.string() ?: "") ?: OrderGetResponse(0,"")
+                        val data = deserializeJson<OrderGetResponse>(response.body?.string() ?: "") ?: OrderGetResponse(0)
                         onResponse.invoke(ResponseStatus.Success(
                             data = data,
                             method = "GET",
@@ -78,7 +79,7 @@ class OrderAPI {
                 }
 
                 override fun onResponse(call: Call, response: Response) {
-                    val data = deserializeJson<OrderGetResponse>(response.body?.string() ?: "") ?: OrderGetResponse(0,"")
+                    val data = deserializeJson<OrderGetResponse>(response.body?.string() ?: "") ?: OrderGetResponse(0)
                     if (response.isSuccessful){
                         onResponse.invoke(ResponseStatus.Success(
                             data = data,
@@ -96,7 +97,7 @@ class OrderAPI {
             })
     }
 
-    fun getHistory(id: String,onResponse: (ResponseStatus<OrderGetResponse?>)-> Unit){
+    fun getHistory(id: String,onResponse: (ResponseStatus<HistoryGetResponse?>)-> Unit){
         val request = NetworkClient.requestById(historyEndpoint, DataToken.token, DataToken.idUser)
         NetworkClient
             .client.newCall(request)
@@ -112,8 +113,8 @@ class OrderAPI {
                 }
 
                 override fun onResponse(call: Call, response: Response) {
-                    val data = deserializeJson<OrderGetResponse>(response.body?.string() ?: "") ?: OrderGetResponse(0,"")
                     if (response.isSuccessful){
+                        val data = deserializeJson<HistoryGetResponse>(response.body?.string() ?: "") ?: HistoryGetResponse(0)
                         onResponse.invoke(ResponseStatus.Success(
                             data = data,
                             method = "GET",
@@ -301,7 +302,7 @@ class OrderAPI {
     }
 
     fun updateStatus(status: String, id_service: String, onResponse: (ResponseStatus<StatusResponse?>) -> Unit){
-        val request = NetworkClient.updateRequest(updateStatEndpoint, DataToken.token, id_service, status)
+        val request = NetworkClient.updateRequest("${historyEndpoint}${updateStatEndpoint}", DataToken.token, id_service, status)
         NetworkClient
             .client
             .newCall(request)

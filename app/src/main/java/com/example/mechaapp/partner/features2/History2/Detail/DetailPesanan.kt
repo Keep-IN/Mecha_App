@@ -7,6 +7,7 @@ import android.os.CountDownTimer
 import android.widget.Toast
 import com.example.mechaapp.R
 import com.example.mechaapp.data.Api.OrderAPI
+import com.example.mechaapp.data.Model.HistoryGetResponse
 import com.example.mechaapp.data.Model.OrderModel
 import com.example.mechaapp.data.Model.OrderResponse
 import com.example.mechaapp.data.Model.StatusResponse
@@ -55,7 +56,7 @@ class DetailPesanan : AppCompatActivity(), DetailContract {
     override fun onSuccessDelete(order: OrderResponse?) {
         presenter.postHistory(dataOrder.name_service, "Diterima",
             dataOrder.address, dataOrder.map_url, dataOrder.id_service)
-        presenter.updateStatus("Diterima", dataOrder.id_service)
+        presenter.updateStatus(dataOrder.id_service, "Diterima" )
     }
 
     override fun onErrorUpdate(msg: String) {

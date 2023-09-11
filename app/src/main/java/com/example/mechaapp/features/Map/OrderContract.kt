@@ -1,5 +1,6 @@
 package com.example.mechaapp.features.Map
 
+import com.example.mechaapp.data.Model.HistoryGetResponse
 import com.example.mechaapp.data.Model.OrderGetResponse
 import com.example.mechaapp.data.Model.OrderResponse
 
@@ -9,4 +10,5 @@ interface OrderContract {
     fun onSuccesHistory(history: OrderResponse?)
     fun onErrorhistory(msg: String)
     fun onSuccesGetOrder(order: OrderGetResponse?)
+    fun onErrorgetOrder(msg: String)
 }

@@ -1,5 +1,6 @@
 package com.example.mechaapp.partner.features2.History2.Detail
 
+import com.example.mechaapp.data.Model.HistoryGetResponse
 import com.example.mechaapp.data.Model.OrderResponse
 import com.example.mechaapp.data.Model.StatusResponse
 

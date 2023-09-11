@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.example.mechaapp.R
 import com.example.mechaapp.data.Api.OrderAPI
+import com.example.mechaapp.data.Model.HistoryGetResponse
 import com.example.mechaapp.data.Model.OrderGetResponse
 import com.example.mechaapp.data.Model.OrderResponse
 import com.example.mechaapp.databinding.ActivityLoadingBinding
@@ -40,6 +41,10 @@ class Loading : AppCompatActivity(), OrderContract {
     }
 
     override fun onSuccesGetOrder(order: OrderGetResponse?) {
+        TODO("Not yet implemented")
+    }
+
+    override fun onErrorgetOrder(msg: String) {
         TODO("Not yet implemented")
     }
 }

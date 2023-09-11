@@ -27,7 +27,7 @@ class HistoryListAdapter: RecyclerView.Adapter<HistoryListAdapter.ViewHolder>()
         val initSize = itemCount
         data.clear()
         notifyItemRangeRemoved(0, initSize)
-        data.addAll(list)
+        data.addAll(list.sortedByDescending { it.created_at })
         notifyItemRangeInserted(0, data.size)
     }
 
@@ -48,11 +48,15 @@ class HistoryListAdapter: RecyclerView.Adapter<HistoryListAdapter.ViewHolder>()
                 listener?.invoke(item)
             }
             with(binding){
-                tvIdLayanan.text = "Id pesanan : ${item.id}"
+                tvIdLayanan.text = "Id pesanan : ${item.id_service}"
                 tvLayananHistory.text = item.name_service
                 tvTanggalLayanan.text = item.created_at
                 tvStatusLayanan.text = item.status
-                tvLayananTambal.text = item.sum
+                if (item.sum == null) {
+                    tvLayananTambal.text = "Estimasi Rp.50,0000"
+                } else {
+                    tvLayananTambal.text = "Rp.${item.sum}"
+                }
             }
         }
     }

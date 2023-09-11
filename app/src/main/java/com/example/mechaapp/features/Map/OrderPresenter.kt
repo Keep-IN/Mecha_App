@@ -46,7 +46,7 @@ class OrderPresenter(
             scope.launch {
                 when(it){
                     is ResponseStatus.Success -> view.onSuccesGetOrder(it.data)
-                    is ResponseStatus.Failed -> view.onErrorhistory(it.message)
+                    is ResponseStatus.Failed -> view.onErrorgetOrder(it.message)
                 }
             }
         }

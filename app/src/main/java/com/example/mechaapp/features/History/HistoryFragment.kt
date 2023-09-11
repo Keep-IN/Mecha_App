@@ -7,8 +7,12 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.mechaapp.data.Api.OrderAPI
 import com.example.mechaapp.data.Model.DataOrder
+import com.example.mechaapp.data.Model.DataToken
+import com.example.mechaapp.data.Model.HistoryGetResponse
 import com.example.mechaapp.data.Model.OrderGetResponse
 import com.example.mechaapp.data.Model.OrderModel
 import com.example.mechaapp.data.Model.OrderResponse
@@ -19,6 +23,8 @@ import com.example.mechaapp.data.adapter.HistoryListAdapter
 class HistoryFragment : Fragment(), HistoryContract {
     private lateinit var binding: FragmentHistoryBinding
     private val adapterHistory: HistoryListAdapter by lazy { HistoryListAdapter() }
+    private lateinit var presenter: HistoryPresenter
+    private lateinit var dataHistory: List<OrderModel>
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -30,15 +36,19 @@ class HistoryFragment : Fragment(), HistoryContract {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        presenter = HistoryPresenter(this, OrderAPI()).apply {
+            onAttach(this@HistoryFragment)
+        }
 
         val layoutManager = LinearLayoutManager(activity)
         binding.rvHistory.adapter = adapterHistory
         binding.rvHistory.layoutManager = layoutManager
         adapterHistory.setOnclickItem(rvClickListener)
+        presenter.getHistory(DataToken.idUser)
 
 
         binding.cvSemuaHistory.setOnClickListener() {
-            adapterHistory.submitList(DataOrder.orderList)
+            adapterHistory.submitList(dataHistory)
             binding.apply {
                 cvSemuaHistory.setCardBackgroundColor(Color.parseColor("#1BCABB"))
                 tvSemuaHistory.setTextColor(Color.parseColor("#FFFFFF"))
@@ -54,7 +64,7 @@ class HistoryFragment : Fragment(), HistoryContract {
         }
 
         binding.cvProsesHistory.setOnClickListener() {
-            val filteredHistory = DataOrder.orderList.filter {
+            val filteredHistory = dataHistory.filter {
                 it.status?.contains("Diproses") ?: false
             }
             adapterHistory.submitList(filteredHistory)
@@ -73,7 +83,7 @@ class HistoryFragment : Fragment(), HistoryContract {
         }
 
         binding.cvDibatalkanHistory.setOnClickListener() {
-            val filteredHistory = DataOrder.orderList.filter {
+            val filteredHistory = dataHistory.filter {
                 it.status?.contains("Dibatalkan") ?: false
             }
             adapterHistory.submitList(filteredHistory)
@@ -92,7 +102,7 @@ class HistoryFragment : Fragment(), HistoryContract {
         }
 
         binding.cvSelesaiHistory.setOnClickListener() {
-            val filteredHistory = DataOrder.orderList.filter {
+            val filteredHistory = dataHistory.filter {
                 it.status?.contains("Selesai") ?: false
             }
             adapterHistory.submitList(filteredHistory)
@@ -111,7 +121,7 @@ class HistoryFragment : Fragment(), HistoryContract {
         }
 
         binding.cvMenungguHistory.setOnClickListener() {
-            val filteredHistory = DataOrder.orderList.filter {
+            val filteredHistory = dataHistory.filter {
                 it.status?.contains("Selesai") ?: false
             }
             adapterHistory.submitList(filteredHistory)
@@ -134,13 +144,14 @@ class HistoryFragment : Fragment(), HistoryContract {
             startActivity(Intent(activity, DetailPesanan::class.java))
         }
 
-    override fun onSucces(history: OrderGetResponse?) {
+    override fun onSucces(history: HistoryGetResponse?) {
         if (history != null) {
-            adapterHistory.submitList(history.order)
+            adapterHistory.submitList(history.history)
+            dataHistory = history.history
         }
     }
 
     override fun onFailed(msg: String) {
-        TODO("Not yet implemented")
+        Toast.makeText(activity, "msg", Toast.LENGTH_SHORT).show()
     }
 }
