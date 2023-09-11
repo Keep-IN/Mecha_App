@@ -17,6 +17,9 @@
         android:theme="@style/Theme.MechaApp"
         tools:targetApi="31">
         <activity
+            android:name=".features.confirmation.PaymentConfirmation"
+            android:exported="false" />
+        <activity
             android:name=".partner.features2.profile2.EditProfilem"
             android:exported="false" />
         <activity
@@ -29,7 +32,7 @@
             android:name=".features.Map.MapAddress"
             android:exported="false" />
         <activity
-            android:name=".partner.features2.History2.Detail.DetailPesanan"
+            android:name=".partner.features2.History2.Detail.DetailPesananM"
             android:exported="false" />
         <activity
             android:name=".features.DetailPesanan.DetailPesananTransfer"
@@ -41,7 +44,7 @@
             android:name=".partner.features2.bayartagihan.BayarTagihan"
             android:exported="false" />
         <activity
-            android:name=".partner.features2.History2.Detail.DetailPesanan"
+            android:name=".partner.features2.History2.Detail.DetailPesananM"
             android:exported="false" />
         <activity
             android:name=".partner.features2.ambilpesan.AmbilPesan"

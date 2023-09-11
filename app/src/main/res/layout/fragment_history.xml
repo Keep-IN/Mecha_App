@@ -7,6 +7,26 @@
     android:layout_height="match_parent"
     tools:context=".features.History.HistoryFragment">
 
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cvRefresh"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginEnd="12dp"
+        android:layout_marginBottom="12dp"
+        android:background="@color/backgroundcard"
+        app:cardBackgroundColor="@color/backgroundcard"
+        app:cardCornerRadius="8dp"
+        app:layout_constraintBottom_toBottomOf="@+id/rvHistory"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <ImageView
+            android:id="@+id/imageView22"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:src="@drawable/ic_refresh" />
+    </androidx.cardview.widget.CardView>
+
     <HorizontalScrollView
         android:id="@+id/ScrollViewHistory"
         android:layout_width="match_parent"
