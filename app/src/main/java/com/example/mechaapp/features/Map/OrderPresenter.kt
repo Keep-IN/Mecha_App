@@ -29,4 +29,26 @@ class OrderPresenter(
             }
         }
     }
+
+    fun postHistory(service: String, status: String, address: String, mapurl: String, id_service: String){
+        api.postHistory(service, status, address, mapurl, id_service){
+            scope.launch{
+                when(it){
+                    is ResponseStatus.Success -> view.onSuccesHistory(it.data)
+                    is ResponseStatus.Failed -> view.onErrorhistory(it.message)
+                }
+            }
+        }
+    }
+
+    fun getOrderById(id: String){
+        api.getOrderById(id){
+            scope.launch {
+                when(it){
+                    is ResponseStatus.Success -> view.onSuccesGetOrder(it.data)
+                    is ResponseStatus.Failed -> view.onErrorhistory(it.message)
+                }
+            }
+        }
+    }
 }

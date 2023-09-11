@@ -8,6 +8,6 @@ import kotlinx.parcelize.Parcelize
 @JsonClass(generateAdapter = true)
 data class PriceModel(
     val id: Int,
-    val price: Int,
+    val price: String,
     val description_service: String
 ): Parcelable

@@ -9,7 +9,9 @@ import com.example.mechaapp.data.Api.OrderAPI
 import com.example.mechaapp.databinding.ActivityAmbilpesanBinding
 import com.example.mechaapp.data.adapter.AmbilListAdapter
 import com.example.mechaapp.data.Model.DataAmbilPesanan
+import com.example.mechaapp.data.Model.DataOrder
 import com.example.mechaapp.data.Model.OrderGetResponse
+import com.example.mechaapp.data.Model.OrderModel
 import com.example.mechaapp.data.Model.OrderResponse
 import com.example.mechaapp.partner.features2.History2.Detail.DetailPesanan
 import com.example.mechaapp.partner.home2.HomeFragment2
@@ -37,11 +39,14 @@ class AmbilPesan : AppCompatActivity(), AmbilPesanContract {
 
         binding.rvAmbil.adapter = adapterHistory
         binding.rvAmbil.layoutManager = layoutManager
+        adapterHistory.setOnclickItem(rvClickListener)
 
     }
-    private val rvClickListener: (OrderResponse) -> Unit = {
+    private val rvClickListener: ((OrderModel) -> Unit) = {
         item ->
-        startActivity(Intent(this, DetailPesanan::class.java))
+        startActivity(Intent(this, DetailPesanan::class.java).apply {
+            putExtra("order", item)
+        })
     }
 
     override fun onSuccessGet(order: OrderGetResponse?) {

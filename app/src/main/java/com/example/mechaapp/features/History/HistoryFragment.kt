@@ -9,12 +9,14 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.mechaapp.data.Model.DataOrder
+import com.example.mechaapp.data.Model.OrderGetResponse
 import com.example.mechaapp.data.Model.OrderModel
+import com.example.mechaapp.data.Model.OrderResponse
 import com.example.mechaapp.databinding.FragmentHistoryBinding
 import com.example.mechaapp.features.DetailPesanan.DetailPesanan
 import com.example.mechaapp.data.adapter.HistoryListAdapter
 
-class HistoryFragment : Fragment() {
+class HistoryFragment : Fragment(), HistoryContract {
     private lateinit var binding: FragmentHistoryBinding
     private val adapterHistory: HistoryListAdapter by lazy { HistoryListAdapter() }
 
@@ -30,7 +32,6 @@ class HistoryFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         val layoutManager = LinearLayoutManager(activity)
-        adapterHistory.submitList(DataOrder.orderList)
         binding.rvHistory.adapter = adapterHistory
         binding.rvHistory.layoutManager = layoutManager
         adapterHistory.setOnclickItem(rvClickListener)
@@ -105,4 +106,14 @@ class HistoryFragment : Fragment() {
         { item ->
             startActivity(Intent(activity, DetailPesanan::class.java))
         }
+
+    override fun onSucces(history: OrderGetResponse?) {
+        if (history != null) {
+            adapterHistory.submitList(history.order)
+        }
+    }
+
+    override fun onFailed(msg: String) {
+        TODO("Not yet implemented")
+    }
 }

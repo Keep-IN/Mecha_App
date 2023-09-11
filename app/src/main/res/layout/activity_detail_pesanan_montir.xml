@@ -7,14 +7,15 @@
     tools:context=".partner.features2.History2.Detail.DetailPesanan">
 
     <com.google.android.material.card.MaterialCardView
+        android:id="@+id/btnDecline"
         android:layout_width="145dp"
         android:layout_height="41dp"
         android:layout_marginTop="42dp"
         app:cardCornerRadius="8dp"
-        app:strokeWidth="3dp"
-        app:strokeColor="#D82B3C"
         app:layout_constraintStart_toStartOf="@+id/cardView10"
-        app:layout_constraintTop_toBottomOf="@+id/cardView10" >
+        app:layout_constraintTop_toBottomOf="@+id/cardView10"
+        app:strokeColor="#D82B3C"
+        app:strokeWidth="3dp">
 
         <TextView
             android:id="@+id/textView65"
@@ -27,14 +28,15 @@
             android:textSize="14dp" />
     </com.google.android.material.card.MaterialCardView>
 
-    <androidx.cardview.widget.CardView
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/btnAccept"
         android:layout_width="145dp"
         android:layout_height="41dp"
         android:layout_marginTop="42dp"
         android:backgroundTint="#1BCABB"
         app:cardCornerRadius="8dp"
         app:layout_constraintEnd_toEndOf="@+id/cardView10"
-        app:layout_constraintTop_toBottomOf="@+id/cardView10" >
+        app:layout_constraintTop_toBottomOf="@+id/cardView10">
 
         <TextView
             android:id="@+id/textView64"
@@ -45,7 +47,7 @@
             android:text="Terima"
             android:textColor="#F8F8F8"
             android:textSize="14dp" />
-    </androidx.cardview.widget.CardView>
+    </com.google.android.material.card.MaterialCardView>
 
     <androidx.cardview.widget.CardView
             android:id="@+id/cardView10"
