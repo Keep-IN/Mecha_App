@@ -3,6 +3,7 @@ package com.example.mechaapp.features.Register
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
 import android.widget.Toast
 import com.example.mechaapp.R
 import androidx.core.widget.doOnTextChanged
@@ -19,7 +20,7 @@ class Register : AppCompatActivity(), RegisterContract {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
 
-        binding.btnSign.setOnClickListener{
+        binding.btnSignup.setOnClickListener{
             startActivity(Intent(this, MainActivity::class.java))
         }
 
@@ -51,12 +52,13 @@ class Register : AppCompatActivity(), RegisterContract {
             presenter.validateRepassword(binding.etPassword.editText?.text.toString(),binding.etConpass.editText?.text.toString())
         }
 
-        binding.btnSign.setOnClickListener{
+        binding.btnSignup.setOnClickListener{
             presenter.emailAvailable(binding.etEmail.editText?.text.toString())
         }
 
-        binding.btnSign.setOnClickListener{
-           presenter.regisUser(binding.etName.editText?.text.toString(),binding.etEmail.editText?.text.toString(),binding.etPhone.editText?.text.toString(),binding.etPassword.editText?.text.toString())
+        binding.btnSignup.setOnClickListener{
+            onLoading()
+           presenter.regisUser(binding.etName.editText?.text.toString(),binding.etPhone.editText?.text.toString(),binding.etEmail.editText?.text.toString(),binding.etPassword.editText?.text.toString())
         }
 
         presenter = RegisterPresenter(this, UserAPI()).apply {
@@ -65,7 +67,7 @@ class Register : AppCompatActivity(), RegisterContract {
     }
 
     private fun validateInput(){
-        binding.btnSign.isEnabled =
+        binding.btnSignup.isEnabled =
             binding.etEmail.editText?.text.toString().isNotBlank() &&
                     binding.etPhone.editText?.text.toString().isNotBlank() &&
                     binding.etPassword.editText?.text.toString().isNotBlank() &&
@@ -74,11 +76,13 @@ class Register : AppCompatActivity(), RegisterContract {
     }
 
     override fun onLoading() {
-        TODO("Not yet implemented")
+        binding.bgLoadingregis.visibility = View.VISIBLE
+        binding.pbLoadingregis.visibility = View.VISIBLE
     }
 
     override fun onFinishedLoading() {
-        TODO("Not yet implemented")
+        binding.bgLoadingregis.visibility = View.GONE
+        binding.pbLoadingregis.visibility = View.GONE
     }
 
     override fun onError(code: Int, message: String) {
@@ -94,8 +98,8 @@ class Register : AppCompatActivity(), RegisterContract {
         startActivity(Intent(this,MainActivity::class.java))
     }
 
-    override fun onErrorSignup() {
-        Toast.makeText(this, "gagal", Toast.LENGTH_SHORT).show()
+    override fun onErrorSignup(message: String) {
+        Toast.makeText(this, message, Toast.LENGTH_SHORT).show()
     }
 
     override fun onErrorSuccess(code: Int, message: String) {

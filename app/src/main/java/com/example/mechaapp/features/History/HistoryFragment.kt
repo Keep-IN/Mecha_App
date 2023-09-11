@@ -8,12 +8,15 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.mechaapp.data.Model.DataOrder
+import com.example.mechaapp.data.Model.OrderGetResponse
+import com.example.mechaapp.data.Model.OrderModel
+import com.example.mechaapp.data.Model.OrderResponse
 import com.example.mechaapp.databinding.FragmentHistoryBinding
-import com.example.mechaapp.features.data.adapter.HistoryListAdapter
-import com.example.mechaapp.features.data.model.DataRiwayat
-import com.example.mechaapp.features.data.model.RiwayatItemModel
+import com.example.mechaapp.features.DetailPesanan.DetailPesanan
+import com.example.mechaapp.data.adapter.HistoryListAdapter
 
-class HistoryFragment : Fragment() {
+class HistoryFragment : Fragment(), HistoryContract {
     private lateinit var binding: FragmentHistoryBinding
     private val adapterHistory: HistoryListAdapter by lazy { HistoryListAdapter() }
 
@@ -29,14 +32,13 @@ class HistoryFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         val layoutManager = LinearLayoutManager(activity)
-        adapterHistory.submitList(DataRiwayat.riwayatList)
         binding.rvHistory.adapter = adapterHistory
         binding.rvHistory.layoutManager = layoutManager
-       // adapterHistory.setOnclickItem(rvClickListener)
+        adapterHistory.setOnclickItem(rvClickListener)
 
 
         binding.cvSemuaHistory.setOnClickListener() {
-            adapterHistory.submitList(DataRiwayat.riwayatList)
+            adapterHistory.submitList(DataOrder.orderList)
             binding.apply {
                 cvSemuaHistory.setCardBackgroundColor(Color.parseColor("#1BCABB"))
                 tvSemuaHistory.setTextColor(Color.parseColor("#FFFFFF"))
@@ -46,12 +48,14 @@ class HistoryFragment : Fragment() {
                 tvDibatalkanHistory.setTextColor(Color.parseColor("#000000"))
                 cvSelesaiHistory.setCardBackgroundColor(Color.parseColor("#FFFFFF"))
                 tvSelesaiHistory.setTextColor(Color.parseColor("#000000"))
+                cvMenungguHistory.setCardBackgroundColor(Color.parseColor("#FFFFFF"))
+                tvMenungguHistory.setTextColor(Color.parseColor("#FFFFFF"))
             }
         }
 
         binding.cvProsesHistory.setOnClickListener() {
-            val filteredHistory = DataRiwayat.riwayatList.filter {
-                it.status.contains("Diproses")
+            val filteredHistory = DataOrder.orderList.filter {
+                it.status?.contains("Diproses") ?: false
             }
             adapterHistory.submitList(filteredHistory)
             binding.apply {
@@ -63,12 +67,14 @@ class HistoryFragment : Fragment() {
                 tvDibatalkanHistory.setTextColor(Color.parseColor("#000000"))
                 cvSelesaiHistory.setCardBackgroundColor(Color.parseColor("#FFFFFF"))
                 tvSelesaiHistory.setTextColor(Color.parseColor("#000000"))
+                cvMenungguHistory.setCardBackgroundColor(Color.parseColor("#FFFFFF"))
+                tvMenungguHistory.setTextColor(Color.parseColor("#FFFFFF"))
             }
         }
 
         binding.cvDibatalkanHistory.setOnClickListener() {
-            val filteredHistory = DataRiwayat.riwayatList.filter {
-                it.status.contains("Dibatalkan")
+            val filteredHistory = DataOrder.orderList.filter {
+                it.status?.contains("Dibatalkan") ?: false
             }
             adapterHistory.submitList(filteredHistory)
             binding.apply {
@@ -80,12 +86,14 @@ class HistoryFragment : Fragment() {
                 tvDibatalkanHistory.setTextColor(Color.parseColor("#FFFFFF"))
                 cvSelesaiHistory.setCardBackgroundColor(Color.parseColor("#FFFFFF"))
                 tvSelesaiHistory.setTextColor(Color.parseColor("#000000"))
+                cvMenungguHistory.setCardBackgroundColor(Color.parseColor("#FFFFFF"))
+                tvMenungguHistory.setTextColor(Color.parseColor("#FFFFFF"))
             }
         }
 
         binding.cvSelesaiHistory.setOnClickListener() {
-            val filteredHistory = DataRiwayat.riwayatList.filter {
-                it.status.contains("Selesai")
+            val filteredHistory = DataOrder.orderList.filter {
+                it.status?.contains("Selesai") ?: false
             }
             adapterHistory.submitList(filteredHistory)
             binding.apply {
@@ -97,11 +105,42 @@ class HistoryFragment : Fragment() {
                 tvDibatalkanHistory.setTextColor(Color.parseColor("#000000"))
                 cvSelesaiHistory.setCardBackgroundColor(Color.parseColor("#1BCABB"))
                 tvSelesaiHistory.setTextColor(Color.parseColor("#FFFFFF"))
+                cvMenungguHistory.setCardBackgroundColor(Color.parseColor("#FFFFFF"))
+                tvMenungguHistory.setTextColor(Color.parseColor("#FFFFFF"))
+            }
+        }
+
+        binding.cvMenungguHistory.setOnClickListener() {
+            val filteredHistory = DataOrder.orderList.filter {
+                it.status?.contains("Selesai") ?: false
+            }
+            adapterHistory.submitList(filteredHistory)
+            binding.apply {
+                cvSemuaHistory.setCardBackgroundColor(Color.parseColor("#FFFFFF"))
+                tvSemuaHistory.setTextColor(Color.parseColor("#000000"))
+                cvProsesHistory.setCardBackgroundColor(Color.parseColor("#FFFFFF"))
+                tvProsesHistory.setTextColor(Color.parseColor("#000000"))
+                cvDibatalkanHistory.setCardBackgroundColor(Color.parseColor("#FFFFFF"))
+                tvDibatalkanHistory.setTextColor(Color.parseColor("#000000"))
+                cvSelesaiHistory.setCardBackgroundColor(Color.parseColor("#FFFFFF"))
+                tvSelesaiHistory.setTextColor(Color.parseColor("#FFFFFF"))
+                cvMenungguHistory.setCardBackgroundColor(Color.parseColor("#1BCABB"))
+                tvMenungguHistory.setTextColor(Color.parseColor("#FFFFFF"))
             }
         }
     }
-  //  private val rvClickListener: (RiwayatItemModel) -> Unit =
-     //   { item ->
-     //       startActivity(Intent(activity, DetilHistory::class.java))
-     //   }
+    private val rvClickListener: (OrderModel) -> Unit =
+        { item ->
+            startActivity(Intent(activity, DetailPesanan::class.java))
+        }
+
+    override fun onSucces(history: OrderGetResponse?) {
+        if (history != null) {
+            adapterHistory.submitList(history.order)
+        }
+    }
+
+    override fun onFailed(msg: String) {
+        TODO("Not yet implemented")
+    }
 }

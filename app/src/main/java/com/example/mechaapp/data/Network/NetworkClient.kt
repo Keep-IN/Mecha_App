@@ -11,7 +11,7 @@ import java.util.concurrent.TimeUnit
 
 class NetworkClient {
     companion object {
-        private const val BASE_URL = "https://53c8-182-253-183-16.ngrok-free.app/api"
+        private const val BASE_URL = "https://b6e3-180-252-117-142.ngrok-free.app/api"
         private val headerInterceptor: Interceptor = Interceptor {
             val request = it.request().newBuilder()
             request
@@ -31,16 +31,15 @@ class NetworkClient {
                             if (BuildConfig.DEBUG) HttpLoggingInterceptor.Level.BODY else HttpLoggingInterceptor.Level.NONE
                     }
                 )
-                .callTimeout(timeout = 5L, unit = TimeUnit.SECONDS)
-                .connectTimeout(timeout = 2L, unit = TimeUnit.SECONDS)
+                .callTimeout(timeout = 8L, unit = TimeUnit.SECONDS)
+                .connectTimeout(timeout = 4L, unit = TimeUnit.SECONDS)
                 .build()
         }
 
-        fun requestBuilder(endpoint: String, token:String, method: METHOD = METHOD.GET, jsonBody: String? = null): Request {
+        fun requestBuilder(endpoint: String, method: METHOD = METHOD.GET, jsonBody: String? = null): Request {
             val request = Request
                 .Builder()
                 .url("$BASE_URL$endpoint")
-                .header("Get User Data", "Bearer $token")
 
             if (jsonBody != null)
                 request.method(method.name, jsonBody.toRequestBody())
@@ -51,6 +50,18 @@ class NetworkClient {
         fun getWithBearerToken(endpoint: String, token:String, method: METHOD = METHOD.GET, jsonBody: String? = null): Request {
             val request = Request.Builder()
                 .url("$BASE_URL$endpoint")
+                .header("Authorization", "Bearer $token")
+                .get()
+
+            if (jsonBody != null)
+                request.method(method.name, jsonBody.toRequestBody())
+
+            return request.build()
+        }
+
+        fun requestById(endpoint: String, token:String, id: String, method: METHOD = METHOD.GET, jsonBody: String? = null): Request{
+            val request = Request.Builder()
+                .url("$BASE_URL$endpoint/$id")
                 .header("Authorization", "Bearer $token")
                 .get()
 
@@ -78,7 +89,7 @@ class NetworkClient {
 
         fun requestResgis(endpoint: String, nama: String, no_telp: String, email: String, password: String, method: METHOD = METHOD.POST, jsonBody: String? = null): Request{
             val requestBody = FormBody.Builder()
-                .add("nama", nama)
+                .add("name", nama)
                 .add("no_telp", no_telp)
                 .add("email", email)
                 .add("password", password)
@@ -109,6 +120,81 @@ class NetworkClient {
             return request.build()
         }
 
+        fun requestOrder(endpoint: String, token: String, service: String, status: String, address: String, mapUrl: String, method: METHOD = METHOD.POST, jsonBody: String? = null): Request{
+            val requestBody = FormBody.Builder()
+                .add("name_service", service)
+                .add("status", status)
+                .add("address", address)
+                .add("map_url", mapUrl)
+                .build()
+            val request = Request.Builder()
+                .url("$BASE_URL$endpoint")
+                .header("Authorization", "Bearer $token")
+                .post(requestBody)
+
+            if (jsonBody != null)
+                request.method(method.name, jsonBody.toRequestBody())
+
+            return request.build()
+        }
+
+        fun requestHistory(endpoint: String, token: String, service: String, status: String, address: String, mapUrl: String, id_service: String, method: METHOD = METHOD.POST, jsonBody: String? = null): Request{
+            val requestBody = FormBody.Builder()
+                .add("name_service", service)
+                .add("status", status)
+                .add("address", address)
+                .add("map_url", mapUrl)
+                .add("id_service", id_service)
+                .build()
+            val request = Request.Builder()
+                .url("$BASE_URL$endpoint")
+                .header("Authorization", "Bearer $token")
+                .post(requestBody)
+
+            if (jsonBody != null)
+                request.method(method.name, jsonBody.toRequestBody())
+
+            return request.build()
+        }
+
+        fun updateRequest(endpoint: String, token: String, status: String, id_service: String, method: METHOD = METHOD.PUT, jsonBody: String? = null): Request{
+            val requestBody = FormBody.Builder()
+                .add("status", status)
+                .build()
+            val request = Request.Builder()
+                .url("$BASE_URL$endpoint/$id_service")
+                .header("Authorization", "Bearer $token")
+                .put(requestBody)
+            if (jsonBody != null)
+                request.method(method.name, jsonBody.toRequestBody())
+
+            return request.build()
+        }
+
+        fun requestPrice(endpoint: String, token: String, id_service: String, desc: String, price: String, method: METHOD = METHOD.POST, jsonBody: String? = null): Request{
+            val requestBody = FormBody.Builder()
+                .add("id_service", id_service)
+                .add("price", price)
+                .build()
+            val request = Request.Builder()
+                .url("$BASE_URL$endpoint/$id_service")
+                .header("Authorization", "Bearer $token")
+                .post(requestBody)
+            if(jsonBody != null)
+                request.method(method.name, jsonBody.toRequestBody())
+
+            return request.build()
+        }
+
+        fun deleteRequest(endpoint: String, token: String, id: String, method: METHOD = METHOD.DELETE, jsonBody: String? = null): Request{
+            val request = Request.Builder()
+                .url("$BASE_URL$endpoint/$id")
+                .delete()
+                .header("Authorization", "Bearer $token")
+
+            return request.build()
+        }
+
 //        fun makeCallApi(endpoint: String, method: METHOD = METHOD.GET, jsonBody: String? = null): Call {
 //            val request = requestBuilder(endpoint, method, jsonBody)
 //            return client.newCall(request)
@@ -118,6 +204,7 @@ class NetworkClient {
     enum class METHOD {
         GET,
         POST,
-        PATCH
+        DELETE,
+        PUT
     }
 }

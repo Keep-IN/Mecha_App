@@ -5,10 +5,13 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.example.mechaapp.R
 import com.example.mechaapp.databinding.ActivityLandingPageBinding
+import com.example.mechaapp.features.DetailPesanan.DetailPesananTransfer
 import com.example.mechaapp.features.Login.ForgetPassword
 import com.example.mechaapp.features.MainActivity
 import com.example.mechaapp.features.Register.Register
 import com.example.mechaapp.partner.features2.history2.detailpembayaran.LayananTambahan
+import com.example.mechaapp.features.confirmation.PaymentConfirmation
+import com.example.mechaapp.partner.features2.bayartagihan.BayarTagihan
 
 class LandingPage : AppCompatActivity() {
     private lateinit var binding: ActivityLandingPageBinding

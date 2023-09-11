@@ -5,11 +5,8 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import com.example.mechaapp.R
 import com.example.mechaapp.databinding.ActivityNavbarContainer2Binding
-import com.example.mechaapp.databinding.ActivityNavbarContainerBinding
-import com.example.mechaapp.features.Dashboard.HomeFragment
-import com.example.mechaapp.features.History.HistoryFragment
-import com.example.mechaapp.features.chat.ChatFragment
-import com.example.mechaapp.features.profile.ProfileFragment
+import com.example.mechaapp.partner.features2.history2.HistoryFragment2
+
 
 class NavbarContainer2 : AppCompatActivity() {
     private lateinit var binding: ActivityNavbarContainer2Binding
@@ -25,7 +22,7 @@ class NavbarContainer2 : AppCompatActivity() {
             when (it.itemId) {
                 R.id.nav_home -> replaceFragment(HomeFragment2())
                 //    R.id.nav_chat -> replaceFragment(ChatFragment())
-                //  R.id.nav_history -> replaceFragment(HistoryFragment())
+                  R.id.nav_history -> replaceFragment(HistoryFragment2())
                 //R.id.nav_profile -> replaceFragment(ProfileFragment())
             }
             true

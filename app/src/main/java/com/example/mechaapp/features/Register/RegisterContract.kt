@@ -8,7 +8,7 @@ interface RegisterContract {
     fun onFinishedLoading()
     fun onError(code: Int, message: String)
     fun onSuccesRegister(user: RegisResponse?)
-    fun onErrorSignup()
+    fun onErrorSignup(message: String)
     fun onErrorSuccess(code: Int, message: String)
     fun onErrorAvailable(code: Int, message: String )
 

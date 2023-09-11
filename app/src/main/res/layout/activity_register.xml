@@ -6,6 +6,32 @@
     android:layout_height="match_parent"
     tools:context=".features.Register.Register">
 
+    <FrameLayout
+        android:id="@+id/bgLoadingregis"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#40000000"
+        android:elevation="1dp"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+    </FrameLayout>
+
+    <ProgressBar
+        android:id="@+id/pbLoadingregis"
+        style="?android:attr/progressBarStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:elevation="2dp"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -23,6 +49,23 @@
             tools:layout_conversion_absoluteWidth="411dp"
             tools:layout_editor_absoluteX="0dp"
             tools:layout_editor_absoluteY="0dp">
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnSignup"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="32dp"
+                android:background="#1BCABB"
+                android:backgroundTint="@color/bg_button_selector"
+                android:enabled="false"
+                android:fontFamily="@font/poppins_semibold"
+                android:text="Daftar"
+                android:textColor="#FFFFFF"
+                android:textColorHighlight="@color/purple_500"
+                app:cornerRadius="8dp"
+                app:layout_constraintEnd_toEndOf="@+id/etConpass"
+                app:layout_constraintStart_toStartOf="@+id/etConpass"
+                app:layout_constraintTop_toBottomOf="@+id/etConpass" />
 
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/etEmail"
@@ -65,12 +108,12 @@
                 android:layout_marginTop="31dp"
                 app:boxStrokeWidth="0dp"
                 app:boxStrokeWidthFocused="0dp"
+                app:hintEnabled="false"
                 app:layout_constraintEnd_toEndOf="@+id/etPassword"
                 app:layout_constraintStart_toStartOf="@+id/etPassword"
                 app:layout_constraintTop_toBottomOf="@+id/etPassword"
                 app:passwordToggleEnabled="true"
                 app:passwordToggleTint="@color/purple_500"
-                app:hintEnabled="false"
                 app:startIconDrawable="@drawable/ic_lock"
                 app:startIconTint="@color/purple_200">
 
@@ -82,21 +125,6 @@
                     android:inputType="textPassword"
                     android:paddingTop="10dp" />
             </com.google.android.material.textfield.TextInputLayout>
-
-            <Button
-                android:id="@+id/btnSign"
-                android:layout_width="0dp"
-                android:layout_height="60dp"
-                android:layout_marginTop="32dp"
-                android:layout_marginBottom="30dp"
-                android:padding="10dp"
-                android:text="Sign Up"
-                android:textAllCaps="false"
-                app:cornerRadius="10dp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="@+id/etConpass"
-                app:layout_constraintStart_toStartOf="@+id/etConpass"
-                app:layout_constraintTop_toBottomOf="@+id/etConpass" />
 
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/etName"
@@ -125,11 +153,11 @@
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/etPhone"
                 android:layout_width="0dp"
-                app:hintEnabled="false"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="31dp"
                 app:boxStrokeWidth="0dp"
                 app:boxStrokeWidthFocused="0dp"
+                app:hintEnabled="false"
                 app:layout_constraintEnd_toEndOf="@+id/etEmail"
                 app:layout_constraintStart_toStartOf="@+id/etEmail"
                 app:layout_constraintTop_toBottomOf="@+id/etEmail"
@@ -148,11 +176,10 @@
                 android:id="@+id/imageView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="83dp"
+                android:src="@drawable/ic_daftar_gambar"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                android:src="@drawable/mainkomputer" />
+                app:layout_constraintTop_toTopOf="parent" />
 
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/etPassword"
@@ -161,8 +188,8 @@
                 android:layout_marginTop="31dp"
                 app:boxStrokeWidth="0dp"
                 app:boxStrokeWidthFocused="0dp"
-                app:layout_constraintEnd_toEndOf="@+id/etPhone"
                 app:hintEnabled="false"
+                app:layout_constraintEnd_toEndOf="@+id/etPhone"
                 app:layout_constraintStart_toStartOf="@+id/etPhone"
                 app:layout_constraintTop_toBottomOf="@+id/etPhone"
                 app:passwordToggleEnabled="true"
@@ -243,23 +270,25 @@
                 android:id="@+id/textView19"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="88dp"
                 android:layout_marginTop="16dp"
-                android:layout_marginEnd="25dp"
-                android:layout_marginBottom="20dp"
+                android:layout_marginBottom="27dp"
                 android:text="Sudah punya akun ?"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="@+id/btnSign"
-                app:layout_constraintStart_toStartOf="@+id/btnSign"
-                app:layout_constraintTop_toBottomOf="@+id/btnSign" />
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/btnSignup" />
 
             <TextView
                 android:id="@+id/tpiwAlready"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="3dp"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="16dp"
+                android:fontFamily="@font/poppins_bold"
                 android:text="Masuk"
-                app:layout_constraintBottom_toBottomOf="@+id/textView19"
-                app:layout_constraintStart_toEndOf="@+id/textView19" />
+                android:textColor="@color/teal_200"
+                app:layout_constraintStart_toEndOf="@+id/textView19"
+                app:layout_constraintTop_toBottomOf="@+id/btnSignup" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>

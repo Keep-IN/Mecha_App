@@ -1,0 +1,12 @@
+package com.example.mechaapp.data.Model
+
+import kotlinx.parcelize.Parcelize
+import android.os.Parcelable
+
+@Parcelize
+data class RiwayatItemModel2 (
+    val judul: String,
+    val isistatus: String,
+    val tanggalorderan: String,
+    val hargaorderan: String
+    ) :Parcelable

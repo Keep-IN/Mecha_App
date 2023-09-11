@@ -38,7 +38,7 @@ class RegisterPresenter(
         }
 
         fun validatePassword (password: String): Boolean {
-            val isPasswordValid = password.contains ("^(?=.*[a-zA-Z])(?=.*\\d).{8,}\$".toRegex())
+            val isPasswordValid = password.contains ("^(?=.*[0-9])(?=.*[a-zA-Z])[a-zA-Z0-9]{8,}\$".toRegex())
             if (isPasswordValid) {
                 view.onErrorSuccess(2,"")
             } else {
@@ -80,7 +80,7 @@ class RegisterPresenter(
             scope.launch {
                 when(it){
                     is ResponseStatus.Success -> view.onSuccesRegister(it.data)
-                    is ResponseStatus.Failed -> view.onErrorSignup()
+                    is ResponseStatus.Failed -> view.onErrorSignup(it.message)
                 }
             }
         }

@@ -63,25 +63,19 @@
                     android:layout_marginLeft="24dp"
                     android:layout_marginTop="20dp"
                     android:fontFamily="@font/poppins_semibold"
-                    android:text="Promo For You"
+                    android:text="Promo Hari Ini"
                     android:textColor="#000000"
                     android:textSize="16sp" />
             </FrameLayout>
 
             <com.google.android.material.card.MaterialCardView
                 android:id="@+id/materialCardView"
-                android:layout_width="match_parent"
+                android:layout_width="0dp"
                 android:layout_height="66dp"
-                android:backgroundTint="#1BCABB">
-
-                <ImageView
-                    android:id="@+id/imageView15"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="right"
-                    android:paddingTop="6dp"
-                    android:paddingRight="20dp"
-                    android:src="@drawable/fotopropil" />
+                android:backgroundTint="#1BCABB"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
 
                 <TextView
                     android:id="@+id/textView13"
@@ -95,7 +89,7 @@
                     android:textSize="20sp" />
 
                 <TextView
-                    android:id="@+id/textView20"
+                    android:id="@+id/tvnamaDashboard"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/poppins_medium"
@@ -103,6 +97,21 @@
                     android:paddingTop="40dp"
                     android:text="Jacob Jones"
                     android:textColor="#FFFFFF" />
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:layout_gravity="right"
+                    android:layout_marginTop="6dp"
+                    android:layout_marginRight="20dp"
+                    app:cardCornerRadius="48dp" >
+
+                    <ImageView
+                        android:id="@+id/imageView47"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        tools:src="@tools:sample/avatars" />
+                </androidx.cardview.widget.CardView>
             </com.google.android.material.card.MaterialCardView>
 
             <androidx.cardview.widget.CardView

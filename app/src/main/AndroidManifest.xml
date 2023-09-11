@@ -26,6 +26,53 @@
             android:name=".partner.features2.history2.detailpembayaran.DetailPembayaran"
             android:exported="false" />
         <activity
+            android:name=".features.confirmation.PaymentConfirmation"
+            android:exported="false" />
+        <activity
+            android:name=".partner.features2.profile2.EditProfilem"
+            android:exported="false" />
+        <activity
+            android:name=".features.Loading.Loading"
+            android:exported="false" />
+        <activity
+            android:name=".features.Map.ConfirmationOrder"
+            android:exported="false" />
+        <activity
+            android:name=".features.Map.MapAddress"
+            android:exported="false" />
+        <activity
+            android:name=".partner.features2.History2.Detail.DetailPesanan"
+            android:exported="false" />
+        <activity
+            android:name=".features.DetailPesanan.DetailPesananTransfer"
+            android:exported="false" />
+        <activity
+            android:name=".features.DetailPesanan.MenungguKonfirmasiPembayaran"
+            android:exported="false" />
+        <activity
+            android:name=".partner.features2.bayartagihan.BayarTagihan"
+            android:exported="false" />
+        <activity
+            android:name=".partner.features2.History2.Detail.DetailPesananM"
+            android:exported="false" />
+        <activity
+            android:name=".partner.features2.ambilpesan.AmbilPesan"
+            android:exported="false"
+            android:label="@string/title_activity_metode_pembayaran"
+            android:theme="@style/Theme.MechaApp" />
+        <activity
+            android:name=".features.DetailPesanan.MetodePembayaran"
+            android:exported="false" />
+        <activity
+            android:name=".features.profile.AlertDialogKeluarAkun"
+            android:exported="false" />
+        <activity
+            android:name=".features.DetailPesanan.DetailPesanan"
+            android:exported="false" />
+        <activity
+            android:name=".features.profile.EditProfile"
+            android:exported="false" />
+        <activity
             android:name=".partner.home2.NavbarContainer2"
             android:exported="false">
             <meta-data

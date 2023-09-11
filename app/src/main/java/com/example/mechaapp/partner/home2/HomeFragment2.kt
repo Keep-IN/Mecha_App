@@ -1,5 +1,6 @@
 package com.example.mechaapp.partner.home2
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -7,8 +8,10 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.mechaapp.databinding.FragmentHome2Binding
-import com.example.mechaapp.partner.features2.adapter2.HistoryListAdapter2
-import com.example.mechaapp.partner.features2.data2.DataRiwayat
+import com.example.mechaapp.data.adapter.HistoryListAdapter2
+import com.example.mechaapp.partner.features2.ambilpesan.AmbilPesan
+import com.example.mechaapp.data.Model.DataRiwayatMontir
+import com.example.mechaapp.data.Model.DataUser
 
 class HomeFragment2 : Fragment() {
     private  lateinit var binding: FragmentHome2Binding
@@ -19,6 +22,10 @@ class HomeFragment2 : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         binding = FragmentHome2Binding.inflate(layoutInflater, container, false)
+
+        binding.cvambilPesan.setOnClickListener {
+            startActivity(Intent(activity, AmbilPesan::class.java ))
+        }
         return binding.root
     }
 
@@ -26,8 +33,10 @@ class HomeFragment2 : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         val layoutManager = LinearLayoutManager(activity)
-        adapterHistory.submitList(DataRiwayat.riwayathomeList)
+        adapterHistory.submitList(DataRiwayatMontir.riwayathomeList)
         binding.rvMekanik.adapter = adapterHistory
         binding.rvMekanik.layoutManager = layoutManager
-}
+        binding.tvNamamekanik.text = DataUser.nama
     }
+
+}
