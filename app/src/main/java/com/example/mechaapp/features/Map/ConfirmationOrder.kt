@@ -8,6 +8,7 @@ import android.widget.Toast
 import com.example.mechaapp.R
 import com.example.mechaapp.data.Api.OrderAPI
 import com.example.mechaapp.data.Model.DataAddress
+import com.example.mechaapp.data.Model.OrderGetResponse
 import com.example.mechaapp.data.Model.OrderResponse
 import com.example.mechaapp.databinding.ActivityConfirmationOrderBinding
 
@@ -44,5 +45,17 @@ class ConfirmationOrder : AppCompatActivity(), OrderContract {
 
     override fun onErrorOrder(msg: String) {
         Toast.makeText(this, "gagal", Toast.LENGTH_SHORT).show()
+    }
+
+    override fun onSuccesHistory(history: OrderResponse?) {
+        TODO("Not yet implemented")
+    }
+
+    override fun onErrorhistory(msg: String) {
+        TODO("Not yet implemented")
+    }
+
+    override fun onSuccesGetOrder(order: OrderGetResponse?) {
+        TODO("Not yet implemented")
     }
 }
