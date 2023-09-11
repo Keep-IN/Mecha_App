@@ -45,6 +45,8 @@ class HistoryFragment2 : Fragment() {
                 tvProcessHistory.setTextColor(Color.parseColor("#000000"))
                 cvDeclineHistory.setCardBackgroundColor(Color.parseColor("#FFFFFF"))
                 tvDeclineHistory.setTextColor(Color.parseColor("#000000"))
+                cvWaitingHistory.setCardBackgroundColor(Color.parseColor("#FFFFFF"))
+                tvWaitingHistory.setTextColor(Color.parseColor("#FFFFFF"))
             }
         }
 
@@ -62,6 +64,8 @@ class HistoryFragment2 : Fragment() {
                 tvProcessHistory.setTextColor(Color.parseColor("#000000"))
                 cvDeclineHistory.setCardBackgroundColor(Color.parseColor("#FFFFFF"))
                 tvDeclineHistory.setTextColor(Color.parseColor("#000000"))
+                cvWaitingHistory.setCardBackgroundColor(Color.parseColor("#FFFFFF"))
+                tvWaitingHistory.setTextColor(Color.parseColor("#FFFFFF"))
             }
         }
 
@@ -79,6 +83,8 @@ class HistoryFragment2 : Fragment() {
                 tvProcessHistory.setTextColor(Color.parseColor("#FFFFFF"))
                 cvDeclineHistory.setCardBackgroundColor(Color.parseColor("#FFFFFF"))
                 tvDeclineHistory.setTextColor(Color.parseColor("#000000"))
+                cvWaitingHistory.setCardBackgroundColor(Color.parseColor("#FFFFFF"))
+                tvWaitingHistory.setTextColor(Color.parseColor("#FFFFFF"))
             }
         }
 
@@ -96,6 +102,27 @@ class HistoryFragment2 : Fragment() {
                 tvProcessHistory.setTextColor(Color.parseColor("#000000"))
                 cvDeclineHistory.setCardBackgroundColor(Color.parseColor("#56AB91"))
                 tvDeclineHistory.setTextColor(Color.parseColor("#FFFFFF"))
+                cvWaitingHistory.setCardBackgroundColor(Color.parseColor("#FFFFFF"))
+                tvWaitingHistory.setTextColor(Color.parseColor("#FFFFFF"))
+            }
+        }
+
+        binding.cvWaitingHistory.setOnClickListener() {
+            val filteredHistory = DataRiwayatFragment.riwayatfragmentList.filter {
+                it.status.contains("Selesai")
+            }
+            adapterHistory.submitList(filteredHistory)
+            binding.apply {
+                cvAllHistory.setCardBackgroundColor(Color.parseColor("#FFFFFF"))
+                tvAllHistory.setTextColor(Color.parseColor("#000000"))
+                cvDoneHistory.setCardBackgroundColor(Color.parseColor("#FFFFFF"))
+                tvDoneHistory.setTextColor(Color.parseColor("#000000"))
+                cvProcessHistory.setCardBackgroundColor(Color.parseColor("#FFFFFF"))
+                tvProcessHistory.setTextColor(Color.parseColor("#000000"))
+                cvDeclineHistory.setCardBackgroundColor(Color.parseColor("#FFFFFF"))
+                tvDeclineHistory.setTextColor(Color.parseColor("#FFFFFF"))
+                cvWaitingHistory.setCardBackgroundColor(Color.parseColor("#56AB91"))
+                tvWaitingHistory.setTextColor(Color.parseColor("#FFFFFF"))
             }
         }
     }

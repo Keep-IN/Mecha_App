@@ -3,6 +3,7 @@ package com.example.mechaapp.features.Register
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
 import android.widget.Toast
 import com.example.mechaapp.R
 import androidx.core.widget.doOnTextChanged
@@ -56,6 +57,7 @@ class Register : AppCompatActivity(), RegisterContract {
         }
 
         binding.btnSignup.setOnClickListener{
+            onLoading()
            presenter.regisUser(binding.etName.editText?.text.toString(),binding.etPhone.editText?.text.toString(),binding.etEmail.editText?.text.toString(),binding.etPassword.editText?.text.toString())
         }
 
@@ -74,11 +76,13 @@ class Register : AppCompatActivity(), RegisterContract {
     }
 
     override fun onLoading() {
-        TODO("Not yet implemented")
+        binding.bgLoadingregis.visibility = View.VISIBLE
+        binding.pbLoadingregis.visibility = View.VISIBLE
     }
 
     override fun onFinishedLoading() {
-        TODO("Not yet implemented")
+        binding.bgLoadingregis.visibility = View.GONE
+        binding.pbLoadingregis.visibility = View.GONE
     }
 
     override fun onError(code: Int, message: String) {

@@ -27,26 +27,10 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="right"
-                android:layout_marginStart="169dp"
+                android:layout_marginTop="40dp"
                 android:layout_marginEnd="16dp"
-                android:layout_marginBottom="43dp"
-                android:paddingTop="40dp"
-                android:paddingRight="16dp"
                 android:text="-Rp 2500"
-                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/tvIsiStatus"
-                app:layout_constraintTop_toTopOf="parent" />
-
-            <ImageView
-                android:id="@+id/imageView20"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:paddingLeft="16dp"
-                android:paddingTop="31dp"
-                android:paddingBottom="44dp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
@@ -54,38 +38,43 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/poppins_light"
-                android:paddingLeft="58dp"
-                android:paddingTop="40dp"
                 android:text="Pengambilan Orderan"
                 android:textSize="10dp"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintStart_toStartOf="@+id/tvJudulStatus"
+                app:layout_constraintTop_toBottomOf="@+id/tvJudulStatus" />
 
             <TextView
                 android:id="@+id/tvJudulStatus"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="14dp"
+                android:layout_marginTop="16dp"
                 android:fontFamily="@font/poppins_medium"
-                android:paddingLeft="58dp"
-                android:paddingTop="16dp"
                 android:text="Saldo Keluar"
                 android:textColor="#000000"
                 android:textSize="14dp"
-                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/imageView15"
                 app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
                 android:id="@+id/tvTanggalOrderan"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="30dp"
                 android:fontFamily="@font/poppins_light"
-                android:paddingLeft="58dp"
-                android:paddingTop="58dp"
                 android:text="17 Maret 2023"
                 android:textSize="10dp"
-                app:layout_constraintBottom_toBottomOf="@+id/imageView20"
-                app:layout_constraintStart_toStartOf="parent" />
+                app:layout_constraintStart_toStartOf="@+id/tvIsiStatus"
+                app:layout_constraintTop_toBottomOf="@+id/tvIsiStatus" />
+
+            <ImageView
+                android:id="@+id/imageView15"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="30dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/ic_minus" />
         </androidx.constraintlayout.widget.ConstraintLayout>
 
     </androidx.cardview.widget.CardView>

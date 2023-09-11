@@ -1,9 +1,11 @@
 package com.example.mechaapp.features.Dashboard.Layanan.GantiBan
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.example.mechaapp.databinding.ActivityLayananBanBinding
 import com.example.mechaapp.databinding.BottomSheetVelgBinding
+import com.example.mechaapp.features.Dashboard.HomeFragment
 import com.example.mechaapp.features.Dashboard.Layanan.GantiBan.BottomSheetGantiBan
 
 class LayananBan : AppCompatActivity() {
@@ -19,6 +21,9 @@ class LayananBan : AppCompatActivity() {
             }
             cvGantiVelg.setOnClickListener {
                 BottomSheetGantiVelg().show(supportFragmentManager, "Ganti Velg")
+            }
+            ivbackLayanan.setOnClickListener {
+                startActivity(Intent(this@LayananBan, HomeFragment::class.java))
             }
         }
     }

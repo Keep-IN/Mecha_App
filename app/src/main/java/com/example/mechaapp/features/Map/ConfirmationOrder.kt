@@ -11,6 +11,7 @@ import com.example.mechaapp.data.Model.DataAddress
 import com.example.mechaapp.data.Model.OrderGetResponse
 import com.example.mechaapp.data.Model.OrderResponse
 import com.example.mechaapp.databinding.ActivityConfirmationOrderBinding
+import com.example.mechaapp.features.Dashboard.HomeFragment
 
 class ConfirmationOrder : AppCompatActivity(), OrderContract {
     private lateinit var binding: ActivityConfirmationOrderBinding
@@ -35,6 +36,9 @@ class ConfirmationOrder : AppCompatActivity(), OrderContract {
         }
         binding.btnPesan.setOnClickListener {
             presenter.postOrder(binding.tvTitle.text.toString(), binding.tvSubtitle.text.toString(), binding.tvAlamat.text.toString(), binding.tvUrl.text.toString())
+        }
+        binding.ivbackConfirm.setOnClickListener {
+            startActivity(Intent(this@ConfirmationOrder, MapAddress::class.java))
         }
 
     }

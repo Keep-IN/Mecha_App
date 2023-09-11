@@ -5,9 +5,11 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
+import android.view.View
 import androidx.core.widget.doOnTextChanged
 import com.example.mechaapp.data.Api.UserAPI
 import com.example.mechaapp.data.Model.DataToken
+import com.example.mechaapp.data.Model.DataUser
 import com.example.mechaapp.data.Model.LoginResponse
 import com.example.mechaapp.features.Login.ForgetPassword
 import com.example.mechaapp.features.Register.Register
@@ -59,7 +61,9 @@ class MainActivity : AppCompatActivity(), MainActivityContract {
             startActivity(Intent(this, Register::class.java ))
         }
         binding.btnToLogin.setOnClickListener {
-            presenter.loginUser(binding.tilemailLogin.editText?.text.toString(), binding.tilpwLogin.editText?.text.toString())
+            onLoading()
+            presenter.loginUser(binding.tilemailLogin.editText?.text.toString(),
+                binding.tilpwLogin.editText?.text.toString())
         }
     }
 
@@ -70,11 +74,13 @@ class MainActivity : AppCompatActivity(), MainActivityContract {
     }
 
     override fun onLoading() {
-        TODO("Not yet implemented")
+        binding.bgLoading.visibility = View.VISIBLE
+        binding.pbLoading.visibility = View.VISIBLE
     }
 
     override fun onFinishedLoading() {
-        TODO("Not yet implemented")
+        binding.bgLoading.visibility = View.GONE
+        binding.pbLoading.visibility = View.GONE
     }
 
     override fun onError(code: Int, message: String) {
@@ -95,6 +101,7 @@ class MainActivity : AppCompatActivity(), MainActivityContract {
 
     override fun onSuccesLogin(user: LoginResponse?) {
         DataToken.token = user?.token.toString()
+        DataUser.nama = user?.nama.toString()
         AlertDialogLoginSucces().show(supportFragmentManager,"test")
         Handler(Looper.getMainLooper()).postDelayed({
             if (user != null) {

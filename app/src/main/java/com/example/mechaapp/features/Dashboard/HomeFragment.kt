@@ -10,6 +10,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.mechaapp.databinding.FragmentHomeBinding
 import com.example.mechaapp.data.adapter.SpotlightListAdapter
 import com.example.mechaapp.data.Model.DataSpotlight
+import com.example.mechaapp.data.Model.DataUser
 import com.example.mechaapp.features.Dashboard.Layanan.GantiBan.LayananBan
 
 class HomeFragment : Fragment() {
@@ -32,6 +33,7 @@ class HomeFragment : Fragment() {
         adapterSpotlight.submitList(DataSpotlight.spotlightList)
         binding.rvSpotlight.adapter = adapterSpotlight
         binding.rvSpotlight.layoutManager = layoutManagerHorizontal
+        binding.tvnamaDashboard.text = DataUser.nama
 
         binding.cvTireFix.setOnClickListener {
             startActivity(Intent(activity, LayananBan::class.java))

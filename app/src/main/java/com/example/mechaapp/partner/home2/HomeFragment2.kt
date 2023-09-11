@@ -11,6 +11,7 @@ import com.example.mechaapp.databinding.FragmentHome2Binding
 import com.example.mechaapp.data.adapter.HistoryListAdapter2
 import com.example.mechaapp.partner.features2.ambilpesan.AmbilPesan
 import com.example.mechaapp.data.Model.DataRiwayatMontir
+import com.example.mechaapp.data.Model.DataUser
 
 class HomeFragment2 : Fragment() {
     private  lateinit var binding: FragmentHome2Binding
@@ -35,6 +36,7 @@ class HomeFragment2 : Fragment() {
         adapterHistory.submitList(DataRiwayatMontir.riwayathomeList)
         binding.rvMekanik.adapter = adapterHistory
         binding.rvMekanik.layoutManager = layoutManager
+        binding.tvNamamekanik.text = DataUser.nama
     }
 
 }
