@@ -41,6 +41,26 @@ class OrderPresenter(
         }
     }
 
+    fun postPriceOrder(id_service: String, desc: String, price: String){
+        api.postPriceOrder(id_service,desc,price){
+            scope.launch {
+                when(it){
+                    is ResponseStatus.Success -> view.onSuccessPrice(it.data)
+                    is ResponseStatus.Failed -> view.onErrorPrice(it.message)
+                }
+            }
+        }
+    }
+
+    fun postPriceHistory(id_service: String, desc: String, price: String){
+        api.postPriceHistory(id_service, desc, price){
+            when(it){
+                is ResponseStatus.Success -> view.onSuccessPrice(it.data)
+                is ResponseStatus.Failed -> view.onErrorPrice(it.message)
+            }
+        }
+    }
+
     fun getOrderById(id: String){
         api.getOrderById(id){
             scope.launch {

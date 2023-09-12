@@ -43,6 +43,28 @@ class DetailPresenter(
         }
     }
 
+    fun postPriceById(id_service: String, desc: String, price: String){
+        api.postPriceById(id_service, desc, price){
+            scope.launch {
+                when(it){
+                    is ResponseStatus.Success -> view.onSuccesPrice(it.data)
+                    is ResponseStatus.Failed -> view.onErrorPrice(it.message)
+                }
+            }
+        }
+    }
+
+    fun getPriceById(ide_service: String){
+        api.getPrice(ide_service){
+            scope.launch {
+                when(it){
+                    is ResponseStatus.Success -> view.onSuccesGetPrice(it.data)
+                    is ResponseStatus.Failed -> view.onErrorPrice(it.message)
+                }
+            }
+        }
+    }
+
     fun deleteOrder(id: String){
         api.delOrder(id) {
             scope.launch {

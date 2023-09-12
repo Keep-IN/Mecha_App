@@ -11,7 +11,7 @@ import java.util.concurrent.TimeUnit
 
 class NetworkClient {
     companion object {
-        private const val BASE_URL = "https://b6e3-180-252-117-142.ngrok-free.app/api"
+        private const val BASE_URL = "https://80e0-180-252-117-142.ngrok-free.app/api"
         private val headerInterceptor: Interceptor = Interceptor {
             val request = it.request().newBuilder()
             request
@@ -173,11 +173,11 @@ class NetworkClient {
 
         fun requestPrice(endpoint: String, token: String, id_service: String, desc: String, price: String, method: METHOD = METHOD.POST, jsonBody: String? = null): Request{
             val requestBody = FormBody.Builder()
-                .add("id_service", id_service)
+                .add("description_service", desc)
                 .add("price", price)
                 .build()
             val request = Request.Builder()
-                .url("$BASE_URL$endpoint/$id_service")
+                .url("$BASE_URL$endpoint$id_service")
                 .header("Authorization", "Bearer $token")
                 .post(requestBody)
             if(jsonBody != null)

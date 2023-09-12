@@ -4,8 +4,8 @@ import com.squareup.moshi.JsonClass
 
 @JsonClass(generateAdapter = true)
 data class OrderResponse(
-    val status: Int,
-//    val id_service: String,
-    val msg: String,
+    val status: Int = 0,
+    val id: Int = 0,
+    val msg: String = "",
     val order: OrderModel? = null
 )

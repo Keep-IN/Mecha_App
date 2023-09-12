@@ -6,7 +6,9 @@ import com.example.mechaapp.data.Model.HistoryGetResponse
 import com.example.mechaapp.data.Model.OrderGetResponse
 import com.example.mechaapp.data.Model.OrderModel
 import com.example.mechaapp.data.Model.OrderResponse
+import com.example.mechaapp.data.Model.PriceGetResponse
 import com.example.mechaapp.data.Model.PriceModel
+import com.example.mechaapp.data.Model.PriceResponse
 import com.example.mechaapp.data.Model.RegisResponse
 import com.example.mechaapp.data.Model.StatusResponse
 import com.example.mechaapp.data.Model.UserModel
@@ -26,7 +28,10 @@ class OrderAPI {
     private val orderEndpoint = "/orders"
     private val historyEndpoint = "/histories"
     private val updateStatEndpoint = "/update/status"
-    private val priceEndpoint = "/prices"
+    private val priceEndpointOrder = "/prices/orders/"
+    private val priceEndpointHistory = "/prices/histories/"
+    private val priceEndpointById = "/prices/histories/by/id/"
+    private val priceEndpointIdService = "/prices"
 
     fun getAllOrder(onResponse: (ResponseStatus<OrderGetResponse?>)-> Unit){
         val request = NetworkClient.getWithBearerToken(orderEndpoint, DataToken.token)
@@ -131,6 +136,40 @@ class OrderAPI {
             })
     }
 
+    fun getPrice(id_service: String, onResponse: (ResponseStatus<PriceGetResponse?>) -> Unit){
+        val request = NetworkClient.requestById(priceEndpointIdService, DataToken.token, id_service)
+        NetworkClient
+            .client.newCall(request)
+            .enqueue(object : Callback{
+                override fun onFailure(call: Call, e: IOException) {
+                    onResponse.invoke(
+                        ResponseStatus.Failed(
+                            code = -1,
+                            message = e.message.toString(),
+                            throwable = e
+                        )
+                    )
+                }
+
+                override fun onResponse(call: Call, response: Response) {
+                    if (response.isSuccessful){
+                        val data = deserializeJson<PriceGetResponse>(response.body?.string() ?: "") ?: PriceGetResponse(0, "")
+                        onResponse.invoke(ResponseStatus.Success(
+                            data = data,
+                            method = "GET",
+                            status = true
+                        ))
+                    } else {
+                        onResponse.invoke(
+                            mapFailedResponse(response)
+                        )
+                    }
+                    response.body?.close()
+                }
+
+            })
+    }
+
     fun postOrder(service: String, status: String, address: String, mapUrl: String, onResponse: (ResponseStatus<OrderResponse?>) -> Unit){
         val request = NetworkClient.requestOrder(orderEndpoint, DataToken.token, service, status, address, mapUrl)
         NetworkClient
@@ -151,7 +190,7 @@ class OrderAPI {
                     Log.d("Response", "Status Code: ${response.code}")
                    if(response.isSuccessful){
                        try{
-                           val data = deserializeJson(response.body?.string() ?: "") ?: OrderResponse(0,"")
+                           val data = deserializeJson(response.body?.string() ?: "") ?: OrderResponse()
                            onResponse.invoke(
                                ResponseStatus.Success(
                                    data = data,
@@ -199,7 +238,7 @@ class OrderAPI {
                     Log.d("Response", "Status Code: ${response.code}")
                     if(response.isSuccessful){
                         try{
-                            val data = deserializeJson(response.body?.string() ?: "") ?: OrderResponse(0,"")
+                            val data = deserializeJson(response.body?.string() ?: "") ?: OrderResponse()
                             onResponse.invoke(
                                 ResponseStatus.Success(
                                     data = data,
@@ -264,8 +303,8 @@ class OrderAPI {
             })
     }
 
-    fun postPrice(id_service: String, desc: String, price: String, onResponse: (ResponseStatus<PriceModel?>) -> Unit){
-        val request = NetworkClient.requestPrice(priceEndpoint, DataToken.token, id_service, desc, price)
+    fun postPriceOrder(id_service: String, desc: String, price: String, onResponse: (ResponseStatus<PriceResponse?>) -> Unit){
+        val request = NetworkClient.requestPrice(priceEndpointOrder, DataToken.token, id_service, desc, price)
         NetworkClient
             .client
             .newCall(request)
@@ -282,7 +321,83 @@ class OrderAPI {
 
                 override fun onResponse(call: Call, response: Response) {
                     if(response.isSuccessful){
-                        val data = deserializeJson(response.body?.string() ?: "") ?: PriceModel(0,"", "")
+                        val data = deserializeJson(response.body?.string() ?: "") ?: PriceResponse("")
+                        onResponse.invoke(
+                            ResponseStatus.Success(
+                                data = data,
+                                method = "POST",
+                                status = true
+                            )
+                        )
+                    } else {
+                        onResponse.invoke(
+                            mapFailedResponse(response)
+                        )
+                    }
+                    response.body?.close()
+                }
+
+            })
+    }
+
+    fun postPriceHistory(id_service: String, desc: String, price: String, onResponse: (ResponseStatus<PriceResponse?>) -> Unit){
+        val request = NetworkClient.requestPrice(priceEndpointHistory, DataToken.token, id_service, desc, price)
+        NetworkClient
+            .client
+            .newCall(request)
+            .enqueue(object : Callback{
+                override fun onFailure(call: Call, e: IOException) {
+                    onResponse.invoke(
+                        ResponseStatus.Failed(
+                            code = -1,
+                            message = e.message.toString(),
+                            throwable = e
+                        )
+                    )
+                }
+
+                override fun onResponse(call: Call, response: Response) {
+                    Log.d("Response", "Status Code: ${response.code}")
+                    if(response.isSuccessful){
+                        val data = deserializeJson(response.body?.string() ?: "") ?: PriceResponse("")
+                        onResponse.invoke(
+                            ResponseStatus.Success(
+                                data = data,
+                                method = "POST",
+                                status = true
+                            )
+                        )
+                    } else {
+                        onResponse.invoke(
+                            mapFailedResponse(response)
+                        )
+                    }
+                    response.body?.close()
+                }
+
+            })
+    }
+
+    fun postPriceById(id: String, desc: String, price: String, onResponse: (ResponseStatus<PriceResponse?>) -> Unit){
+        val request = NetworkClient.requestPrice(priceEndpointById, DataToken.token, id, desc, price)
+        NetworkClient
+            .client
+            .newCall(request)
+            .enqueue(object : Callback{
+                override fun onFailure(call: Call, e: IOException) {
+                    onResponse.invoke(
+                        ResponseStatus.Failed(
+                            code = -1,
+                            message = e.message.toString(),
+                            throwable = e
+                        )
+                    )
+                }
+
+                override fun onResponse(call: Call, response: Response) {
+                    Log.d("Response", "Status Code: ${response.code}")
+                    if(response.isSuccessful){
+                        val data = deserializeJson(response.body?.string() ?: "") ?: PriceResponse("")
                         onResponse.invoke(
                             ResponseStatus.Success(
                                 data = data,

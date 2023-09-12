@@ -17,5 +17,5 @@ data class OrderModel(
     val created_at: String,
     val sum: String?,
     val img_url: String,
-    val price: List<PriceModel> = mutableListOf()
+    val prices: List<PriceModel> = emptyList()
 ):Parcelable

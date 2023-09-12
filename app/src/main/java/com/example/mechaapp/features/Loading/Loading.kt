@@ -7,6 +7,8 @@ import com.example.mechaapp.data.Api.OrderAPI
 import com.example.mechaapp.data.Model.HistoryGetResponse
 import com.example.mechaapp.data.Model.OrderGetResponse
 import com.example.mechaapp.data.Model.OrderResponse
+import com.example.mechaapp.data.Model.PriceModel
+import com.example.mechaapp.data.Model.PriceResponse
 import com.example.mechaapp.databinding.ActivityLoadingBinding
 import com.example.mechaapp.features.Map.OrderContract
 import com.example.mechaapp.features.Map.OrderPresenter
@@ -45,6 +47,14 @@ class Loading : AppCompatActivity(), OrderContract {
     }
 
     override fun onErrorgetOrder(msg: String) {
+        TODO("Not yet implemented")
+    }
+
+    override fun onSuccessPrice(price: PriceResponse?) {
+        TODO("Not yet implemented")
+    }
+
+    override fun onErrorPrice(msg: String) {
         TODO("Not yet implemented")
     }
 }

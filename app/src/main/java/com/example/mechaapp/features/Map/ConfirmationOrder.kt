@@ -12,6 +12,8 @@ import com.example.mechaapp.data.Model.DataToken
 import com.example.mechaapp.data.Model.HistoryGetResponse
 import com.example.mechaapp.data.Model.OrderGetResponse
 import com.example.mechaapp.data.Model.OrderResponse
+import com.example.mechaapp.data.Model.PriceModel
+import com.example.mechaapp.data.Model.PriceResponse
 import com.example.mechaapp.databinding.ActivityConfirmationOrderBinding
 import com.example.mechaapp.features.Dashboard.HomeFragment
 import com.example.mechaapp.features.Dashboard.NavbarContainer
@@ -19,6 +21,8 @@ import com.example.mechaapp.features.Dashboard.NavbarContainer
 class ConfirmationOrder : AppCompatActivity(), OrderContract {
     private lateinit var binding: ActivityConfirmationOrderBinding
     private lateinit var presenter: OrderPresenter
+    private lateinit var idService: String
+    private lateinit var descService: String
     val url = Intent(android.content.Intent.ACTION_VIEW)
     override fun onCreate(savedInstanceState: Bundle?) {
         binding = ActivityConfirmationOrderBinding.inflate(layoutInflater)
@@ -49,6 +53,8 @@ class ConfirmationOrder : AppCompatActivity(), OrderContract {
     override fun onSuccesOrder(order: OrderResponse?) {
         presenter.postHistory(order?.order?.name_service.toString(), order?.order?.status.toString(),
             order?.order?.address.toString(), order?.order?.map_url.toString(), order?.order?.id_service.toString())
+        idService = order?.order?.id_service.toString()
+        descService = order?.order?.name_service.toString()
     }
 
     override fun onErrorOrder(msg: String) {
@@ -57,6 +63,8 @@ class ConfirmationOrder : AppCompatActivity(), OrderContract {
 
     override fun onSuccesHistory(history: OrderResponse?) {
         Toast.makeText(this, "Berhasil Order", Toast.LENGTH_SHORT).show()
+        presenter.postPriceOrder(idService,descService, "50000")
+        presenter.postPriceHistory(idService,descService, "50000")
         startActivity(Intent(this, NavbarContainer::class.java))
     }
 
@@ -70,5 +78,14 @@ class ConfirmationOrder : AppCompatActivity(), OrderContract {
 
     override fun onErrorgetOrder(msg: String) {
         Toast.makeText(this, "gagal get order", Toast.LENGTH_SHORT).show()
+    }
+
+    override fun onSuccessPrice(price: PriceResponse?) {
+    }
+
+    override fun onErrorPrice(msg: String) {
+        runOnUiThread {
+            Toast.makeText(this, "Gagal Price", Toast.LENGTH_SHORT).show()
+        }
     }
 }

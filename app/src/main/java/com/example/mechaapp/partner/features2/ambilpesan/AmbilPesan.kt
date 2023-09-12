@@ -3,6 +3,7 @@ package com.example.mechaapp.partner.features2.ambilpesan
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.mechaapp.data.Api.OrderAPI
@@ -51,6 +52,7 @@ class AmbilPesan : AppCompatActivity(), AmbilPesanContract {
 
     override fun onSuccessGet(order: OrderGetResponse?) {
         if (order != null) {
+            Log.d("MyApp", "Posting price for: ${order.order}")
             adapterHistory.submitList(order.order)
         }
     }
