@@ -1,8 +1,7 @@
-package com.example.mechaapp.partner.features2.history2
+package com.example.mechaapp.partner.features2.History2.history
 
 import com.example.mechaapp.data.Api.OrderAPI
 import com.example.mechaapp.data.Network.ResponseStatus
-import com.example.mechaapp.features.History.HistoryContract
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.Job

@@ -28,6 +28,7 @@ class OrderAPI {
     private val orderEndpoint = "/orders"
     private val historyEndpoint = "/histories"
     private val updateStatEndpoint = "/update/status"
+    private val updateNameEndpoint = "/update/name"
     private val priceEndpointOrder = "/prices/orders/"
     private val priceEndpointHistory = "/prices/histories/"
     private val priceEndpointById = "/prices/histories/by/id/"
@@ -218,8 +219,8 @@ class OrderAPI {
             })
     }
 
-    fun postHistory (service: String, status: String, address: String, mapUrl: String, id_service: String, onResponse: (ResponseStatus<OrderResponse?>) -> Unit) {
-        val request = NetworkClient.requestHistory(historyEndpoint, DataToken.token, service, status, address, mapUrl, id_service)
+    fun postHistory (name:String, service: String, status: String, address: String, mapUrl: String, id_service: String, onResponse: (ResponseStatus<OrderResponse?>) -> Unit) {
+        val request = NetworkClient.requestHistory(historyEndpoint, DataToken.token, name, service, status, address, mapUrl, id_service)
         NetworkClient
             .client
             .newCall(request)
@@ -418,6 +419,43 @@ class OrderAPI {
 
     fun updateStatus(status: String, id_service: String, onResponse: (ResponseStatus<StatusResponse?>) -> Unit){
         val request = NetworkClient.updateRequest("${historyEndpoint}${updateStatEndpoint}", DataToken.token, id_service, status)
+        NetworkClient
+            .client
+            .newCall(request)
+            .enqueue(object : Callback{
+                override fun onFailure(call: Call, e: IOException) {
+                    onResponse.invoke(
+                        ResponseStatus.Failed(
+                            code = -1,
+                            message = e.message.toString(),
+                            throwable = e
+                        )
+                    )
+                }
+
+                override fun onResponse(call: Call, response: Response) {
+                    if(response.isSuccessful){
+                        val data = deserializeJson(response.body?.string() ?: "") ?: StatusResponse(0, "")
+                        onResponse.invoke(
+                            ResponseStatus.Success(
+                                data = data,
+                                method = "PUT",
+                                status = true
+                            )
+                        )
+                    } else {
+                        onResponse.invoke(
+                            mapFailedResponse(response)
+                        )
+                    }
+                    response.body?.close()
+                }
+
+            })
+    }
+
+    fun updateNameHistory(name: String, id: String, onResponse: (ResponseStatus<StatusResponse?>) -> Unit){
+        val request = NetworkClient.updateReqName("${historyEndpoint}${updateNameEndpoint}", DataToken.token, name, id)
         NetworkClient
             .client
             .newCall(request)

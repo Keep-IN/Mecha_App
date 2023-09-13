@@ -52,11 +52,7 @@ class HistoryListAdapter: RecyclerView.Adapter<HistoryListAdapter.ViewHolder>()
                 tvLayananHistory.text = item.name_service
                 tvTanggalLayanan.text = item.created_at
                 tvStatusLayanan.text = item.status
-                if (item.sum == null) {
-                    tvLayananTambal.text = "Estimasi Rp.50,0000"
-                } else {
-                    tvLayananTambal.text = "Rp.${item.sum}"
-                }
+                tvLayananTambal.text = item.name
             }
         }
     }

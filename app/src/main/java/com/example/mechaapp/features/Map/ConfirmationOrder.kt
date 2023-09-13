@@ -51,7 +51,7 @@ class ConfirmationOrder : AppCompatActivity(), OrderContract {
     }
 
     override fun onSuccesOrder(order: OrderResponse?) {
-        presenter.postHistory(order?.order?.name_service.toString(), order?.order?.status.toString(),
+        presenter.postHistory(order?.order?.name.toString(), order?.order?.name_service.toString(), order?.order?.status.toString(),
             order?.order?.address.toString(), order?.order?.map_url.toString(), order?.order?.id_service.toString())
         idService = order?.order?.id_service.toString()
         descService = order?.order?.name_service.toString()

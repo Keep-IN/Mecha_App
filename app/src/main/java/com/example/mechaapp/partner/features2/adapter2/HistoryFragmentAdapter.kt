@@ -57,4 +57,7 @@ class HistoryFragmentAdapter: RecyclerView.Adapter<HistoryFragmentAdapter.ViewHo
             }
         }
     }
+    fun setOnclickItem(listener: ((OrderModel) -> Unit)?){
+        this.itemListener = listener
+    }
 }

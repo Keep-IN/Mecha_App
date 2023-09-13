@@ -8,6 +8,8 @@ import android.util.Log
 import android.widget.Toast
 import com.example.mechaapp.R
 import com.example.mechaapp.data.Api.OrderAPI
+import com.example.mechaapp.data.Model.DataPrice
+import com.example.mechaapp.data.Model.DataUser
 import com.example.mechaapp.data.Model.HistoryGetResponse
 import com.example.mechaapp.data.Model.OrderGetResponse
 import com.example.mechaapp.data.Model.OrderModel
@@ -24,7 +26,6 @@ class DetailPesanan : AppCompatActivity(), DetailContract {
     private lateinit var binding: ActivityDetailPesananMontirBinding
     private lateinit var presenter: DetailPresenter
     private lateinit var dataOrder: OrderModel
-    private lateinit var dataPrice: PriceGetResponse
 
     override fun onCreate(savedInstanceState: Bundle?) {
         binding = ActivityDetailPesananMontirBinding.inflate(layoutInflater)
@@ -47,7 +48,7 @@ class DetailPesanan : AppCompatActivity(), DetailContract {
 
     override fun onSuccesHistory(order: OrderResponse?) {
         Toast.makeText(this, "Berhasil", Toast.LENGTH_SHORT).show()
-        dataPrice.price.forEach {
+        DataPrice.priceList.forEach {
             runOnUiThread {
                 presenter.postPriceById(order?.order?.id.toString(), it.description_service, it.price)
             }
@@ -68,7 +69,7 @@ class DetailPesanan : AppCompatActivity(), DetailContract {
         runOnUiThread {
             presenter.updateStatus(dataOrder.id_service, "Diterima")
             presenter.getPriceById(dataOrder.id_service)
-            presenter.postHistory(dataOrder.name_service, "Diterima",
+            presenter.postHistory(dataOrder.name, dataOrder.name_service, "Diterima",
                 dataOrder.address, dataOrder.map_url, dataOrder.id_service)
         }
     }
@@ -90,8 +91,9 @@ class DetailPesanan : AppCompatActivity(), DetailContract {
     }
 
     override fun onSuccesGetPrice(price: PriceGetResponse?) {
+        presenter.updateName(DataUser.nama, dataOrder.user_id.toString())
         if (price != null) {
-            dataPrice = price
+            DataPrice.priceList = price.price.toMutableList()
         }
     }
 }

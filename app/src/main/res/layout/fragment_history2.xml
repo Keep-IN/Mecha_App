@@ -5,7 +5,7 @@
     android:id="@+id/frameLayout9"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".partner.features2.history2.HistoryFragment2">
+    tools:context=".partner.features2.History2.history.HistoryFragment2">
 
     <androidx.cardview.widget.CardView
         android:layout_width="40dp"

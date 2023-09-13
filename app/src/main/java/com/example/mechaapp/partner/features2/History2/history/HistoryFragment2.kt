@@ -1,4 +1,4 @@
-package com.example.mechaapp.partner.features2.history2
+package com.example.mechaapp.partner.features2.History2.history
 
 import android.content.Intent
 import android.graphics.Color
@@ -9,15 +9,14 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.mechaapp.R
 import com.example.mechaapp.data.Api.OrderAPI
 import com.example.mechaapp.data.Model.DataToken
 import com.example.mechaapp.data.Model.HistoryGetResponse
 import com.example.mechaapp.data.Model.OrderModel
 import com.example.mechaapp.databinding.FragmentHistory2Binding
+import com.example.mechaapp.partner.features2.History2.Detail.DetailPesanan
 import com.example.mechaapp.partner.features2.adapter2.HistoryFragmentAdapter
-import com.example.mechaapp.partner.features2.data2.DataRiwayatFragment
-import com.example.mechaapp.partner.features2.data2.RiwayatFragmentItemModel
+import com.example.mechaapp.partner.features2.history2.detailpembayaran.DetailPembayaran
 
 class HistoryFragment2 : Fragment(), HistoryContract2 {
     private lateinit var binding: FragmentHistory2Binding
@@ -138,9 +137,17 @@ class HistoryFragment2 : Fragment(), HistoryContract2 {
         }
     }
 
+    private val rvClickListener: ((OrderModel) -> Unit) = {
+            item ->
+        startActivity(Intent(activity, DetailPembayaran::class.java).apply {
+            putExtra("order", item)
+        })
+    }
+
     override fun onSucces(history: HistoryGetResponse?) {
         if (history != null) {
             adapterHistory.submitList(history.history)
+            adapterHistory.setOnclickItem(rvClickListener)
             dataHistory = history.history
         }
     }

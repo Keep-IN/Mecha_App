@@ -8,6 +8,7 @@ import kotlinx.parcelize.Parcelize
 @JsonClass(generateAdapter = true)
 data class OrderModel(
     val id: Int,
+    val user_id: Int = 0,
     val id_service: String,
     val name: String,
     val name_service: String,
