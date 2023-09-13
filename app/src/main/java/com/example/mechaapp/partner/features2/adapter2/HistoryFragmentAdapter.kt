@@ -4,12 +4,13 @@ import android.graphics.Color
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.example.mechaapp.data.Model.OrderModel
 import com.example.mechaapp.databinding.HistoryListView2Binding
 import com.example.mechaapp.partner.features2.data2.RiwayatFragmentItemModel
 
 class HistoryFragmentAdapter: RecyclerView.Adapter<HistoryFragmentAdapter.ViewHolder>() {
-    private  var itemListener: ((RiwayatFragmentItemModel) -> Unit)? = null
-    private  val data: MutableList<RiwayatFragmentItemModel> = mutableListOf()
+    private  var itemListener: ((OrderModel) -> Unit)? = null
+    private  val data: MutableList<OrderModel> = mutableListOf()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         return ViewHolder(
@@ -23,16 +24,16 @@ class HistoryFragmentAdapter: RecyclerView.Adapter<HistoryFragmentAdapter.ViewHo
 
     override fun getItemCount(): Int = data.size
 
-    fun submitList(list: List<RiwayatFragmentItemModel>) {
+    fun submitList(list: List<OrderModel>) {
         val initSize = itemCount
         data.clear()
         notifyItemRangeRemoved(0, initSize)
-        data.addAll(list)
+        data.addAll(list.sortedByDescending { it.created_at })
         notifyItemRangeInserted(0, data.size)
     }
 
     inner class ViewHolder(private val binding: HistoryListView2Binding): RecyclerView.ViewHolder(binding.root) {
-        fun setData(item: RiwayatFragmentItemModel, listener: ((RiwayatFragmentItemModel) -> Unit)?){
+        fun setData(item: OrderModel, listener: ((OrderModel) -> Unit)?){
             when (item.status) {
                 "Dijadwalkan" -> {
                     binding.cvStatusHistory.setCardBackgroundColor(Color.parseColor("#358F80"))
@@ -48,12 +49,15 @@ class HistoryFragmentAdapter: RecyclerView.Adapter<HistoryFragmentAdapter.ViewHo
                 listener?.invoke(item)
             }
             with(binding){
-                tvidpesanFragment.text = "Id pesanan : ${item.id}"
-                tvlayananFragment.text = item.layanan
-                tvpemesanFragment.text = item.pemesan
-                tvtanggalFragment.text = item.date
+                tvidpesanFragment.text = "Id pesanan : ${item.id_service}"
+                tvlayananFragment.text = item.name_service
+                tvpemesanFragment.text = item.name
+                tvtanggalFragment.text = item.created_at
                 tvstatusFragment.text = item.status
             }
         }
+    }
+    fun setOnclickItem(listener: ((OrderModel) -> Unit)?){
+        this.itemListener = listener
     }
 }

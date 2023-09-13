@@ -1,6 +1,9 @@
 package com.example.mechaapp.partner.features2.History2.Detail
 
+import com.example.mechaapp.data.Model.HistoryGetResponse
 import com.example.mechaapp.data.Model.OrderResponse
+import com.example.mechaapp.data.Model.PriceGetResponse
+import com.example.mechaapp.data.Model.PriceResponse
 import com.example.mechaapp.data.Model.StatusResponse
 
 interface DetailContract {
@@ -10,4 +13,7 @@ interface DetailContract {
     fun onSuccessDelete(order: OrderResponse?)
     fun onErrorUpdate(msg: String)
     fun onErrorDelete(msg: String)
+    fun onSuccesPrice(price: PriceResponse?)
+    fun onErrorPrice(msg: String)
+    fun onSuccesGetPrice(price: PriceGetResponse?)
 }
