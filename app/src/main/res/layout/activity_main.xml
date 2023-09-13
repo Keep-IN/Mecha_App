@@ -64,7 +64,7 @@
                 android:layout_marginTop="24dp"
                 android:layout_marginBottom="40dp"
                 android:background="@drawable/bg_field"
-                android:text="Sign Up"
+                android:text="Daftar"
                 android:textAllCaps="false"
                 android:textColor="@color/teal_200"
                 app:layout_constraintBottom_toBottomOf="parent"
@@ -165,7 +165,7 @@
                 app:layout_constraintEnd_toEndOf="@+id/btnToLogin"
                 app:layout_constraintStart_toStartOf="@+id/btnToLogin"
                 app:layout_constraintTop_toBottomOf="@+id/btnToLogin"
-                app:srcCompat="@drawable/bawah" />
+                app:srcCompat="@drawable/ic_atau" />
 
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/tilemailLogin"

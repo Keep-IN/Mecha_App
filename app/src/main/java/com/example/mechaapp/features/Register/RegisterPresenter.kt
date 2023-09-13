@@ -52,7 +52,7 @@ class RegisterPresenter(
             if (isTelephoneValid) {
                 view.onErrorSuccess(6,"")
             } else {
-                view.onError(4,"Nomor telephone yang anda masukkan salah")
+                view.onError(4,"Jumlah nomor telpon terdiri dari 10-12")
             }
             return isTelephoneValid
         }
