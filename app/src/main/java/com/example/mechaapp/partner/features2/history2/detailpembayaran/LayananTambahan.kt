@@ -26,16 +26,16 @@ class LayananTambahan : AppCompatActivity() {
 
         binding.rvPriceList.layoutManager = LinearLayoutManager(this)
         binding.rvPriceList.adapter = adapter
-        adapter.submitList(DataPrice.priceList)
-
-        binding.cvtLayanan.setOnClickListener {
-            DataPrice.priceList.add(0, HargaItemModel("", 0))
-            adapter.submitList(DataPrice.priceList)
-        }
-
-        binding.cvhLayanan.setOnClickListener {
-            DataPrice.priceList.removeAt(0)
-            adapter.submitList(DataPrice.priceList)
-        }
+//        adapter.submitList(DataPrice.priceList)
+//
+//        binding.cvtLayanan.setOnClickListener {
+//            DataPrice.priceList.add(0, HargaItemModel("", 0))
+//            adapter.submitList(DataPrice.priceList)
+//        }
+//
+//        binding.cvhLayanan.setOnClickListener {
+//            DataPrice.priceList.removeAt(0)
+//            adapter.submitList(DataPrice.priceList)
+//        }
     }
 }

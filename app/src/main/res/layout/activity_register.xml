@@ -168,6 +168,7 @@
                     android:id="@+id/tilPhone"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:inputType="number"
                     android:background="@drawable/bg_field"
                     android:paddingTop="10dp" />
             </com.google.android.material.textfield.TextInputLayout>

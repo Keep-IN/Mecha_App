@@ -4,6 +4,7 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.example.mechaapp.databinding.ActivityLandingPageBinding
+import com.example.mechaapp.features.MainActivity
 import com.example.mechaapp.features.Register.Register
 import com.example.mechaapp.partner.features2.history2.detailpembayaran.DetailPembayaran
 
@@ -15,7 +16,7 @@ class LandingPage : AppCompatActivity() {
         setContentView(binding.root)
 
         binding.btntoLogin.setOnClickListener {
-            startActivity(Intent(this, DetailPembayaran::class.java ))
+            startActivity(Intent(this, MainActivity::class.java ))
         }
 
         binding.btnToRegis.setOnClickListener {
