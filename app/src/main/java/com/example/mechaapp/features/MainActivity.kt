@@ -117,6 +117,7 @@ class MainActivity : AppCompatActivity(), MainActivityContract {
 
     override fun onErrorLogin() {
         AlertDialogLoginGagal().show(supportFragmentManager,"test")
+        onFinishedLoading()
     }
 
     override fun onErrorEmpty(code: Int) {

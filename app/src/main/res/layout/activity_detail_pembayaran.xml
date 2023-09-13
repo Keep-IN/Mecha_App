@@ -373,122 +373,27 @@
                 app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
-                android:id="@+id/textView61"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="12dp"
-                android:fontFamily="@font/poppins_medium"
-                android:text="Id Pesanan"
-                android:textColor="@color/black"
-                android:textSize="10dp"
-                app:layout_constraintStart_toStartOf="@+id/textView60"
-                app:layout_constraintTop_toBottomOf="@+id/textView60" />
-
-            <TextView
-                android:id="@+id/textView62"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="11dp"
-                android:fontFamily="@font/poppins_medium"
-                android:includeFontPadding="false"
-                android:text="Layanan Tambal Ban"
-                android:textColor="@color/black"
-                android:textSize="10dp"
-                app:layout_constraintStart_toStartOf="@+id/textView61"
-                app:layout_constraintTop_toBottomOf="@+id/textView61" />
-
-            <TextView
-                android:id="@+id/textView63"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                android:fontFamily="@font/poppins_medium"
-                android:text="Biaya Layanan"
-                android:textColor="@color/black"
-                android:textSize="10dp"
-                app:layout_constraintStart_toStartOf="@+id/textView62"
-                app:layout_constraintTop_toBottomOf="@+id/textView62" />
-
-            <TextView
-                android:id="@+id/textView64"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                android:fontFamily="@font/poppins_medium"
-                android:text="Diskon Layanan"
-                android:textColor="@color/black"
-                android:textSize="10dp"
-                app:layout_constraintStart_toStartOf="@+id/textView63"
-                app:layout_constraintTop_toBottomOf="@+id/textView63" />
-
-            <TextView
-                android:id="@+id/textView65"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="38dp"
-                android:layout_marginEnd="12dp"
-                android:fontFamily="@font/poppins_light"
-                android:text="TB 06969"
-                android:textSize="10dp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-
-            <TextView
-                android:id="@+id/textView66"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                android:fontFamily="@font/poppins"
-                android:text="Rp 50.000"
-                android:textSize="10dp"
-                app:layout_constraintEnd_toEndOf="@+id/textView65"
-                app:layout_constraintTop_toBottomOf="@+id/textView65" />
-
-            <TextView
-                android:id="@+id/textView67"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                android:fontFamily="@font/poppins"
-                android:text="Rp 5.000"
-                android:textSize="10dp"
-                app:layout_constraintEnd_toEndOf="@+id/textView66"
-                app:layout_constraintTop_toBottomOf="@+id/textView66" />
-
-            <TextView
-                android:id="@+id/textView68"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                android:fontFamily="@font/poppins"
-                android:text="Rp 0"
-                android:textSize="10dp"
-                app:layout_constraintEnd_toEndOf="@+id/textView67"
-                app:layout_constraintTop_toBottomOf="@+id/textView67" />
-
-            <TextView
                 android:id="@+id/textView69"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
                 android:fontFamily="@font/poppins_semibold"
                 android:text="Rp 50.000"
                 android:textColor="@color/black"
                 android:textSize="16dp"
-                app:layout_constraintEnd_toEndOf="@+id/textView68"
-                app:layout_constraintTop_toBottomOf="@+id/textView68" />
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/rvDetailpembayaran" />
 
             <TextView
                 android:id="@+id/textView70"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="45dp"
+                android:layout_marginStart="12dp"
                 android:fontFamily="@font/poppins_medium"
                 android:text="Waktu Pemesanan"
                 android:textColor="@color/black"
                 android:textSize="10dp"
-                app:layout_constraintStart_toStartOf="@+id/textView64"
-                app:layout_constraintTop_toBottomOf="@+id/textView64" />
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/textView72" />
 
             <TextView
                 android:id="@+id/textView71"
@@ -523,6 +428,14 @@
                 android:textSize="10dp"
                 app:layout_constraintEnd_toEndOf="@+id/textView72"
                 app:layout_constraintTop_toBottomOf="@+id/textView72" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rvDetailpembayaran"
+                android:layout_width="0dp"
+                android:layout_height="85dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView60" />
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.cardview.widget.CardView>
 

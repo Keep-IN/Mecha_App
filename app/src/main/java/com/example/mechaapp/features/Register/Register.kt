@@ -100,6 +100,7 @@ class Register : AppCompatActivity(), RegisterContract {
 
     override fun onErrorSignup(message: String) {
         Toast.makeText(this, message, Toast.LENGTH_SHORT).show()
+        onFinishedLoading()
     }
 
     override fun onErrorSuccess(code: Int, message: String) {
