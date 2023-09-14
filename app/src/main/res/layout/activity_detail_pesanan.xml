@@ -128,7 +128,7 @@
                 android:fontFamily="@font/poppins_light"
                 android:text="Jl. Kaliurang km.13 No.27, Candi Karang, Sardonoharjo, Kec. Ngaglik, Kabupaten Sleman, Daerah Istimewa Yogyakarta 55581"
                 android:textColor="@color/black"
-                android:textSize="10dp"
+                android:textSize="14dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="@+id/textView56"
                 app:layout_constraintTop_toBottomOf="@+id/textView56" />
@@ -145,39 +145,6 @@
                 android:textSize="12dp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
-
-            <ImageView
-                android:id="@+id/imageView31"
-                android:layout_width="7dp"
-                android:layout_height="10dp"
-                android:layout_marginTop="8dp"
-                app:layout_constraintStart_toStartOf="@+id/textView57"
-                app:layout_constraintTop_toBottomOf="@+id/textView57"
-                app:srcCompat="@drawable/ic_location" />
-
-            <TextView
-                android:id="@+id/textView58"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="4dp"
-                android:layout_marginTop="5dp"
-                android:fontFamily="@font/poppins_light"
-                android:text="-7.695467766280805, 110.41798311948784"
-                android:textSize="10dp"
-                app:layout_constraintStart_toEndOf="@+id/imageView31"
-                app:layout_constraintTop_toBottomOf="@+id/textView57" />
-
-            <TextView
-                android:id="@+id/textView59"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="5dp"
-                android:fontFamily="@font/poppins_light"
-                android:text="Waktu Selesai: 15 Agustus 2023 15.20"
-                android:textColor="#666666"
-                android:textSize="10dp"
-                app:layout_constraintStart_toStartOf="@+id/imageView31"
-                app:layout_constraintTop_toBottomOf="@+id/textView58" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.cardview.widget.CardView>
@@ -210,50 +177,17 @@
                 app:srcCompat="@drawable/ic_chat_bubble" />
 
             <TextView
-                android:id="@+id/textView55"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="4dp"
-                android:layout_marginTop="2dp"
-                android:fontFamily="@font/poppins_medium"
-                android:text="5.0"
-                android:textColor="@color/black"
-                android:textSize="10dp"
-                app:layout_constraintStart_toEndOf="@+id/imageView29"
-                app:layout_constraintTop_toBottomOf="@+id/textView54" />
-
-            <ImageView
-                android:id="@+id/imageView29"
-                android:layout_width="10dp"
-                android:layout_height="10dp"
-                android:layout_marginTop="3dp"
-                app:layout_constraintStart_toStartOf="@+id/textView54"
-                app:layout_constraintTop_toBottomOf="@+id/textView54"
-                app:srcCompat="@drawable/ic_bintang_rate" />
-
-            <TextView
                 android:id="@+id/textView53"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="12dp"
-                android:layout_marginTop="16dp"
+                android:layout_marginTop="24dp"
                 android:fontFamily="@font/poppins_medium"
                 android:text="Okto Pembalap"
                 android:textColor="@color/black"
-                android:textSize="10dp"
+                android:textSize="16dp"
                 app:layout_constraintStart_toEndOf="@+id/cardView8"
                 app:layout_constraintTop_toTopOf="parent" />
-
-            <TextView
-                android:id="@+id/textView54"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="4dp"
-                android:fontFamily="@font/poppins"
-                android:text="Bengkel Sejahtera Sukses"
-                android:textSize="10dp"
-                app:layout_constraintStart_toStartOf="@+id/textView53"
-                app:layout_constraintTop_toBottomOf="@+id/textView53" />
 
             <androidx.cardview.widget.CardView
                 android:id="@+id/cardView8"
@@ -464,16 +398,14 @@
     </androidx.cardview.widget.CardView>
 
     <androidx.cardview.widget.CardView
-        android:layout_width="0dp"
+        android:layout_width="200dp"
         android:layout_height="41dp"
-        android:layout_marginStart="80dp"
         android:layout_marginTop="84dp"
-        android:layout_marginEnd="80dp"
         app:cardBackgroundColor="@color/purple_200"
         app:cardCornerRadius="8dp"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/cardView12"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/cardView12" >
+        app:layout_constraintTop_toBottomOf="@+id/cardView12">
 
         <TextView
             android:id="@+id/textView74"
