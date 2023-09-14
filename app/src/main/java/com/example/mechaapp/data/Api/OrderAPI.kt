@@ -31,7 +31,7 @@ class OrderAPI {
     private val updateNameEndpoint = "/update/name"
     private val priceEndpointOrder = "/prices/orders/"
     private val priceEndpointHistory = "/prices/histories/"
-    private val priceEndpointById = "/prices/histories/by/id/"
+    private val priceEndpointById = "/prices/histories/users/"
     private val priceEndpointIdService = "/prices"
 
     fun getAllOrder(onResponse: (ResponseStatus<OrderGetResponse?>)-> Unit){
@@ -161,6 +161,40 @@ class OrderAPI {
                             status = true
                         ))
                     } else {
+                        onResponse.invoke(
+                            mapFailedResponse(response)
+                        )
+                    }
+                    response.body?.close()
+                }
+
+            })
+    }
+
+    fun getPriceId(id: String, id_service: String, onResponse: (ResponseStatus<PriceGetResponse?>) -> Unit){
+        val request = NetworkClient.getPriceById(priceEndpointIdService, DataToken.token, id, id_service)
+        NetworkClient
+            .client.newCall(request)
+            .enqueue(object: Callback{
+                override fun onFailure(call: Call, e: IOException) {
+                    onResponse.invoke(
+                        ResponseStatus.Failed(
+                            code = -1,
+                            message = e.message.toString(),
+                            throwable = e
+                        )
+                    )
+                }
+
+                override fun onResponse(call: Call, response: Response) {
+                    if (response.isSuccessful){
+                        val data = deserializeJson<PriceGetResponse>(response.body?.string() ?: "") ?: PriceGetResponse(0, "")
+                        onResponse.invoke(ResponseStatus.Success(
+                            data = data,
+                            method = "GET",
+                            status = true
+                        ))
+                    }else {
                         onResponse.invoke(
                             mapFailedResponse(response)
                         )
@@ -380,6 +414,44 @@ class OrderAPI {
     }
 
     fun postPriceById(id: String, desc: String, price: String, onResponse: (ResponseStatus<PriceResponse?>) -> Unit){
+        val request = NetworkClient.requestPrice(priceEndpointHistory, DataToken.token, id, desc, price)
+        NetworkClient
+            .client
+            .newCall(request)
+            .enqueue(object : Callback{
+                override fun onFailure(call: Call, e: IOException) {
+                    onResponse.invoke(
+                        ResponseStatus.Failed(
+                            code = -1,
+                            message = e.message.toString(),
+                            throwable = e
+                        )
+                    )
+                }
+
+                override fun onResponse(call: Call, response: Response) {
+                    Log.d("Response", "Status Code: ${response.code}")
+                    if(response.isSuccessful){
+                        val data = deserializeJson(response.body?.string() ?: "") ?: PriceResponse("")
+                        onResponse.invoke(
+                            ResponseStatus.Success(
+                                data = data,
+                                method = "POST",
+                                status = true
+                            )
+                        )
+                    } else {
+                        onResponse.invoke(
+                            mapFailedResponse(response)
+                        )
+                    }
+                    response.body?.close()
+                }
+
+            })
+    }
+
+    fun postPriceByName(id: String, desc: String, price: String, onResponse: (ResponseStatus<PriceResponse?>) -> Unit){
         val request = NetworkClient.requestPrice(priceEndpointById, DataToken.token, id, desc, price)
         NetworkClient
             .client
@@ -454,8 +526,8 @@ class OrderAPI {
             })
     }
 
-    fun updateNameHistory(name: String, id: String, onResponse: (ResponseStatus<StatusResponse?>) -> Unit){
-        val request = NetworkClient.updateReqName("${historyEndpoint}${updateNameEndpoint}", DataToken.token, name, id)
+    fun updateNameHistory(name: String, id: String, id_service:String, onResponse: (ResponseStatus<StatusResponse?>) -> Unit){
+        val request = NetworkClient.updateReqName("${historyEndpoint}${updateNameEndpoint}", DataToken.token, name, id, id_service)
         NetworkClient
             .client
             .newCall(request)

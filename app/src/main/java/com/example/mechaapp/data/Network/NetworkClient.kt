@@ -11,7 +11,7 @@ import java.util.concurrent.TimeUnit
 
 class NetworkClient {
     companion object {
-        private const val BASE_URL = "https://68c3-180-252-117-142.ngrok-free.app/api"
+        private const val BASE_URL = "https://651f-125-161-88-243.ngrok-free.app/api"
         private val headerInterceptor: Interceptor = Interceptor {
             val request = it.request().newBuilder()
             request
@@ -50,6 +50,18 @@ class NetworkClient {
         fun getWithBearerToken(endpoint: String, token:String, method: METHOD = METHOD.GET, jsonBody: String? = null): Request {
             val request = Request.Builder()
                 .url("$BASE_URL$endpoint")
+                .header("Authorization", "Bearer $token")
+                .get()
+
+            if (jsonBody != null)
+                request.method(method.name, jsonBody.toRequestBody())
+
+            return request.build()
+        }
+
+        fun getPriceById(endpoint: String, token: String,id: String, id_service: String, method: METHOD = METHOD.GET, jsonBody: String? = null): Request{
+            val request = Request.Builder()
+                .url("$BASE_URL$endpoint/$id/$id_service")
                 .header("Authorization", "Bearer $token")
                 .get()
 
@@ -158,12 +170,12 @@ class NetworkClient {
             return request.build()
         }
 
-        fun updateReqName(endpoint: String, token: String, name: String, id: String, method:METHOD = METHOD.PUT, jsonBody: String? = null): Request{
+        fun updateReqName(endpoint: String, token: String, name: String, user_id: String, id_service: String,  method:METHOD = METHOD.PUT, jsonBody: String? = null): Request{
             val requestBody = FormBody.Builder()
                 .add("name", name)
                 .build()
             val request = Request.Builder()
-                .url("$BASE_URL$endpoint/$id")
+                .url("$BASE_URL$endpoint/$user_id/$id_service")
                 .header("Authorization", "Bearer $token")
                 .put(requestBody)
             if (jsonBody != null)

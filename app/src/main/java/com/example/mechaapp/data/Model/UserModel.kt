@@ -11,6 +11,6 @@ data class UserModel (
     val name: String,
     val no_telp: String,
     val email: String,
-    val password: String,
-    val order: List<OrderModel> = listOf()
+    val order: List<OrderModel> = listOf(),
+    val history: List<OrderModel> = listOf()
 ): Parcelable

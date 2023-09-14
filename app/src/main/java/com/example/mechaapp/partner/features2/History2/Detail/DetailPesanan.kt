@@ -50,11 +50,9 @@ class DetailPesanan : AppCompatActivity(), DetailContract {
         Toast.makeText(this, "Berhasil", Toast.LENGTH_SHORT).show()
         DataPrice.priceList.forEach {
             runOnUiThread {
-                presenter.postPriceById(order?.order?.id.toString(), it.description_service, it.price)
+                order?.order?.id_service?.let { it1 -> presenter.postPriceById(it1, it.description_service, it.price) }
             }
         }
-        startActivity(Intent(this, NavbarContainer2::class.java))
-        finishAffinity()
     }
 
     override fun onErrorHistory(msg: String) {
@@ -71,7 +69,7 @@ class DetailPesanan : AppCompatActivity(), DetailContract {
             presenter.getPriceById(dataOrder.id_service)
             presenter.postHistory(dataOrder.name, dataOrder.name_service, "Diterima",
                 dataOrder.address, dataOrder.map_url, dataOrder.id_service)
-        }
+            }
     }
 
     override fun onErrorUpdate(msg: String) {
@@ -91,9 +89,11 @@ class DetailPesanan : AppCompatActivity(), DetailContract {
     }
 
     override fun onSuccesGetPrice(price: PriceGetResponse?) {
-        presenter.updateName(DataUser.nama, dataOrder.user_id.toString())
+        presenter.updateName(DataUser.nama, dataOrder.user_id.toString(), dataOrder.id_service)
         if (price != null) {
             DataPrice.priceList = price.price.toMutableList()
         }
+        startActivity(Intent(this, NavbarContainer2::class.java))
+        finishAffinity()
     }
 }

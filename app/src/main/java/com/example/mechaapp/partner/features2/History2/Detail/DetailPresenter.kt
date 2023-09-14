@@ -43,8 +43,8 @@ class DetailPresenter(
         }
     }
 
-    fun updateName(name: String, id: String){
-        api.updateNameHistory(name, id){
+    fun updateName(name: String, id: String, id_service: String){
+        api.updateNameHistory(name, id, id_service){
             scope.launch {
                 when(it){
                     is ResponseStatus.Success -> view.onSucceUpdate(it.data)

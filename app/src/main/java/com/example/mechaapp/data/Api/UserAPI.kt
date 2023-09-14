@@ -5,6 +5,7 @@ import com.example.mechaapp.data.Model.LoginResponse
 import com.example.mechaapp.data.Model.RegisResponse
 import com.example.mechaapp.data.Model.UserList
 import com.example.mechaapp.data.Model.UserModel
+import com.example.mechaapp.data.Model.UserResponse
 import com.example.mechaapp.data.Network.NetworkClient
 import com.example.mechaapp.data.Network.ResponseStatus
 import com.example.mechaapp.data.Network.deserializeJson
@@ -22,8 +23,8 @@ class UserAPI {
     private val registerEndpoint = "/register"
     private val tokenEndpoint = "/users/token"
 
-    fun getUser(onResponse: (ResponseStatus<List<UserModel>?>) -> Unit){
-        val request = NetworkClient.getWithBearerToken(tokenEndpoint, DataToken.token)
+    fun getAllUser(onResponse: (ResponseStatus<UserResponse?>) -> Unit){
+        val request = NetworkClient.getWithBearerToken(userEndpoint, DataToken.token)
         NetworkClient
             .client
             .newCall(request)
@@ -40,10 +41,10 @@ class UserAPI {
 
                 override fun onResponse(call: Call, response: Response) {
                     if (response.isSuccessful){
-                        val data = deserializeJson<UserList>(response.body?.string() ?: "") ?: UserList(404)
+                        val data = deserializeJson<UserResponse>(response.body?.string() ?: "") ?: UserResponse(0)
                         onResponse.invoke(
                             ResponseStatus.Success(
-                                data = data.user,
+                                data = data,
                                 method = "GET",
                                 status = true
                             )

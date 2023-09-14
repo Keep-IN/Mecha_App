@@ -70,7 +70,7 @@
                 app:layout_constraintTop_toBottomOf="@+id/textView65" />
 
             <TextView
-                android:id="@+id/textView71"
+                android:id="@+id/tvSumPrice"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
@@ -89,8 +89,8 @@
                 android:fontFamily="@font/poppins"
                 android:text="15 Agustus 2023 14:11"
                 android:textSize="10dp"
-                app:layout_constraintEnd_toEndOf="@+id/textView71"
-                app:layout_constraintTop_toBottomOf="@+id/textView71" />
+                app:layout_constraintEnd_toEndOf="@+id/tvSumPrice"
+                app:layout_constraintTop_toBottomOf="@+id/tvSumPrice" />
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/rvDetailuser"
@@ -120,7 +120,7 @@
             android:layout_height="match_parent">
 
             <TextView
-                android:id="@+id/textView57"
+                android:id="@+id/tvAlamatUser"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp"
@@ -151,8 +151,8 @@
                 android:layout_width="7dp"
                 android:layout_height="10dp"
                 android:layout_marginTop="8dp"
-                app:layout_constraintStart_toStartOf="@+id/textView57"
-                app:layout_constraintTop_toBottomOf="@+id/textView57"
+                app:layout_constraintStart_toStartOf="@+id/tvAlamatUser"
+                app:layout_constraintTop_toBottomOf="@+id/tvAlamatUser"
                 app:srcCompat="@drawable/ic_location" />
 
             <TextView
@@ -165,7 +165,7 @@
                 android:text="-7.695467766280805, 110.41798311948784"
                 android:textSize="10dp"
                 app:layout_constraintStart_toEndOf="@+id/imageView31"
-                app:layout_constraintTop_toBottomOf="@+id/textView57" />
+                app:layout_constraintTop_toBottomOf="@+id/tvAlamatUser" />
 
             <TextView
                 android:id="@+id/textView59"
@@ -232,7 +232,7 @@
                 app:srcCompat="@drawable/ic_bintang_rate" />
 
             <TextView
-                android:id="@+id/textView53"
+                android:id="@+id/tvNamaUser"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="12dp"
@@ -252,8 +252,8 @@
                 android:fontFamily="@font/poppins"
                 android:text="Bengkel Sejahtera Sukses"
                 android:textSize="10dp"
-                app:layout_constraintStart_toStartOf="@+id/textView53"
-                app:layout_constraintTop_toBottomOf="@+id/textView53" />
+                app:layout_constraintStart_toStartOf="@+id/tvNamaUser"
+                app:layout_constraintTop_toBottomOf="@+id/tvNamaUser" />
 
             <androidx.cardview.widget.CardView
                 android:id="@+id/cardView8"
