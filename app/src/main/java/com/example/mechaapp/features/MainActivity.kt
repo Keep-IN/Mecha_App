@@ -101,6 +101,7 @@ class MainActivity : AppCompatActivity(), MainActivityContract {
 
     override fun onSuccesLogin(user: LoginResponse?) {
         DataToken.token = user?.token.toString()
+        DataToken.idUser = user?.id.toString()
         DataUser.nama = user?.nama.toString()
         AlertDialogLoginSucces().show(supportFragmentManager,"test")
         Handler(Looper.getMainLooper()).postDelayed({

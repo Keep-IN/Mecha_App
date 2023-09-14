@@ -8,14 +8,21 @@ import android.widget.Toast
 import com.example.mechaapp.R
 import com.example.mechaapp.data.Api.OrderAPI
 import com.example.mechaapp.data.Model.DataAddress
+import com.example.mechaapp.data.Model.DataToken
+import com.example.mechaapp.data.Model.HistoryGetResponse
 import com.example.mechaapp.data.Model.OrderGetResponse
 import com.example.mechaapp.data.Model.OrderResponse
+import com.example.mechaapp.data.Model.PriceModel
+import com.example.mechaapp.data.Model.PriceResponse
 import com.example.mechaapp.databinding.ActivityConfirmationOrderBinding
 import com.example.mechaapp.features.Dashboard.HomeFragment
+import com.example.mechaapp.features.Dashboard.NavbarContainer
 
 class ConfirmationOrder : AppCompatActivity(), OrderContract {
     private lateinit var binding: ActivityConfirmationOrderBinding
     private lateinit var presenter: OrderPresenter
+    private lateinit var idService: String
+    private lateinit var descService: String
     val url = Intent(android.content.Intent.ACTION_VIEW)
     override fun onCreate(savedInstanceState: Bundle?) {
         binding = ActivityConfirmationOrderBinding.inflate(layoutInflater)
@@ -35,7 +42,7 @@ class ConfirmationOrder : AppCompatActivity(), OrderContract {
             }
         }
         binding.btnPesan.setOnClickListener {
-            presenter.postOrder(binding.tvTitle.text.toString(), binding.tvSubtitle.text.toString(), binding.tvAlamat.text.toString(), binding.tvUrl.text.toString())
+            presenter.postOrder(binding.tvTitle.text.toString(), "Menunggu", binding.tvAlamat.text.toString(), binding.tvUrl.text.toString())
         }
         binding.ivbackConfirm.setOnClickListener {
             startActivity(Intent(this@ConfirmationOrder, MapAddress::class.java))
@@ -44,7 +51,10 @@ class ConfirmationOrder : AppCompatActivity(), OrderContract {
     }
 
     override fun onSuccesOrder(order: OrderResponse?) {
-        Toast.makeText(this, "Order Berhasil", Toast.LENGTH_SHORT).show()
+        presenter.postHistory(order?.order?.name.toString(), order?.order?.name_service.toString(), order?.order?.status.toString(),
+            order?.order?.address.toString(), order?.order?.map_url.toString(), order?.order?.id_service.toString())
+        idService = order?.order?.id_service.toString()
+        descService = order?.order?.name_service.toString()
     }
 
     override fun onErrorOrder(msg: String) {
@@ -52,14 +62,30 @@ class ConfirmationOrder : AppCompatActivity(), OrderContract {
     }
 
     override fun onSuccesHistory(history: OrderResponse?) {
-        TODO("Not yet implemented")
+        Toast.makeText(this, "Berhasil Order", Toast.LENGTH_SHORT).show()
+        presenter.postPriceOrder(idService,descService, "50000")
+        presenter.postPriceHistory(idService,descService, "50000")
+        startActivity(Intent(this, NavbarContainer::class.java))
     }
 
     override fun onErrorhistory(msg: String) {
-        TODO("Not yet implemented")
+        Toast.makeText(this, "gagal history", Toast.LENGTH_SHORT).show()
     }
 
     override fun onSuccesGetOrder(order: OrderGetResponse?) {
-        TODO("Not yet implemented")
+        Toast.makeText(this, "", Toast.LENGTH_SHORT).show()
+    }
+
+    override fun onErrorgetOrder(msg: String) {
+        Toast.makeText(this, "gagal get order", Toast.LENGTH_SHORT).show()
+    }
+
+    override fun onSuccessPrice(price: PriceResponse?) {
+    }
+
+    override fun onErrorPrice(msg: String) {
+        runOnUiThread {
+            Toast.makeText(this, "Gagal Price", Toast.LENGTH_SHORT).show()
+        }
     }
 }

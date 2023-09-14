@@ -260,7 +260,7 @@
                 android:layout_marginTop="24dp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:srcCompat="@drawable/ic_ellipse" />
+                android:src="@drawable/ic_ellipse" />
 
             <ImageView
                 android:id="@+id/imageView25"
@@ -270,7 +270,7 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:srcCompat="@drawable/ic_ellipse" />
+                android:src="@drawable/ic_ellipse" />
 
             <ImageView
                 android:id="@+id/imageView27"
@@ -280,7 +280,7 @@
                 android:layout_marginEnd="56dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:srcCompat="@drawable/ic_ellipse" />
+                android:src="@drawable/ic_ellipse" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.cardview.widget.CardView>
@@ -305,7 +305,7 @@
             android:textSize="16dp" />
     </androidx.cardview.widget.CardView>
 
-    <androidx.cardview.widget.CardView
+    <com.google.android.material.card.MaterialCardView
         android:id="@+id/cvTambah"
         android:layout_width="0dp"
         android:layout_height="42dp"
@@ -341,9 +341,9 @@
                 android:layout_marginEnd="12dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:srcCompat="@drawable/ic_next" />
+                android:src="@drawable/ic_next" />
         </androidx.constraintlayout.widget.ConstraintLayout>
-    </androidx.cardview.widget.CardView>
+    </com.google.android.material.card.MaterialCardView>
 
     <androidx.cardview.widget.CardView
         android:id="@+id/cardView11"
@@ -373,7 +373,7 @@
                 app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
-                android:id="@+id/textView69"
+                android:id="@+id/tvSumPriceMontir"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/poppins_semibold"
@@ -415,8 +415,8 @@
                 android:fontFamily="@font/poppins"
                 android:text="15 Agustus 2023 14:11"
                 android:textSize="10dp"
-                app:layout_constraintEnd_toEndOf="@+id/textView69"
-                app:layout_constraintTop_toBottomOf="@+id/textView69" />
+                app:layout_constraintEnd_toEndOf="@+id/tvSumPriceMontir"
+                app:layout_constraintTop_toBottomOf="@+id/tvSumPriceMontir" />
 
             <TextView
                 android:id="@+id/textView73"
@@ -440,6 +440,7 @@
     </androidx.cardview.widget.CardView>
 
     <androidx.cardview.widget.CardView
+        android:id="@+id/cvKirimResi"
         android:layout_width="0dp"
         android:layout_height="36dp"
         android:layout_marginStart="60dp"

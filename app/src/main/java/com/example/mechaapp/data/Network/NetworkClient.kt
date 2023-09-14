@@ -59,6 +59,18 @@ class NetworkClient {
             return request.build()
         }
 
+        fun getPriceById(endpoint: String, token: String,id: String, id_service: String, method: METHOD = METHOD.GET, jsonBody: String? = null): Request{
+            val request = Request.Builder()
+                .url("$BASE_URL$endpoint/$id/$id_service")
+                .header("Authorization", "Bearer $token")
+                .get()
+
+            if (jsonBody != null)
+                request.method(method.name, jsonBody.toRequestBody())
+
+            return request.build()
+        }
+
         fun requestById(endpoint: String, token:String, id: String, method: METHOD = METHOD.GET, jsonBody: String? = null): Request{
             val request = Request.Builder()
                 .url("$BASE_URL$endpoint/$id")
@@ -138,8 +150,9 @@ class NetworkClient {
             return request.build()
         }
 
-        fun requestHistory(endpoint: String, token: String, service: String, status: String, address: String, mapUrl: String, id_service: String, method: METHOD = METHOD.POST, jsonBody: String? = null): Request{
+        fun requestHistory(endpoint: String, token: String, name: String, service: String, status: String, address: String, mapUrl: String, id_service: String, method: METHOD = METHOD.POST, jsonBody: String? = null): Request{
             val requestBody = FormBody.Builder()
+                .add("name", name)
                 .add("name_service", service)
                 .add("status", status)
                 .add("address", address)
@@ -151,6 +164,20 @@ class NetworkClient {
                 .header("Authorization", "Bearer $token")
                 .post(requestBody)
 
+            if (jsonBody != null)
+                request.method(method.name, jsonBody.toRequestBody())
+
+            return request.build()
+        }
+
+        fun updateReqName(endpoint: String, token: String, name: String, user_id: String, id_service: String,  method:METHOD = METHOD.PUT, jsonBody: String? = null): Request{
+            val requestBody = FormBody.Builder()
+                .add("name", name)
+                .build()
+            val request = Request.Builder()
+                .url("$BASE_URL$endpoint/$user_id/$id_service")
+                .header("Authorization", "Bearer $token")
+                .put(requestBody)
             if (jsonBody != null)
                 request.method(method.name, jsonBody.toRequestBody())
 
@@ -173,11 +200,11 @@ class NetworkClient {
 
         fun requestPrice(endpoint: String, token: String, id_service: String, desc: String, price: String, method: METHOD = METHOD.POST, jsonBody: String? = null): Request{
             val requestBody = FormBody.Builder()
-                .add("id_service", id_service)
+                .add("description_service", desc)
                 .add("price", price)
                 .build()
             val request = Request.Builder()
-                .url("$BASE_URL$endpoint/$id_service")
+                .url("$BASE_URL$endpoint$id_service")
                 .header("Authorization", "Bearer $token")
                 .post(requestBody)
             if(jsonBody != null)

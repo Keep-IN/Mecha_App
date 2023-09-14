@@ -4,11 +4,19 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.CountDownTimer
+import android.util.Log
 import android.widget.Toast
 import com.example.mechaapp.R
 import com.example.mechaapp.data.Api.OrderAPI
+import com.example.mechaapp.data.Model.DataPrice
+import com.example.mechaapp.data.Model.DataUser
+import com.example.mechaapp.data.Model.HistoryGetResponse
+import com.example.mechaapp.data.Model.OrderGetResponse
 import com.example.mechaapp.data.Model.OrderModel
 import com.example.mechaapp.data.Model.OrderResponse
+import com.example.mechaapp.data.Model.PriceGetResponse
+import com.example.mechaapp.data.Model.PriceModel
+import com.example.mechaapp.data.Model.PriceResponse
 import com.example.mechaapp.data.Model.StatusResponse
 import com.example.mechaapp.databinding.ActivityDetailPesananBinding
 import com.example.mechaapp.databinding.ActivityDetailPesananMontirBinding
@@ -40,8 +48,11 @@ class DetailPesanan : AppCompatActivity(), DetailContract {
 
     override fun onSuccesHistory(order: OrderResponse?) {
         Toast.makeText(this, "Berhasil", Toast.LENGTH_SHORT).show()
-        startActivity(Intent(this, NavbarContainer2::class.java))
-        finishAffinity()
+        DataPrice.priceList.forEach {
+            runOnUiThread {
+                order?.order?.id_service?.let { it1 -> presenter.postPriceById(it1, it.description_service, it.price) }
+            }
+        }
     }
 
     override fun onErrorHistory(msg: String) {
@@ -53,9 +64,12 @@ class DetailPesanan : AppCompatActivity(), DetailContract {
     }
 
     override fun onSuccessDelete(order: OrderResponse?) {
-        presenter.postHistory(dataOrder.name_service, "Diterima",
-            dataOrder.address, dataOrder.map_url, dataOrder.id_service)
-        presenter.updateStatus("Diterima", dataOrder.id_service)
+        runOnUiThread {
+            presenter.updateStatus(dataOrder.id_service, "Diterima")
+            presenter.getPriceById(dataOrder.id_service)
+            presenter.postHistory(dataOrder.name, dataOrder.name_service, "Diterima",
+                dataOrder.address, dataOrder.map_url, dataOrder.id_service)
+            }
     }
 
     override fun onErrorUpdate(msg: String) {
@@ -64,5 +78,22 @@ class DetailPesanan : AppCompatActivity(), DetailContract {
 
     override fun onErrorDelete(msg: String) {
         Toast.makeText(this, "gagal delete", Toast.LENGTH_SHORT).show()
+    }
+
+    override fun onSuccesPrice(price: PriceResponse?) {
+        Toast.makeText(this, "Sukses Price", Toast.LENGTH_SHORT).show()
+    }
+
+    override fun onErrorPrice(msg: String) {
+        Toast.makeText(this, "Gagal Price", Toast.LENGTH_SHORT).show()
+    }
+
+    override fun onSuccesGetPrice(price: PriceGetResponse?) {
+        presenter.updateName(DataUser.nama, dataOrder.user_id.toString(), dataOrder.id_service)
+        if (price != null) {
+            DataPrice.priceList = price.price.toMutableList()
+        }
+        startActivity(Intent(this, NavbarContainer2::class.java))
+        finishAffinity()
     }
 }

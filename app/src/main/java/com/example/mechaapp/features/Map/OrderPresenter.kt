@@ -30,8 +30,8 @@ class OrderPresenter(
         }
     }
 
-    fun postHistory(service: String, status: String, address: String, mapurl: String, id_service: String){
-        api.postHistory(service, status, address, mapurl, id_service){
+    fun postHistory(name: String, service: String, status: String, address: String, mapurl: String, id_service: String){
+        api.postHistory(name, service, status, address, mapurl, id_service){
             scope.launch{
                 when(it){
                     is ResponseStatus.Success -> view.onSuccesHistory(it.data)
@@ -41,12 +41,32 @@ class OrderPresenter(
         }
     }
 
+    fun postPriceOrder(id_service: String, desc: String, price: String){
+        api.postPriceOrder(id_service,desc,price){
+            scope.launch {
+                when(it){
+                    is ResponseStatus.Success -> view.onSuccessPrice(it.data)
+                    is ResponseStatus.Failed -> view.onErrorPrice(it.message)
+                }
+            }
+        }
+    }
+
+    fun postPriceHistory(id_service: String, desc: String, price: String){
+        api.postPriceHistory(id_service, desc, price){
+            when(it){
+                is ResponseStatus.Success -> view.onSuccessPrice(it.data)
+                is ResponseStatus.Failed -> view.onErrorPrice(it.message)
+            }
+        }
+    }
+
     fun getOrderById(id: String){
         api.getOrderById(id){
             scope.launch {
                 when(it){
                     is ResponseStatus.Success -> view.onSuccesGetOrder(it.data)
-                    is ResponseStatus.Failed -> view.onErrorhistory(it.message)
+                    is ResponseStatus.Failed -> view.onErrorgetOrder(it.message)
                 }
             }
         }
