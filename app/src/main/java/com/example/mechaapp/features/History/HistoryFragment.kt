@@ -141,7 +141,9 @@ class HistoryFragment : Fragment(), HistoryContract {
     }
     private val rvClickListener: (OrderModel) -> Unit =
         { item ->
-            startActivity(Intent(activity, DetailPesanan::class.java))
+            startActivity(Intent(activity, DetailPesanan::class.java).apply {
+                putExtra("order", item)
+            })
         }
 
     override fun onSucces(history: HistoryGetResponse?) {

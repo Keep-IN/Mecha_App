@@ -128,26 +128,28 @@
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rvPriceList"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_height="0dp"
         android:layout_marginStart="20dp"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="20dp"
         android:layout_marginEnd="20dp"
+        android:layout_marginBottom="10dp"
+        app:layout_constraintBottom_toTopOf="@+id/cvPostHarga"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/cvtLayanan" />
 
     <com.google.android.material.card.MaterialCardView
-        android:id="@+id/cardView14"
+        android:id="@+id/cvPostHarga"
         android:layout_width="180dp"
         android:layout_height="41dp"
-        android:layout_marginTop="80dp"
+        android:layout_marginBottom="20dp"
         app:cardBackgroundColor="@color/purple_200"
         app:cardCornerRadius="8dp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@+id/rvPriceList"
         app:layout_constraintHorizontal_bias="0.497"
-        app:layout_constraintStart_toStartOf="@+id/rvPriceList"
-        app:layout_constraintTop_toBottomOf="@+id/rvPriceList" >
+        app:layout_constraintStart_toStartOf="@+id/rvPriceList">
 
         <TextView
             android:id="@+id/textView77"
@@ -155,7 +157,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:fontFamily="@font/poppins_bold"
-            android:text="Simpan"
+            android:text="Konfirmasi"
             android:textColor="@color/white" />
     </com.google.android.material.card.MaterialCardView>
 
