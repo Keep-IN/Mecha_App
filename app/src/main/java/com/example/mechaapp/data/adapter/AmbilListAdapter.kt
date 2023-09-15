@@ -28,7 +28,7 @@ class AmbilListAdapter : RecyclerView.Adapter<AmbilListAdapter.ViewHolder>() {
         val initSize = itemCount
         data.clear()
         notifyItemRangeRemoved(0, initSize)
-        data.addAll(list)
+        data.addAll(list.sortedByDescending { it.created_at })
         notifyItemRangeInserted(0, data.size)
     }
 

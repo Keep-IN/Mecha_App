@@ -1,24 +1,18 @@
-package com.example.mechaapp.partner.features2.History2.Detail
+package com.example.mechaapp.partner.features2.history2.Detail
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.os.CountDownTimer
 import android.util.Log
 import android.widget.Toast
-import com.example.mechaapp.R
 import com.example.mechaapp.data.Api.OrderAPI
 import com.example.mechaapp.data.Model.DataPrice
 import com.example.mechaapp.data.Model.DataUser
-import com.example.mechaapp.data.Model.HistoryGetResponse
-import com.example.mechaapp.data.Model.OrderGetResponse
 import com.example.mechaapp.data.Model.OrderModel
 import com.example.mechaapp.data.Model.OrderResponse
 import com.example.mechaapp.data.Model.PriceGetResponse
-import com.example.mechaapp.data.Model.PriceModel
 import com.example.mechaapp.data.Model.PriceResponse
 import com.example.mechaapp.data.Model.StatusResponse
-import com.example.mechaapp.databinding.ActivityDetailPesananBinding
 import com.example.mechaapp.databinding.ActivityDetailPesananMontirBinding
 import com.example.mechaapp.partner.home2.NavbarContainer2
 
@@ -48,11 +42,20 @@ class DetailPesanan : AppCompatActivity(), DetailContract {
 
     override fun onSuccesHistory(order: OrderResponse?) {
         Toast.makeText(this, "Berhasil", Toast.LENGTH_SHORT).show()
-        DataPrice.priceList.forEach {
-            runOnUiThread {
-                order?.order?.id_service?.let { it1 -> presenter.postPriceById(it1, it.description_service, it.price) }
+        dataOrder.prices.forEach {
+            if (order != null) {
+                presenter.postPriceById("by/id/${order.order?.id.toString()}", it.description_service, it.price)
             }
         }
+        startActivity(Intent(this, NavbarContainer2::class.java))
+        finishAffinity()
+//        DataPrice.priceList.forEach {
+//            runOnUiThread {
+//                if (order != null) {
+//                    presenter.postPriceById(order.order?.id_service ?: "", it.description_service, it.price)
+//                }
+//            }
+//        }
     }
 
     override fun onErrorHistory(msg: String) {
@@ -65,8 +68,10 @@ class DetailPesanan : AppCompatActivity(), DetailContract {
 
     override fun onSuccessDelete(order: OrderResponse?) {
         runOnUiThread {
+            Log.d("Isi Order", "${dataOrder.prices}")
             presenter.updateStatus(dataOrder.id_service, "Diterima")
-            presenter.getPriceById(dataOrder.id_service)
+            presenter.updateName(DataUser.nama, dataOrder.user_id.toString(), dataOrder.id_service)
+//            presenter.getPriceById(dataOrder.id_service)
             presenter.postHistory(dataOrder.name, dataOrder.name_service, "Diterima",
                 dataOrder.address, dataOrder.map_url, dataOrder.id_service)
             }
@@ -89,11 +94,9 @@ class DetailPesanan : AppCompatActivity(), DetailContract {
     }
 
     override fun onSuccesGetPrice(price: PriceGetResponse?) {
-        presenter.updateName(DataUser.nama, dataOrder.user_id.toString(), dataOrder.id_service)
-        if (price != null) {
-            DataPrice.priceList = price.price.toMutableList()
-        }
-        startActivity(Intent(this, NavbarContainer2::class.java))
-        finishAffinity()
+//        presenter.updateName(DataUser.nama, dataOrder.user_id.toString(), dataOrder.id_service)
+//        if (price != null) {
+//            DataPrice.priceList = price.price.toMutableList()
+//        }
     }
 }

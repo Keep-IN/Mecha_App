@@ -3,6 +3,7 @@ package com.example.mechaapp.features.History
 import android.content.Intent
 import android.graphics.Color
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -154,6 +155,6 @@ class HistoryFragment : Fragment(), HistoryContract {
     }
 
     override fun onFailed(msg: String) {
-        Toast.makeText(activity, "msg", Toast.LENGTH_SHORT).show()
+        Log.d("Error", "gagal history")
     }
 }

@@ -103,6 +103,7 @@ class MainActivity : AppCompatActivity(), MainActivityContract {
         DataToken.token = user?.token.toString()
         DataToken.idUser = user?.id.toString()
         DataUser.nama = user?.nama.toString()
+        DataToken.userId = user?.id.toString()
         AlertDialogLoginSucces().show(supportFragmentManager,"test")
         Handler(Looper.getMainLooper()).postDelayed({
             if (user != null) {

@@ -44,7 +44,7 @@
             android:name=".features.Map.MapAddress"
             android:exported="false" />
         <activity
-            android:name=".partner.features2.History2.Detail.DetailPesanan"
+            android:name=".partner.features2.history2.Detail.DetailPesanan"
             android:exported="false" />
         <activity
             android:name=".features.DetailPesanan.DetailPesananTransfer"
@@ -56,7 +56,7 @@
             android:name=".partner.features2.bayartagihan.BayarTagihan"
             android:exported="false" />
         <activity
-            android:name=".partner.features2.History2.Detail.DetailPesananM"
+            android:name=".partner.features2.history2.Detail.DetailPesananM"
             android:exported="false" />
         <activity
             android:name=".partner.features2.ambilpesan.AmbilPesan"

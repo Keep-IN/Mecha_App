@@ -7,6 +7,7 @@ import android.util.Log
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.mechaapp.R
 import com.example.mechaapp.data.Api.OrderAPI
+import com.example.mechaapp.data.Model.HistoryGetResponse
 import com.example.mechaapp.data.Model.OrderModel
 import com.example.mechaapp.data.Model.PriceGetResponse
 import com.example.mechaapp.data.adapter.DetailMontirAdapter
@@ -48,6 +49,11 @@ class DetailPesanan : AppCompatActivity(), DetailPesananContract {
         binding.ivBackdetail.setOnClickListener {
             startActivity(Intent(this, HistoryFragment::class.java ))
         }
+        binding.cvPayService.setOnClickListener {
+            startActivity(Intent(this, MenungguKonfirmasiPembayaran::class.java).apply {
+                putExtra("order", order)
+            })
+        }
     }
 
     override fun onSuccesGetPrice(price: PriceGetResponse?) {
@@ -66,6 +72,12 @@ class DetailPesanan : AppCompatActivity(), DetailPesananContract {
 
     override fun onErrorGetPrice(msg: String) {
         Log.d("Error", "Error Get Price")
+    }
+
+    override fun onSuccesGetStatus(history: HistoryGetResponse?) {
+    }
+
+    override fun onErrorGetStatus(msg: String) {
     }
 
     fun Int.formatDecimalSeparator(): String {

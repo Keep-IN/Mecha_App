@@ -63,9 +63,16 @@ class ConfirmationOrder : AppCompatActivity(), OrderContract {
 
     override fun onSuccesHistory(history: OrderResponse?) {
         Toast.makeText(this, "Berhasil Order", Toast.LENGTH_SHORT).show()
-        presenter.postPriceOrder(idService,descService, "50000")
-        presenter.postPriceHistory(idService,descService, "50000")
+        //Post Price to Order
+        var price = "5000"
+        val profit = (price.toInt()*20)/100
+        presenter.postPriceOrder(idService, "Biaya Pemakaian Aplikasi", profit.toString())
+        presenter.postPriceOrder(idService,descService, price)
+        //Post Price to History
+        presenter.postPriceHistory(idService, "Biaya Pemakaian Aplikasi", profit.toString())
+        presenter.postPriceHistory(idService,descService, price)
         startActivity(Intent(this, NavbarContainer::class.java))
+        finishAffinity()
     }
 
     override fun onErrorhistory(msg: String) {
