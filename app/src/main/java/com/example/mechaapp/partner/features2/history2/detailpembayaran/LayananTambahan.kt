@@ -1,29 +1,22 @@
 package com.example.mechaapp.partner.features2.history2.detailpembayaran
 
-import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
-import androidx.cardview.widget.CardView
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
-import com.example.mechaapp.R
 import com.example.mechaapp.data.Api.OrderAPI
 import com.example.mechaapp.data.Api.UserAPI
 import com.example.mechaapp.data.Model.DataPrice
-import com.example.mechaapp.data.Model.HargaItemModel
+import com.example.mechaapp.data.Model.DataToken
+import com.example.mechaapp.data.Model.DataUser
 import com.example.mechaapp.data.Model.OrderModel
 import com.example.mechaapp.data.Model.PriceGetResponse
 import com.example.mechaapp.data.Model.PriceModel
 import com.example.mechaapp.data.Model.PriceResponse
+import com.example.mechaapp.data.Model.StatusResponse
 import com.example.mechaapp.data.Model.UserResponse
 import com.example.mechaapp.data.adapter.LayananTambahAdapter
-import com.example.mechaapp.data.adapter.SpotlightListAdapter
-import com.example.mechaapp.databinding.ActivityLayananBanBinding
 import com.example.mechaapp.databinding.ActivityLayananTambahanBinding
-import com.example.mechaapp.databinding.LayananTambahanViewBinding
-import com.example.mechaapp.partner.features2.History2.detailpembayaran.BayarContract
-import com.example.mechaapp.partner.features2.History2.detailpembayaran.BayarPresenter
 
 
 class LayananTambahan : AppCompatActivity(), BayarContract {
@@ -60,7 +53,7 @@ class LayananTambahan : AppCompatActivity(), BayarContract {
 
         binding.cvPostHarga.setOnClickListener {
             DataPrice.priceList.forEach {
-                presenter.postPrice(dataOrder.id_service, it.description_service, it.price)
+                presenter.postPrice("users/${DataToken.userId}/${dataOrder.id_service}", it.description_service, it.price)
             }
             onBackPressedDispatcher.onBackPressed()
         }
@@ -75,18 +68,22 @@ class LayananTambahan : AppCompatActivity(), BayarContract {
     }
 
     override fun onSuccesGetPrice(price: PriceGetResponse?) {
-        TODO("Not yet implemented")
+
     }
 
     override fun onErrorGetPrice(msg: String) {
-        TODO("Not yet implemented")
+
     }
 
     override fun onSuccesuser(user: UserResponse?) {
-        TODO("Not yet implemented")
+
     }
 
     override fun onError(msg: String) {
-        TODO("Not yet implemented")
+
+    }
+
+    override fun onSuccesUpdate(status: StatusResponse?) {
+
     }
 }

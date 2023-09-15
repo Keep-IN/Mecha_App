@@ -1,4 +1,4 @@
-package com.example.mechaapp.partner.features2.History2.Detail
+package com.example.mechaapp.partner.features2.history2.Detail
 
 import com.example.mechaapp.data.Api.OrderAPI
 import com.example.mechaapp.data.Network.ResponseStatus
@@ -65,8 +65,8 @@ class DetailPresenter(
         }
     }
 
-    fun getPriceById(ide_service: String){
-        api.getPrice(ide_service){
+    fun getPriceById(id_service: String){
+        api.getPrice(id_service){
             scope.launch {
                 when(it){
                     is ResponseStatus.Success -> view.onSuccesGetPrice(it.data)

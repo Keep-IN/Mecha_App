@@ -9,13 +9,9 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.mechaapp.data.Api.OrderAPI
 import com.example.mechaapp.databinding.ActivityAmbilpesanBinding
 import com.example.mechaapp.data.adapter.AmbilListAdapter
-import com.example.mechaapp.data.Model.DataAmbilPesanan
-import com.example.mechaapp.data.Model.DataOrder
 import com.example.mechaapp.data.Model.OrderGetResponse
 import com.example.mechaapp.data.Model.OrderModel
-import com.example.mechaapp.data.Model.OrderResponse
-import com.example.mechaapp.partner.features2.History2.Detail.DetailPesanan
-import com.example.mechaapp.partner.home2.HomeFragment2
+import com.example.mechaapp.partner.features2.history2.Detail.DetailPesanan
 
 class AmbilPesan : AppCompatActivity(), AmbilPesanContract {
     private lateinit var binding: ActivityAmbilpesanBinding
@@ -33,7 +29,7 @@ class AmbilPesan : AppCompatActivity(), AmbilPesanContract {
         presenter.getOrder()
 
         binding.impiwbackPesan.setOnClickListener {
-            startActivity(Intent(this, HomeFragment2::class.java ))
+           onBackPressedDispatcher.onBackPressed()
         }
 
         val layoutManager = LinearLayoutManager(this)

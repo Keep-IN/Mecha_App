@@ -5,7 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import com.example.mechaapp.R
 import com.example.mechaapp.databinding.ActivityNavbarContainer2Binding
-import com.example.mechaapp.partner.features2.History2.history.HistoryFragment2
+import com.example.mechaapp.partner.features2.history2.history.HistoryFragment2
 
 
 class NavbarContainer2 : AppCompatActivity() {
