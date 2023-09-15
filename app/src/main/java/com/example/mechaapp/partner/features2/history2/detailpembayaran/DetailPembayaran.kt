@@ -24,6 +24,7 @@ import com.example.mechaapp.features.MainActivity
 import com.example.mechaapp.features.Register.Register
 import com.example.mechaapp.partner.features2.History2.detailpembayaran.BayarContract
 import com.example.mechaapp.partner.features2.History2.detailpembayaran.BayarPresenter
+import com.example.mechaapp.partner.home2.HomeFragment2
 
 class DetailPembayaran : AppCompatActivity(),BayarContract {
     private lateinit var binding: ActivityDetailPembayaranBinding
@@ -47,6 +48,10 @@ class DetailPembayaran : AppCompatActivity(),BayarContract {
         val layoutManager = LinearLayoutManager(this)
         binding.rvDetailpembayaran.adapter = adapterDetailmontir
         binding.rvDetailpembayaran.layoutManager = layoutManager
+
+        binding.cvKirimResi.setOnClickListener {
+            startActivity(Intent(this, KonfirmasiPembayaran::class.java ))
+        }
 
         binding.cvTambah.setOnClickListener {
             binding.cvTambah.isEnabled = false

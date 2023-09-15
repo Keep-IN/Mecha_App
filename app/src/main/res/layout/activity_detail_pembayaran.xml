@@ -41,42 +41,11 @@
                 android:layout_marginEnd="12dp"
                 android:fontFamily="@font/poppins_light"
                 android:text="Jl. Kaliurang km.13 No.27, Candi Karang, Sardonoharjo, Kec. Ngaglik, Kabupaten Sleman, Daerah Istimewa Yogyakarta 55581"
-                android:textSize="10dp"
+                android:textSize="14dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="@+id/textView55"
                 app:layout_constraintTop_toBottomOf="@+id/textView55" />
 
-            <ImageView
-                android:id="@+id/imageView33"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="5dp"
-                app:layout_constraintStart_toStartOf="@+id/textView56"
-                app:layout_constraintTop_toBottomOf="@+id/textView56"
-                app:srcCompat="@drawable/ic_location" />
-
-            <TextView
-                android:id="@+id/textView57"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="4dp"
-                android:layout_marginTop="4dp"
-                android:fontFamily="@font/poppins_light"
-                android:text="-7.695467766280805, 110.41798311948784"
-                android:textSize="10dp"
-                app:layout_constraintStart_toEndOf="@+id/imageView33"
-                app:layout_constraintTop_toBottomOf="@+id/textView56" />
-
-            <TextView
-                android:id="@+id/textView58"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="5dp"
-                android:fontFamily="@font/poppins_light"
-                android:text="Waktu Selesai: 15 Agustus 2023 15.20"
-                android:textSize="10dp"
-                app:layout_constraintStart_toStartOf="@+id/imageView33"
-                app:layout_constraintTop_toBottomOf="@+id/textView57" />
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.cardview.widget.CardView>
 
@@ -133,7 +102,7 @@
                 android:layout_marginEnd="15dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:srcCompat="@drawable/ic_chat_bubble" />
+                android:src="@drawable/ic_chat_bubble" />
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.cardview.widget.CardView>
 

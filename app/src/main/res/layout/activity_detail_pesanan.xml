@@ -129,6 +129,7 @@
                 android:text="Jl. Kaliurang km.13 No.27, Candi Karang, Sardonoharjo, Kec. Ngaglik, Kabupaten Sleman, Daerah Istimewa Yogyakarta 55581"
                 android:textColor="@color/black"
                 android:textSize="14dp"
+                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="@+id/textView56"
                 app:layout_constraintTop_toBottomOf="@+id/textView56" />
@@ -146,38 +147,16 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
-            <ImageView
-                android:id="@+id/imageView31"
-                android:layout_width="7dp"
-                android:layout_height="10dp"
-                android:layout_marginTop="8dp"
-                app:layout_constraintStart_toStartOf="@+id/tvAlamatUser"
-                app:layout_constraintTop_toBottomOf="@+id/tvAlamatUser"
-                app:srcCompat="@drawable/ic_location" />
-
-            <TextView
-                android:id="@+id/textView58"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="4dp"
-                android:layout_marginTop="5dp"
-                android:fontFamily="@font/poppins_light"
-                android:text="-7.695467766280805, 110.41798311948784"
-                android:textSize="10dp"
-                app:layout_constraintStart_toEndOf="@+id/imageView31"
-                app:layout_constraintTop_toBottomOf="@+id/tvAlamatUser" />
-
             <TextView
                 android:id="@+id/textView59"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="5dp"
                 android:fontFamily="@font/poppins_light"
                 android:text="Waktu Selesai: 15 Agustus 2023 15.20"
                 android:textColor="#666666"
                 android:textSize="10dp"
-                app:layout_constraintStart_toStartOf="@+id/imageView31"
-                app:layout_constraintTop_toBottomOf="@+id/textView58" />
+                tools:layout_editor_absoluteX="12dp"
+                tools:layout_editor_absoluteY="123dp" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.cardview.widget.CardView>
@@ -210,28 +189,6 @@
                 app:srcCompat="@drawable/ic_chat_bubble" />
 
             <TextView
-                android:id="@+id/textView55"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="4dp"
-                android:layout_marginTop="2dp"
-                android:fontFamily="@font/poppins_medium"
-                android:text="5.0"
-                android:textColor="@color/black"
-                android:textSize="10dp"
-                app:layout_constraintStart_toEndOf="@+id/imageView29"
-                app:layout_constraintTop_toBottomOf="@+id/textView54" />
-
-            <ImageView
-                android:id="@+id/imageView29"
-                android:layout_width="10dp"
-                android:layout_height="10dp"
-                android:layout_marginTop="3dp"
-                app:layout_constraintStart_toStartOf="@+id/textView54"
-                app:layout_constraintTop_toBottomOf="@+id/textView54"
-                app:srcCompat="@drawable/ic_bintang_rate" />
-
-            <TextView
                 android:id="@+id/tvNamaUser"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -240,20 +197,9 @@
                 android:fontFamily="@font/poppins_medium"
                 android:text="Okto Pembalap"
                 android:textColor="@color/black"
-                android:textSize="16dp"
+                android:textSize="14dp"
                 app:layout_constraintStart_toEndOf="@+id/cardView8"
                 app:layout_constraintTop_toTopOf="parent" />
-
-            <TextView
-                android:id="@+id/textView54"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="4dp"
-                android:fontFamily="@font/poppins"
-                android:text="Bengkel Sejahtera Sukses"
-                android:textSize="10dp"
-                app:layout_constraintStart_toStartOf="@+id/tvNamaUser"
-                app:layout_constraintTop_toBottomOf="@+id/tvNamaUser" />
 
             <androidx.cardview.widget.CardView
                 android:id="@+id/cardView8"
@@ -388,41 +334,6 @@
                 app:layout_constraintTop_toTopOf="parent"
                 android:src="@drawable/ic_ellipse" />
 
-            <TextView
-                android:id="@+id/textView50"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="2dp"
-                android:fontFamily="@font/poppins_light"
-                android:text="14:11"
-                android:textSize="10dp"
-                app:layout_constraintEnd_toEndOf="@+id/textView47"
-                app:layout_constraintStart_toStartOf="@+id/textView47"
-                app:layout_constraintTop_toBottomOf="@+id/textView47" />
-
-            <TextView
-                android:id="@+id/textView52"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="2dp"
-                android:fontFamily="@font/poppins_light"
-                android:text="15:10"
-                android:textSize="10dp"
-                app:layout_constraintEnd_toEndOf="@+id/textView49"
-                app:layout_constraintStart_toStartOf="@+id/textView49"
-                app:layout_constraintTop_toBottomOf="@+id/textView49" />
-
-            <TextView
-                android:id="@+id/textView51"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="2dp"
-                android:fontFamily="@font/poppins_light"
-                android:text="14:20"
-                android:textSize="10dp"
-                app:layout_constraintEnd_toEndOf="@+id/textView48"
-                app:layout_constraintStart_toStartOf="@+id/textView48"
-                app:layout_constraintTop_toBottomOf="@+id/textView48" />
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.cardview.widget.CardView>
 
