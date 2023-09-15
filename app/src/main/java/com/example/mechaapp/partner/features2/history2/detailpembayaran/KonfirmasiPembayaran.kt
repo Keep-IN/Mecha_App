@@ -3,6 +3,8 @@ package com.example.mechaapp.partner.features2.history2.detailpembayaran
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.os.Handler
+import android.os.Looper
 import android.util.Log
 import com.example.mechaapp.data.Api.OrderAPI
 import com.example.mechaapp.data.Api.UserAPI
@@ -53,8 +55,10 @@ class KonfirmasiPembayaran : AppCompatActivity(), BayarContract {
     }
 
     override fun onSuccesUpdate(status: StatusResponse?) {
-        AlertDialogKeluarAkun()
-        startActivity(Intent(this, NavbarContainer2::class.java))
-        finishAffinity()
+        AlertBayarSukses().show(supportFragmentManager, "Sukses")
+        Handler(Looper.getMainLooper()).postDelayed({
+            startActivity(Intent(this, NavbarContainer2::class.java))
+            finishAffinity()
+        }, 2000)
     }
 }

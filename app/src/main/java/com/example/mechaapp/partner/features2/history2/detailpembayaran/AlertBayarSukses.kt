@@ -1,7 +1,6 @@
-package com.example.mechaapp.partner.features2.History2.detailpembayaran
+package com.example.mechaapp.partner.features2.history2.detailpembayaran
 
 import android.app.Dialog
-import android.content.Intent
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
@@ -11,9 +10,7 @@ import android.view.ViewGroup
 import android.view.Window
 import androidx.fragment.app.DialogFragment
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.mechaapp.databinding.ActivityAlertDialogKeluarAkunBinding
 import com.example.mechaapp.databinding.AlertBayarSuksesBinding
-import com.example.mechaapp.features.OnBoard.LandingPage
 
 class AlertBayarSukses : DialogFragment() {
     lateinit var binding: AlertBayarSuksesBinding
@@ -32,7 +29,7 @@ class AlertBayarSukses : DialogFragment() {
 
         dialog?.requestWindowFeature(Window.FEATURE_NO_TITLE)
         dialog?.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
-        dialog?.setCanceledOnTouchOutside(true)
+        dialog?.setCanceledOnTouchOutside(false)
         return binding.root
     }
 

@@ -26,7 +26,7 @@ class AlertDialogLoginSucces: DialogFragment() {
         binding = AlertDialogLoginBinding.inflate(layoutInflater, container, false)
         dialog?.requestWindowFeature(Window.FEATURE_NO_TITLE)
         dialog?.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
-        dialog?.setCanceledOnTouchOutside(true)
+        dialog?.setCanceledOnTouchOutside(false)
         return binding.root
     }
 

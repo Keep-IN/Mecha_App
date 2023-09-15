@@ -8,7 +8,6 @@ import com.example.mechaapp.data.Api.OrderAPI
 import com.example.mechaapp.data.Api.UserAPI
 import com.example.mechaapp.data.Model.DataPrice
 import com.example.mechaapp.data.Model.DataToken
-import com.example.mechaapp.data.Model.DataUser
 import com.example.mechaapp.data.Model.OrderModel
 import com.example.mechaapp.data.Model.PriceGetResponse
 import com.example.mechaapp.data.Model.PriceModel

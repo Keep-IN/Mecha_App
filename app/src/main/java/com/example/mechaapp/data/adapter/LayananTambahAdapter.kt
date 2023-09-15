@@ -1,21 +1,12 @@
 package com.example.mechaapp.data.adapter
 
-import android.text.Editable
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.core.widget.doAfterTextChanged
 import androidx.recyclerview.widget.RecyclerView
-import com.bumptech.glide.Glide
-import com.example.mechaapp.R
 import com.example.mechaapp.data.Model.DataPrice
-import com.example.mechaapp.data.Model.HargaItemModel
 import com.example.mechaapp.data.Model.PriceModel
-import com.example.mechaapp.data.Model.SpotlightItemModel
-import com.example.mechaapp.databinding.ActivityLayananTambahanBinding
 import com.example.mechaapp.databinding.LayananTambahanViewBinding
-import com.example.mechaapp.databinding.SpotlightListViewBinding
-import com.example.mechaapp.partner.features2.history2.detailpembayaran.LayananTambahan
 
 class LayananTambahAdapter: RecyclerView.Adapter<LayananTambahAdapter.ViewHolder>()
 {

@@ -1,7 +1,6 @@
 package com.example.mechaapp.partner.features2.history2.detailpembayaran
 
 import android.content.Intent
-import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
@@ -19,12 +18,6 @@ import com.example.mechaapp.data.Model.StatusResponse
 import com.example.mechaapp.data.Model.UserResponse
 import com.example.mechaapp.data.adapter.DetailMontirAdapter
 import com.example.mechaapp.databinding.ActivityDetailPembayaranBinding
-import com.example.mechaapp.databinding.ActivityLandingPageBinding
-import com.example.mechaapp.features.MainActivity
-import com.example.mechaapp.features.Register.Register
-import com.example.mechaapp.partner.features2.History2.detailpembayaran.BayarContract
-import com.example.mechaapp.partner.features2.History2.detailpembayaran.BayarPresenter
-import com.example.mechaapp.partner.home2.HomeFragment2
 
 class DetailPembayaran : AppCompatActivity(),BayarContract {
     private lateinit var binding: ActivityDetailPembayaranBinding

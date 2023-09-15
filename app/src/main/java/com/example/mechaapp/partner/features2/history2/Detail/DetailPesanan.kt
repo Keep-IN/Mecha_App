@@ -6,7 +6,6 @@ import android.os.Bundle
 import android.util.Log
 import android.widget.Toast
 import com.example.mechaapp.data.Api.OrderAPI
-import com.example.mechaapp.data.Model.DataPrice
 import com.example.mechaapp.data.Model.DataUser
 import com.example.mechaapp.data.Model.OrderModel
 import com.example.mechaapp.data.Model.OrderResponse
