@@ -20,23 +20,16 @@ class BayarTagihan : AppCompatActivity() {
         textViewSource = findViewById(R.id.tvsourceCopy)
         textViewCopyButton = findViewById(R.id.tvCopy)
 
-        // Menambahkan OnClickListener pada textViewCopyButton
+
         textViewCopyButton.setOnClickListener(object : View.OnClickListener {
             override fun onClick(v: View?) {
-                // Mengambil teks dari textViewSource
                 val textToCopy = textViewSource.text.toString()
-
-                // Mengakses ClipboardManager
                 val clipboardManager =
                     getSystemService(Context.CLIPBOARD_SERVICE) as ClipboardManager
-
-                // Membuat ClipData dengan teks yang akan disalin
                 val clipData = ClipData.newPlainText("Teks yang disalin", textToCopy)
 
-                // Menyalin teks ke clipboard
                 clipboardManager.setPrimaryClip(clipData)
 
-                // Menampilkan pesan jika teks berhasil disalin
                 Toast.makeText(
                     this@BayarTagihan,
                     "Teks berhasil disalin ke clipboard",

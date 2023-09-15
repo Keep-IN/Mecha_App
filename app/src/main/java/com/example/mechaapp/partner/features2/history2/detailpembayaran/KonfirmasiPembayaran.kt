@@ -21,7 +21,7 @@ class KonfirmasiPembayaran : AppCompatActivity(), BayarContract {
         binding = ActivityKonfirmasiPembayaranBinding.inflate(layoutInflater)
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
-
+        
         presenter = BayarPresenter(this, OrderAPI(), UserAPI()).apply {
             onAttach(this@KonfirmasiPembayaran)
         }
@@ -53,6 +53,7 @@ class KonfirmasiPembayaran : AppCompatActivity(), BayarContract {
     }
 
     override fun onSuccesUpdate(status: StatusResponse?) {
+        AlertDialogKeluarAkun()
         startActivity(Intent(this, NavbarContainer2::class.java))
         finishAffinity()
     }

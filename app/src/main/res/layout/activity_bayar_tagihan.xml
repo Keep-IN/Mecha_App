@@ -215,6 +215,7 @@
     </androidx.cardview.widget.CardView>
 
     <androidx.cardview.widget.CardView
+        android:id="@+id/cardView14"
         android:layout_width="0dp"
         android:layout_height="169dp"
         android:layout_marginTop="16dp"
@@ -222,7 +223,7 @@
         app:cardCornerRadius="8dp"
         app:layout_constraintEnd_toEndOf="@+id/cardView16"
         app:layout_constraintStart_toStartOf="@+id/cardView16"
-        app:layout_constraintTop_toBottomOf="@+id/cardView16" >
+        app:layout_constraintTop_toBottomOf="@+id/cardView16">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
@@ -254,4 +255,26 @@
                 app:layout_constraintTop_toBottomOf="@+id/textView94" />
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.cardview.widget.CardView>
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/cvSudah"
+        android:layout_width="250dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="75dp"
+        app:cardBackgroundColor="@color/purple_200"
+        app:cardCornerRadius="8dp"
+        app:layout_constraintEnd_toEndOf="@+id/cardView14"
+        app:layout_constraintStart_toStartOf="@+id/cardView14"
+        app:layout_constraintTop_toBottomOf="@+id/cardView14">
+
+        <TextView
+            android:id="@+id/textView128"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:fontFamily="@font/poppins_bold"
+            android:text="Sudah Bayar"
+            android:textColor="@color/white"
+            android:textSize="16dp" />
+    </com.google.android.material.card.MaterialCardView>
 </androidx.constraintlayout.widget.ConstraintLayout>
