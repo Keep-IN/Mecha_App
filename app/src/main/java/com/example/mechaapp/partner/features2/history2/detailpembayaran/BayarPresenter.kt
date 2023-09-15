@@ -1,4 +1,4 @@
-package com.example.mechaapp.partner.features2.History2.detailpembayaran
+package com.example.mechaapp.partner.features2.history2.detailpembayaran
 
 import com.example.mechaapp.data.Api.OrderAPI
 import com.example.mechaapp.data.Api.UserAPI
@@ -59,6 +59,17 @@ class BayarPresenter(
             scope.launch {
                 when(it){
                     is ResponseStatus.Success -> view.onSuccesuser(it.data)
+                    is ResponseStatus.Failed -> view.onError(it.message)
+                }
+            }
+        }
+    }
+
+    fun updateStatus(status: String, id_service: String){
+        api.updateStatus(id_service, status){
+            scope.launch{
+                when(it){
+                    is ResponseStatus.Success -> view.onSuccesUpdate(it.data)
                     is ResponseStatus.Failed -> view.onError(it.message)
                 }
             }

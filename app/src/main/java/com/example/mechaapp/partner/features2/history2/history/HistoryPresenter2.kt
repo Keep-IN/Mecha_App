@@ -1,4 +1,4 @@
-package com.example.mechaapp.partner.features2.History2.history
+package com.example.mechaapp.partner.features2.history2.history
 
 import com.example.mechaapp.data.Api.OrderAPI
 import com.example.mechaapp.data.Network.ResponseStatus

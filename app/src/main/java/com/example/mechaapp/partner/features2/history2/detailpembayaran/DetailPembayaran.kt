@@ -5,17 +5,17 @@ import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.view.View
 import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.mechaapp.R
 import com.example.mechaapp.data.Api.OrderAPI
 import com.example.mechaapp.data.Api.UserAPI
 import com.example.mechaapp.data.Model.DataPelanggan
 import com.example.mechaapp.data.Model.DataPrice
 import com.example.mechaapp.data.Model.OrderModel
 import com.example.mechaapp.data.Model.PriceGetResponse
-import com.example.mechaapp.data.Model.PriceModel
 import com.example.mechaapp.data.Model.PriceResponse
+import com.example.mechaapp.data.Model.StatusResponse
 import com.example.mechaapp.data.Model.UserResponse
 import com.example.mechaapp.data.adapter.DetailMontirAdapter
 import com.example.mechaapp.databinding.ActivityDetailPembayaranBinding
@@ -40,6 +40,11 @@ class DetailPembayaran : AppCompatActivity(),BayarContract {
         val order = intent.getParcelableExtra<OrderModel>("order")
         if (order != null) {
             dataOrder = order
+            if(order.status == "Selesai"){
+                binding.cvKirimResi.visibility = View.GONE
+            }else{
+                binding.cvKirimResi.visibility = View.VISIBLE
+            }
         }
         presenter = BayarPresenter(this, OrderAPI(), UserAPI()).apply {
             onAttach(this@DetailPembayaran)
@@ -54,8 +59,6 @@ class DetailPembayaran : AppCompatActivity(),BayarContract {
         }
 
         binding.cvTambah.setOnClickListener {
-            binding.cvTambah.isEnabled = false
-            binding.cvTambah.setBackgroundColor(Color.parseColor("#C2C2C2"))
             startActivity(Intent(this, LayananTambahan::class.java ).apply {
                 putExtra("order", order)
             })
@@ -64,6 +67,7 @@ class DetailPembayaran : AppCompatActivity(),BayarContract {
             DataPrice.priceList.forEach {
                 presenter.postPriceByName("${DataPelanggan.id}/${dataOrder.id_service}", it.description_service, it.price)
             }
+            presenter.updateStatus("Diterima", dataOrder.id_service)
         }
         presenter.getPriceById(dataOrder.id.toString(),dataOrder.id_service)
     }
@@ -75,7 +79,6 @@ class DetailPembayaran : AppCompatActivity(),BayarContract {
 
     override fun onSuccesPrice(price: PriceResponse?) {
         Log.d("Succes", "Price Berhasil")
-        Toast.makeText(this, "Berhasil kirim Resi", Toast.LENGTH_SHORT).show()
     }
 
     override fun onErrorPrice(msg: String) {
@@ -115,7 +118,13 @@ class DetailPembayaran : AppCompatActivity(),BayarContract {
     }
 
     override fun onError(msg: String) {
-        TODO("Not yet implemented")
+        Log.d("Error", "API Hit Not found 404")
+    }
+
+    override fun onSuccesUpdate(status: StatusResponse?) {
+        startActivity(Intent(this, KonfirmasiPembayaran::class.java).apply {
+            putExtra("order", dataOrder)
+        })
     }
 
     fun Int.formatDecimalSeparator(): String {

@@ -6,6 +6,7 @@ import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.SupervisorJob
+import kotlinx.coroutines.launch
 import kotlin.coroutines.CoroutineContext
 
 class DetailPesananPresenter(
@@ -25,6 +26,17 @@ class DetailPesananPresenter(
             when(it){
                 is ResponseStatus.Success -> view.onSuccesGetPrice(it.data)
                 is ResponseStatus.Failed -> view.onErrorGetPrice(it.message)
+            }
+        }
+    }
+
+    fun getHistory(id: String){
+        api.getHistory(id){
+            scope.launch {
+                when(it){
+                    is ResponseStatus.Success -> view.onSuccesGetStatus(it.data)
+                    is ResponseStatus.Failed -> view.onErrorGetStatus(it.message)
+                }
             }
         }
     }

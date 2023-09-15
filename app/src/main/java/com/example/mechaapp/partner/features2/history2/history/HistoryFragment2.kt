@@ -1,4 +1,4 @@
-package com.example.mechaapp.partner.features2.History2.history
+package com.example.mechaapp.partner.features2.history2.history
 
 import android.content.Intent
 import android.graphics.Color
@@ -14,7 +14,6 @@ import com.example.mechaapp.data.Model.DataToken
 import com.example.mechaapp.data.Model.HistoryGetResponse
 import com.example.mechaapp.data.Model.OrderModel
 import com.example.mechaapp.databinding.FragmentHistory2Binding
-import com.example.mechaapp.partner.features2.History2.Detail.DetailPesanan
 import com.example.mechaapp.partner.features2.adapter2.HistoryFragmentAdapter
 import com.example.mechaapp.partner.features2.history2.detailpembayaran.DetailPembayaran
 

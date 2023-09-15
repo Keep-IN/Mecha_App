@@ -1,10 +1,9 @@
-package com.example.mechaapp.partner.features2.History2.Detail
+package com.example.mechaapp.partner.features2.history2.Detail
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.mechaapp.data.adapter.DetailMontirAdapter
-import com.example.mechaapp.databinding.ActivityDetailPesananBinding
 import com.example.mechaapp.databinding.ActivityDetailPesananMontirBinding
 
 class DetailPesananM : AppCompatActivity() {
