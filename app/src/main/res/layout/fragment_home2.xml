@@ -99,12 +99,12 @@
                         app:layout_constraintTop_toTopOf="parent" />
 
                     <TextView
-                        android:id="@+id/textView35"
+                        android:id="@+id/tvtagihan"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="16dp"
                         android:fontFamily="@font/poppins_medium"
-                        android:text="Rp500.000"
+                        android:text="Rp 0"
                         android:textColor="#FAF6F6"
                         android:textSize="14dp"
                         app:layout_constraintStart_toStartOf="parent"

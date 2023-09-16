@@ -11,6 +11,7 @@ import com.example.mechaapp.data.Model.PriceModel
 import com.example.mechaapp.data.Model.PriceResponse
 import com.example.mechaapp.data.Model.RegisResponse
 import com.example.mechaapp.data.Model.StatusResponse
+import com.example.mechaapp.data.Model.TagihanResponse
 import com.example.mechaapp.data.Model.UserModel
 import com.example.mechaapp.data.Network.NetworkClient
 import com.example.mechaapp.data.Network.ResponseStatus
@@ -33,6 +34,7 @@ class OrderAPI {
     private val priceEndpointHistory = "/prices/histories/"
     private val priceEndpointById = "/prices/histories/users/"
     private val priceEndpointIdService = "/prices"
+    private val updateTagihanEndpoint = "/users/update/tagihan"
 
     fun getAllOrder(onResponse: (ResponseStatus<OrderGetResponse?>)-> Unit){
         val request = NetworkClient.getWithBearerToken(orderEndpoint, DataToken.token)
@@ -553,6 +555,42 @@ class OrderAPI {
                             )
                         )
                     } else {
+                        onResponse.invoke(
+                            mapFailedResponse(response)
+                        )
+                    }
+                    response.body?.close()
+                }
+
+            })
+    }
+    fun updateTagihan(id: String, tagihan: String, onResponse: (ResponseStatus<TagihanResponse?>) -> Unit){
+        val request = NetworkClient.updateTagihan(updateTagihanEndpoint, DataToken.token, id, tagihan)
+        NetworkClient
+            .client
+            .newCall(request)
+            .enqueue(object: Callback{
+                override fun onFailure(call: Call, e: IOException) {
+                    onResponse.invoke(
+                        ResponseStatus.Failed(
+                            code = -1,
+                            message = e.message.toString(),
+                            throwable = e
+                        )
+                    )
+                }
+
+                override fun onResponse(call: Call, response: Response) {
+                    if (response.isSuccessful){
+                        val data = deserializeJson(response.body?.string() ?: "") ?: TagihanResponse(0, "", "")
+                        onResponse.invoke(
+                            ResponseStatus.Success(
+                                data = data,
+                                method = "PUT",
+                                status = true
+                            )
+                        )
+                    } else{
                         onResponse.invoke(
                             mapFailedResponse(response)
                         )
