@@ -17,7 +17,9 @@ import com.example.mechaapp.data.Model.DataRiwayatMontir
 import com.example.mechaapp.data.Model.DataToken
 import com.example.mechaapp.data.Model.DataUser
 import com.example.mechaapp.data.Model.HistoryGetResponse
+import com.example.mechaapp.data.Model.PriceModel
 import com.example.mechaapp.data.Model.TagihanResponse
+import com.example.mechaapp.partner.features2.bayartagihan.BayarTagihan
 
 class HomeFragment2 : Fragment(), HomeContract2 {
     private lateinit var binding: FragmentHome2Binding
@@ -42,11 +44,15 @@ class HomeFragment2 : Fragment(), HomeContract2 {
             onAttach(this@HomeFragment2)
         }
         val layoutManager = LinearLayoutManager(activity)
-        adapterHistory.submitList(DataRiwayatMontir.riwayathomeList)
         binding.rvMekanik.adapter = adapterHistory
         binding.rvMekanik.layoutManager = layoutManager
         binding.tvNamamekanik.text = DataUser.nama
         presenter.getHistory(DataToken.idUser)
+        binding.cvbayarTagihan.setOnClickListener {
+            startActivity(Intent(activity, BayarTagihan::class.java).apply {
+                putExtra("tagihan", binding.tvtagihan.text.toString())
+            })
+        }
     }
 
     override fun onSucces(history: HistoryGetResponse?) {
@@ -55,6 +61,7 @@ class HomeFragment2 : Fragment(), HomeContract2 {
                 it.prices.forEach {price ->
                     if (price.description_service == "Biaya Pemakaian Aplikasi"){
                         sum += price.price.toInt()
+                        DataRiwayatMontir.riwayathomeList.add(0, PriceModel(price.price.toInt().formatDecimalSeparator(),"", "Tagihan Layanan"))
                         presenter.updateTagihan(DataToken.userId, sum.toString())
                     }
                 }
@@ -70,6 +77,7 @@ class HomeFragment2 : Fragment(), HomeContract2 {
         if (tagihan != null) {
             Handler(requireActivity().mainLooper).post{
                 binding.tvtagihan.text = "Rp ${sum.formatDecimalSeparator()}"
+                adapterHistory.submitList(DataRiwayatMontir.riwayathomeList.toMutableList())
             }
         }
     }

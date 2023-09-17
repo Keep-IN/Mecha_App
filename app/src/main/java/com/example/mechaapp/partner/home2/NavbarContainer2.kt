@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import com.example.mechaapp.R
 import com.example.mechaapp.databinding.ActivityNavbarContainer2Binding
+import com.example.mechaapp.features.BottomSheetforAll.BottomSheetKeluar
 import com.example.mechaapp.partner.features2.history2.history.HistoryFragment2
 
 
@@ -34,6 +35,10 @@ class NavbarContainer2 : AppCompatActivity() {
             replace(R.id.fragContainer2, fragment)
             commit()
         }
+    }
+
+    override fun onBackPressed() {
+        BottomSheetKeluar().show(supportFragmentManager, "Keluar")
     }
 }
 
