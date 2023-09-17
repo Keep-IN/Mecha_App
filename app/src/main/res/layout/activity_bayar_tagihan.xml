@@ -100,7 +100,7 @@
                 app:layout_constraintTop_toBottomOf="@+id/textView84" />
 
             <TextView
-                android:id="@+id/textView87"
+                android:id="@+id/tvTotalTagihan"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="12dp"

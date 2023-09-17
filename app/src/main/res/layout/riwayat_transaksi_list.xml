@@ -27,54 +27,35 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="right"
-                android:layout_marginTop="40dp"
                 android:layout_marginEnd="16dp"
-                android:text="-Rp 2500"
+                android:text="Rp 0"
+                android:textColor="#1BCABB"
+                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
-
-            <TextView
-                android:id="@+id/tvIsiStatus"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/poppins_light"
-                android:text="Pengambilan Orderan"
-                android:textSize="10dp"
-                app:layout_constraintStart_toStartOf="@+id/tvJudulStatus"
-                app:layout_constraintTop_toBottomOf="@+id/tvJudulStatus" />
 
             <TextView
                 android:id="@+id/tvJudulStatus"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="14dp"
-                android:layout_marginTop="16dp"
                 android:fontFamily="@font/poppins_medium"
                 android:text="Saldo Keluar"
                 android:textColor="#000000"
                 android:textSize="14dp"
+                app:layout_constraintBottom_toBottomOf="@+id/imageView15"
                 app:layout_constraintStart_toEndOf="@+id/imageView15"
-                app:layout_constraintTop_toTopOf="parent" />
-
-            <TextView
-                android:id="@+id/tvTanggalOrderan"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/poppins_light"
-                android:text="17 Maret 2023"
-                android:textSize="10dp"
-                app:layout_constraintStart_toStartOf="@+id/tvIsiStatus"
-                app:layout_constraintTop_toBottomOf="@+id/tvIsiStatus" />
+                app:layout_constraintTop_toTopOf="@+id/imageView15" />
 
             <ImageView
                 android:id="@+id/imageView15"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
-                android:layout_marginTop="30dp"
+                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:srcCompat="@drawable/ic_minus" />
+                app:srcCompat="@drawable/ic_plus_transaksi" />
         </androidx.constraintlayout.widget.ConstraintLayout>
 
     </androidx.cardview.widget.CardView>
