@@ -22,9 +22,9 @@
                 android:layout_height="0.5dp"
                 android:background="@android:color/black"
                 app:layout_constraintBottom_toTopOf="@+id/cvambilPesan"
-                app:layout_constraintEnd_toEndOf="@+id/cardView6"
-                app:layout_constraintStart_toStartOf="@+id/cardView6"
-                app:layout_constraintTop_toBottomOf="@+id/cardView6" />
+                app:layout_constraintEnd_toEndOf="@+id/cvbayarTagihan"
+                app:layout_constraintStart_toStartOf="@+id/cvbayarTagihan"
+                app:layout_constraintTop_toBottomOf="@+id/cvbayarTagihan" />
 
             <com.google.android.material.card.MaterialCardView
                 android:id="@+id/cvambilPesan"
@@ -33,9 +33,9 @@
                 android:layout_marginTop="37dp"
                 android:backgroundTint="#00A496"
                 app:cardCornerRadius="8dp"
-                app:layout_constraintEnd_toEndOf="@+id/cardView6"
-                app:layout_constraintStart_toStartOf="@+id/cardView6"
-                app:layout_constraintTop_toBottomOf="@+id/cardView6">
+                app:layout_constraintEnd_toEndOf="@+id/cvbayarTagihan"
+                app:layout_constraintStart_toStartOf="@+id/cvbayarTagihan"
+                app:layout_constraintTop_toBottomOf="@+id/cvbayarTagihan">
 
                 <TextView
                     android:id="@+id/textView39"
@@ -68,7 +68,7 @@
                     app:srcCompat="@drawable/ic_gears_meka" />
             </com.google.android.material.card.MaterialCardView>
 
-            <androidx.cardview.widget.CardView
+            <com.google.android.material.card.MaterialCardView
                 android:id="@+id/cvUang"
                 android:layout_width="0dp"
                 android:layout_height="200dp"
@@ -89,30 +89,39 @@
                         android:id="@+id/textView34"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginStart="16dp"
-                        android:layout_marginTop="8dp"
                         android:fontFamily="@font/poppins"
-                        android:text="Indonesia Rupiah"
+                        android:text="Rupiah Indonesia"
                         android:textColor="#FAF8F8"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent" />
+                        app:layout_constraintStart_toStartOf="@+id/textView129"
+                        app:layout_constraintTop_toBottomOf="@+id/textView129" />
 
                     <TextView
-                        android:id="@+id/textView35"
+                        android:id="@+id/tvtagihan"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginStart="16dp"
                         android:fontFamily="@font/poppins_medium"
-                        android:text="Rp500.000"
+                        android:text="Rp 0"
                         android:textColor="#FAF6F6"
                         android:textSize="14dp"
-                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintStart_toStartOf="@+id/textView34"
                         app:layout_constraintTop_toBottomOf="@+id/textView34" />
+
+                    <TextView
+                        android:id="@+id/textView129"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="25dp"
+                        android:fontFamily="@font/poppins_medium"
+                        android:text="Tagihan Layanan"
+                        android:textColor="#FFFFFF"
+                        android:textSize="16sp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
                 </androidx.constraintlayout.widget.ConstraintLayout>
-            </androidx.cardview.widget.CardView>
+            </com.google.android.material.card.MaterialCardView>
 
             <com.google.android.material.card.MaterialCardView
-                android:id="@+id/cardView6"
+                android:id="@+id/cvbayarTagihan"
                 android:layout_width="0dp"
                 android:layout_height="60dp"
                 android:layout_marginStart="16dp"

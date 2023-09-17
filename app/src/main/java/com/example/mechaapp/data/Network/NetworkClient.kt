@@ -170,6 +170,20 @@ class NetworkClient {
             return request.build()
         }
 
+        fun updateTagihan(endpoint: String, token: String,id: String, tagihan: String, method: METHOD = METHOD.PUT, jsonBody: String? = null): Request{
+            val requestBody = FormBody.Builder()
+                .add("tagihan", tagihan)
+                .build()
+            val request = Request.Builder()
+                .url("$BASE_URL$endpoint/$id")
+                .header("Authorization", "Bearer $token")
+                .put(requestBody)
+            if (jsonBody != null)
+                request.method(method.name, jsonBody.toRequestBody())
+
+            return request.build()
+        }
+
         fun updateReqName(endpoint: String, token: String, name: String, user_id: String, id_service: String,  method:METHOD = METHOD.PUT, jsonBody: String? = null): Request{
             val requestBody = FormBody.Builder()
                 .add("name", name)

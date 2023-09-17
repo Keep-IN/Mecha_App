@@ -100,7 +100,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="@font/poppins_bold"
-        android:text="Konfirmasi pembayran?"
+        android:text="Konfirmasi pembayaran?"
         android:textColor="@color/design_default_color_error"
         android:textSize="16dp"
         app:layout_constraintEnd_toEndOf="@+id/textView81"
