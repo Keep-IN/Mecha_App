@@ -277,7 +277,7 @@
             android:text="Rp 45.000"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/textView119"
+            android:id="@+id/tvHarga"
             app:layout_constraintEnd_toEndOf="parent"
             android:layout_marginEnd="20dp"
             app:layout_constraintTop_toBottomOf="@+id/textView115"
@@ -290,10 +290,10 @@
             android:text="Rp 5.000"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/textView120"
-            app:layout_constraintEnd_toEndOf="@+id/textView119"
+            android:id="@+id/tvBiaya"
+            app:layout_constraintEnd_toEndOf="@+id/tvHarga"
             android:layout_marginTop="8dp"
-            app:layout_constraintTop_toBottomOf="@+id/textView119"
+            app:layout_constraintTop_toBottomOf="@+id/tvHarga"
             android:fontFamily="@font/poppins"
             android:textSize="12dp"
             android:textColor="@color/black" />
@@ -303,9 +303,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/textView121"
-            app:layout_constraintEnd_toEndOf="@+id/textView120"
+            app:layout_constraintEnd_toEndOf="@+id/tvBiaya"
             android:layout_marginTop="10dp"
-            app:layout_constraintTop_toBottomOf="@+id/textView120"
+            app:layout_constraintTop_toBottomOf="@+id/tvBiaya"
             android:fontFamily="@font/poppins"
             android:textSize="12dp"
             android:textColor="@color/black" />
@@ -337,7 +337,7 @@
             android:text="Rp 50.000"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/textView123"
+            android:id="@+id/tvSumLayanan"
             app:layout_constraintTop_toBottomOf="@+id/view3"
             app:layout_constraintEnd_toEndOf="@+id/view3"
             android:layout_marginTop="8dp"
@@ -345,7 +345,7 @@
             android:textSize="12dp"
             android:textColor="@color/black" />
 
-    <androidx.cardview.widget.CardView
+    <com.google.android.material.card.MaterialCardView
         android:id="@+id/btnPesan"
         android:layout_width="0dp"
         android:layout_height="41dp"
@@ -367,6 +367,6 @@
             android:text="Pesan Sekarang"
             android:textColor="@color/white"
             android:textSize="14dp" />
-    </androidx.cardview.widget.CardView>
+    </com.google.android.material.card.MaterialCardView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -34,7 +34,7 @@
                 app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
-                android:id="@+id/textView56"
+                android:id="@+id/tvAlamatpembayaran"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp"
@@ -75,14 +75,14 @@
                 app:layout_constraintTop_toTopOf="parent">
 
                 <ImageView
-                    android:id="@+id/imageView31"
+                    android:id="@+id/ivGambarpembayaran"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     app:srcCompat="@drawable/img_abelcool" />
             </androidx.cardview.widget.CardView>
 
             <TextView
-                android:id="@+id/textView54"
+                android:id="@+id/tvNamauser"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="12dp"
@@ -408,7 +408,7 @@
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.cardview.widget.CardView>
 
-    <androidx.cardview.widget.CardView
+    <com.google.android.material.card.MaterialCardView
         android:id="@+id/cvKirimResi"
         android:layout_width="0dp"
         android:layout_height="36dp"
@@ -430,5 +430,5 @@
             android:text="Kirim Resi Pembayaran"
             android:textColor="@color/white"
             android:textSize="14dp" />
-    </androidx.cardview.widget.CardView>
+    </com.google.android.material.card.MaterialCardView>
 </androidx.constraintlayout.widget.ConstraintLayout>

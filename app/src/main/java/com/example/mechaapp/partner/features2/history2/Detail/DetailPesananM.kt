@@ -19,8 +19,6 @@ class DetailPesananM : AppCompatActivity() {
         setContentView(view)
 
         val layoutManager = LinearLayoutManager(this)
-        //adapterDetailmontir.submitList(DataPembayaran.metodeList)
-        binding.rvDetailmontir.adapter = adapterDetailmontir
-        binding.rvDetailmontir.layoutManager = layoutManager
+
     }
 }

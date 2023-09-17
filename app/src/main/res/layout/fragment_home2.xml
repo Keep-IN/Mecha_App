@@ -32,8 +32,7 @@
                 android:layout_height="60dp"
                 android:layout_marginTop="37dp"
                 android:backgroundTint="#00A496"
-                app:cardCornerRadius="8dp
-        "
+                app:cardCornerRadius="8dp"
                 app:layout_constraintEnd_toEndOf="@+id/cvbayarTagihan"
                 app:layout_constraintStart_toStartOf="@+id/cvbayarTagihan"
                 app:layout_constraintTop_toBottomOf="@+id/cvbayarTagihan">

@@ -1,10 +1,12 @@
 package com.example.mechaapp.partner.features2.history2.Detail
 
 import android.content.Intent
+import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.widget.Toast
+import com.bumptech.glide.Glide
 import com.example.mechaapp.data.Api.OrderAPI
 import com.example.mechaapp.data.Model.DataUser
 import com.example.mechaapp.data.Model.OrderModel
@@ -13,7 +15,12 @@ import com.example.mechaapp.data.Model.PriceGetResponse
 import com.example.mechaapp.data.Model.PriceResponse
 import com.example.mechaapp.data.Model.StatusResponse
 import com.example.mechaapp.databinding.ActivityDetailPesananMontirBinding
+import com.example.mechaapp.features.Map.AlertConfirmationOrder
+import com.example.mechaapp.partner.features2.History2.Detail.AlertAmbilPesan
 import com.example.mechaapp.partner.home2.NavbarContainer2
+import java.math.BigDecimal
+import java.math.RoundingMode
+
 
 class DetailPesanan : AppCompatActivity(), DetailContract {
     private lateinit var binding: ActivityDetailPesananMontirBinding
@@ -25,6 +32,7 @@ class DetailPesanan : AppCompatActivity(), DetailContract {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
         val order = intent.getParcelableExtra<OrderModel>("order")
+
         if (order != null) {
             dataOrder = order
         }
@@ -35,6 +43,30 @@ class DetailPesanan : AppCompatActivity(), DetailContract {
         binding.btnAccept.setOnClickListener {
             if (order != null) {
                 presenter.deleteOrder(order.id.toString())
+            }
+        }
+        val intent = Intent(Intent.ACTION_VIEW, Uri.parse(dataOrder.map_url))
+        binding.apply {
+            if (order != null) {
+                tvidPmontir.text = order.id_service
+                tvnamaPmontir.text = order.name
+                tvAlamatuserm.text = order.address
+                tvLayananm.text = order.name_service
+
+                Glide
+                    .with(binding.root.context)
+                    .load(order.img_url)
+                    .into(binding.ivpMontir)
+                cvLokasiuser.setOnClickListener {
+                    if (intent.resolveActivity(packageManager) != null) {
+                        startActivity(intent)
+                    }
+
+                }
+            }
+
+            btnAccept.setOnClickListener {
+                AlertAmbilPesan().show(supportFragmentManager,"test")
             }
         }
     }

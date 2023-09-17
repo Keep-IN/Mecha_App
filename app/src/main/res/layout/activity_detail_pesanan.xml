@@ -131,11 +131,11 @@
                 android:textSize="14dp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="@+id/textView56"
-                app:layout_constraintTop_toBottomOf="@+id/textView56" />
+                app:layout_constraintStart_toStartOf="@+id/tvAlamatpembayaran"
+                app:layout_constraintTop_toBottomOf="@+id/tvAlamatpembayaran" />
 
             <TextView
-                android:id="@+id/textView56"
+                android:id="@+id/tvAlamatpembayaran"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="12dp"
@@ -212,7 +212,7 @@
                 app:layout_constraintTop_toTopOf="parent">
 
                 <ImageView
-                    android:id="@+id/imageView28"
+                    android:id="@+id/ivGambardetail"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     tools:srcCompat="@tools:sample/avatars" />
@@ -396,7 +396,7 @@
             android:textSize="14dp" />
     </com.google.android.material.card.MaterialCardView>
 
-    <androidx.cardview.widget.CardView
+    <com.google.android.material.card.MaterialCardView
         android:id="@+id/cvMetode"
         android:layout_width="0dp"
         android:layout_height="42dp"
@@ -434,5 +434,5 @@
                 app:layout_constraintTop_toTopOf="parent"
                 app:srcCompat="@drawable/ic_next" />
         </androidx.constraintlayout.widget.ConstraintLayout>
-    </androidx.cardview.widget.CardView>
+    </com.google.android.material.card.MaterialCardView>
 </androidx.constraintlayout.widget.ConstraintLayout>

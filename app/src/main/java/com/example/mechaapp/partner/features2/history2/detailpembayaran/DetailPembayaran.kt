@@ -7,6 +7,7 @@ import android.util.Log
 import android.view.View
 import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.bumptech.glide.Glide
 import com.example.mechaapp.data.Api.OrderAPI
 import com.example.mechaapp.data.Api.UserAPI
 import com.example.mechaapp.data.Model.DataPelanggan
@@ -63,6 +64,18 @@ class DetailPembayaran : AppCompatActivity(),BayarContract {
             presenter.updateStatus("Diterima", dataOrder.id_service)
         }
         presenter.getPriceById(dataOrder.id.toString(),dataOrder.id_service)
+
+        binding.apply {
+            if (order != null) {
+                tvNamauser.text = order.name
+                tvAlamatpembayaran.text = order.address
+
+                Glide
+                    .with(binding.root.context)
+                    .load(order.img_url)
+                    .into(binding.ivGambarpembayaran)
+            }
+        }
     }
 
     override fun onStart() {

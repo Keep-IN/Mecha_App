@@ -31,11 +31,13 @@ class MapAddress : AppCompatActivity(), OnMapReadyCallback {
     private lateinit var fusedLocationClient: FusedLocationProviderClient
     private lateinit var locationRequest: LocationRequest
     private lateinit var googleMap: GoogleMap
+    private var layanan: String = ""
 
     override fun onCreate(savedInstanceState: Bundle?) {
         binding = ActivityMapAddressBinding.inflate(layoutInflater)
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
+        layanan = intent.getStringExtra("layanan").toString()
 
         fusedLocationClient = LocationServices.getFusedLocationProviderClient(this)
 
@@ -52,6 +54,7 @@ class MapAddress : AppCompatActivity(), OnMapReadyCallback {
         binding.btnOrderNow.setOnClickListener {
             startActivity(Intent(this, ConfirmationOrder::class.java).apply {
                 putExtra("alamat", DataAddress.address)
+                putExtra("layanan", layanan)
             })
         }
     }

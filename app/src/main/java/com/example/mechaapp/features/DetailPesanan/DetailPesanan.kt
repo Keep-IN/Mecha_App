@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.bumptech.glide.Glide
 import com.example.mechaapp.R
 import com.example.mechaapp.data.Api.OrderAPI
 import com.example.mechaapp.data.Model.HistoryGetResponse
@@ -53,6 +54,18 @@ class DetailPesanan : AppCompatActivity(), DetailPesananContract {
             startActivity(Intent(this, MenungguKonfirmasiPembayaran::class.java).apply {
                 putExtra("order", order)
             })
+        }
+
+        binding.apply {
+            if (order != null) {
+                tvNamaUser.text = order.name
+                tvAlamatUser.text = order.address
+
+                Glide
+                    .with(binding.root.context)
+                    .load(order.img_url)
+                    .into(binding.ivGambardetail)
+            }
         }
     }
 
