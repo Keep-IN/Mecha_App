@@ -35,14 +35,17 @@ class HistoryFragmentAdapter: RecyclerView.Adapter<HistoryFragmentAdapter.ViewHo
     inner class ViewHolder(private val binding: HistoryListView2Binding): RecyclerView.ViewHolder(binding.root) {
         fun setData(item: OrderModel, listener: ((OrderModel) -> Unit)?){
             when (item.status) {
-                "Dijadwalkan" -> {
-                    binding.cvStatusHistory.setCardBackgroundColor(Color.parseColor("#358F80"))
+                "Diterima" -> {
+                    binding.cvStatusHistory.setCardBackgroundColor(Color.parseColor("#1BCABB"))
                 }
                 "Dibatalkan" -> {
-                    binding.cvStatusHistory.setCardBackgroundColor(Color.parseColor("#E21F30"))
+                    binding.cvStatusHistory.setCardBackgroundColor(Color.parseColor("#F3887E"))
                 }
                 "Selesai" -> {
-                    binding.cvStatusHistory.setCardBackgroundColor(Color.parseColor("#85B804"))
+                    binding.cvStatusHistory.setCardBackgroundColor(Color.parseColor("#67E785"))
+                }
+                "Menunggu" -> {
+                    binding.cvStatusHistory.setCardBackgroundColor(Color.parseColor("#D1CA49"))
                 }
             }
             binding.root.setOnClickListener{

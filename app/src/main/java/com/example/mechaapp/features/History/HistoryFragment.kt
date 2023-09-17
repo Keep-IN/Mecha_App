@@ -60,13 +60,13 @@ class HistoryFragment : Fragment(), HistoryContract {
                 cvSelesaiHistory.setCardBackgroundColor(Color.parseColor("#FFFFFF"))
                 tvSelesaiHistory.setTextColor(Color.parseColor("#000000"))
                 cvMenungguHistory.setCardBackgroundColor(Color.parseColor("#FFFFFF"))
-                tvMenungguHistory.setTextColor(Color.parseColor("#FFFFFF"))
+                tvMenungguHistory.setTextColor(Color.parseColor("#000000"))
             }
         }
 
         binding.cvProsesHistory.setOnClickListener() {
             val filteredHistory = dataHistory.filter {
-                it.status?.contains("Diproses") ?: false
+                it.status?.contains("Diterima") ?: false
             }
             adapterHistory.submitList(filteredHistory)
             binding.apply {
@@ -79,7 +79,7 @@ class HistoryFragment : Fragment(), HistoryContract {
                 cvSelesaiHistory.setCardBackgroundColor(Color.parseColor("#FFFFFF"))
                 tvSelesaiHistory.setTextColor(Color.parseColor("#000000"))
                 cvMenungguHistory.setCardBackgroundColor(Color.parseColor("#FFFFFF"))
-                tvMenungguHistory.setTextColor(Color.parseColor("#FFFFFF"))
+                tvMenungguHistory.setTextColor(Color.parseColor("#000000"))
             }
         }
 
@@ -98,7 +98,7 @@ class HistoryFragment : Fragment(), HistoryContract {
                 cvSelesaiHistory.setCardBackgroundColor(Color.parseColor("#FFFFFF"))
                 tvSelesaiHistory.setTextColor(Color.parseColor("#000000"))
                 cvMenungguHistory.setCardBackgroundColor(Color.parseColor("#FFFFFF"))
-                tvMenungguHistory.setTextColor(Color.parseColor("#FFFFFF"))
+                tvMenungguHistory.setTextColor(Color.parseColor("#000000"))
             }
         }
 
@@ -117,13 +117,13 @@ class HistoryFragment : Fragment(), HistoryContract {
                 cvSelesaiHistory.setCardBackgroundColor(Color.parseColor("#1BCABB"))
                 tvSelesaiHistory.setTextColor(Color.parseColor("#FFFFFF"))
                 cvMenungguHistory.setCardBackgroundColor(Color.parseColor("#FFFFFF"))
-                tvMenungguHistory.setTextColor(Color.parseColor("#FFFFFF"))
+                tvMenungguHistory.setTextColor(Color.parseColor("#000000"))
             }
         }
 
         binding.cvMenungguHistory.setOnClickListener() {
             val filteredHistory = dataHistory.filter {
-                it.status?.contains("Selesai") ?: false
+                it.status?.contains("Menunggu") ?: false
             }
             adapterHistory.submitList(filteredHistory)
             binding.apply {
@@ -134,7 +134,7 @@ class HistoryFragment : Fragment(), HistoryContract {
                 cvDibatalkanHistory.setCardBackgroundColor(Color.parseColor("#FFFFFF"))
                 tvDibatalkanHistory.setTextColor(Color.parseColor("#000000"))
                 cvSelesaiHistory.setCardBackgroundColor(Color.parseColor("#FFFFFF"))
-                tvSelesaiHistory.setTextColor(Color.parseColor("#FFFFFF"))
+                tvSelesaiHistory.setTextColor(Color.parseColor("#000000"))
                 cvMenungguHistory.setCardBackgroundColor(Color.parseColor("#1BCABB"))
                 tvMenungguHistory.setTextColor(Color.parseColor("#FFFFFF"))
             }

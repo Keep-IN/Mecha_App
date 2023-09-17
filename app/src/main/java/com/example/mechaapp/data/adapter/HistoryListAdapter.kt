@@ -34,14 +34,17 @@ class HistoryListAdapter: RecyclerView.Adapter<HistoryListAdapter.ViewHolder>()
     inner class ViewHolder(private val binding: HistoryListViewBinding): RecyclerView.ViewHolder(binding.root) {
         fun setData(item: OrderModel, listener: ((OrderModel) -> Unit)?){
             when (item.status) {
-                "Dijadwalkan" -> {
-                    binding.tvStatusLayanan.setTextColor(Color.parseColor("#358F80"))
+                "Diterima" -> {
+                    binding.cvStatusLayanan.setCardBackgroundColor(Color.parseColor("#1BCABB"))
                 }
                 "Dibatalkan" -> {
-                    binding.tvStatusLayanan.setTextColor(Color.parseColor("#E21F30"))
+                    binding.cvStatusLayanan.setCardBackgroundColor(Color.parseColor("#F3887E"))
                 }
                 "Selesai" -> {
-                    binding.tvStatusLayanan.setTextColor(Color.parseColor("#85B804"))
+                    binding.cvStatusLayanan.setCardBackgroundColor(Color.parseColor("#67E785"))
+                }
+                "Menunggu" -> {
+                    binding.cvStatusLayanan.setCardBackgroundColor(Color.parseColor("#D1CA49"))
                 }
             }
             binding.root.setOnClickListener{

@@ -124,86 +124,48 @@
             android:layout_height="match_parent">
 
             <TextView
-                android:id="@+id/textView53"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="2dp"
-                android:fontFamily="@font/poppins"
-                android:text="15:10"
-                android:textSize="10dp"
-                app:layout_constraintEnd_toEndOf="@+id/textView50"
-                app:layout_constraintStart_toStartOf="@+id/textView50"
-                app:layout_constraintTop_toBottomOf="@+id/textView50" />
-
-            <TextView
-                android:id="@+id/textView52"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="2dp"
-                android:fontFamily="@font/poppins_light"
-                android:text="14:20"
-                android:textSize="10dp"
-                app:layout_constraintEnd_toEndOf="@+id/textView49"
-                app:layout_constraintStart_toStartOf="@+id/textView49"
-                app:layout_constraintTop_toBottomOf="@+id/textView49" />
-
-            <TextView
-                android:id="@+id/textView51"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="2dp"
-                android:fontFamily="@font/poppins_light"
-                android:text="14:11"
-                android:textSize="10dp"
-                app:layout_constraintEnd_toEndOf="@+id/textView48"
-                app:layout_constraintStart_toStartOf="@+id/textView48"
-                app:layout_constraintTop_toBottomOf="@+id/textView48" />
-
-            <TextView
                 android:id="@+id/textView50"
-                android:layout_width="0dp"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="4dp"
-                android:layout_marginEnd="40dp"
                 android:text="Selesai"
                 android:textColor="@color/black"
                 android:textSize="10dp"
-                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintEnd_toEndOf="@+id/imageView27"
+                app:layout_constraintStart_toStartOf="@+id/imageView27"
                 app:layout_constraintTop_toBottomOf="@+id/imageView27" />
 
             <TextView
                 android:id="@+id/textView49"
-                android:layout_width="0dp"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="70dp"
                 android:layout_marginTop="4dp"
-                android:layout_marginEnd="85dp"
                 android:fontFamily="@font/poppins_light"
                 android:text="Perbaikan"
                 android:textColor="@color/black"
                 android:textSize="10dp"
-                app:layout_constraintEnd_toStartOf="@+id/textView50"
-                app:layout_constraintStart_toEndOf="@+id/textView48"
+                app:layout_constraintEnd_toEndOf="@+id/imageView25"
+                app:layout_constraintStart_toStartOf="@+id/imageView25"
                 app:layout_constraintTop_toBottomOf="@+id/imageView25" />
 
             <TextView
                 android:id="@+id/textView48"
-                android:layout_width="0dp"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="15dp"
                 android:layout_marginTop="4dp"
                 android:fontFamily="@font/poppins_light"
-                android:text="Pesanan Diterima"
+                android:text="Menunggu"
                 android:textColor="@color/black"
                 android:textSize="10dp"
-                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="@+id/imageView23"
+                app:layout_constraintStart_toStartOf="@+id/imageView23"
                 app:layout_constraintTop_toBottomOf="@+id/imageView23" />
 
             <View
                 android:id="@+id/view"
                 android:layout_width="0dp"
                 android:layout_height="1dp"
-                android:layout_marginStart="11dp"
+                android:layout_marginStart="27dp"
                 android:layout_marginTop="27dp"
                 android:layout_marginEnd="27dp"
                 android:background="#000000"
@@ -216,7 +178,7 @@
                 android:layout_height="1dp"
                 android:layout_marginStart="27dp"
                 android:layout_marginTop="27dp"
-                android:layout_marginEnd="11dp"
+                android:layout_marginEnd="27dp"
                 android:background="#000000"
                 app:layout_constraintEnd_toStartOf="@+id/imageView27"
                 app:layout_constraintStart_toEndOf="@+id/imageView25"

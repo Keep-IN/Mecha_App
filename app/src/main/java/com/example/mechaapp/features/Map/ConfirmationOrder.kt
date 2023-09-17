@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
+import android.util.Log
 import android.widget.Toast
 import com.example.mechaapp.R
 import com.example.mechaapp.data.Api.OrderAPI
@@ -44,9 +45,6 @@ class ConfirmationOrder : AppCompatActivity(), OrderContract {
             tvUrl.setOnClickListener {
                 startActivity(url)
             }
-            btnPesan.setOnClickListener {
-                AlertConfirmationOrder().show(supportFragmentManager,"test")
-            }
         }
         binding.btnPesan.setOnClickListener {
             presenter.postOrder(layanan, "Menunggu", binding.tvAlamat.text.toString(), binding.tvUrl.text.toString())
@@ -80,7 +78,7 @@ class ConfirmationOrder : AppCompatActivity(), OrderContract {
     }
 
     override fun onErrorOrder(msg: String) {
-        Toast.makeText(this, "gagal", Toast.LENGTH_SHORT).show()
+        Log.d("Gagal", "Gagal order")
     }
 
     override fun onSuccesHistory(history: OrderResponse?) {
@@ -109,23 +107,24 @@ class ConfirmationOrder : AppCompatActivity(), OrderContract {
     }
 
     override fun onErrorhistory(msg: String) {
-        Toast.makeText(this, "gagal history", Toast.LENGTH_SHORT).show()
+        Log.d("Gagal", "Gagal")
     }
 
     override fun onSuccesGetOrder(order: OrderGetResponse?) {
-        Toast.makeText(this, "", Toast.LENGTH_SHORT).show()
+        Log.d("Gagal", "Gagal")
     }
 
     override fun onErrorgetOrder(msg: String) {
-        Toast.makeText(this, "gagal get order", Toast.LENGTH_SHORT).show()
+        Log.d("Gagal", "Gagal")
     }
 
     override fun onSuccessPrice(price: PriceResponse?) {
+        Log.d("Sukses", "Suskses Price")
     }
 
     override fun onErrorPrice(msg: String) {
         runOnUiThread {
-            Toast.makeText(this, "Gagal Price", Toast.LENGTH_SHORT).show()
+            Log.d("Gagal", "Gagal Price")
         }
     }
     fun Int.formatDecimalSeparator(): String {

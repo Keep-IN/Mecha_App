@@ -18,6 +18,15 @@ class LayananPerbaikan : AppCompatActivity() {
         setContentView(binding.root)
 
         binding.apply {
+            cvGantiOli.setOnClickListener {
+                BottomSheetGantiOli().show(supportFragmentManager, "Ganti Oli")
+            }
+            cvInjeksimotor.setOnClickListener {
+                BottomSheetInjeksi().show(supportFragmentManager, "Injeksi Motor")
+            }
+            cvKarburator.setOnClickListener {
+                BottomSheetKarburator().show(supportFragmentManager, "Karburator Motor")
+            }
 
             ivbackLayanan.setOnClickListener {
                 startActivity(Intent(this@LayananPerbaikan, HomeFragment::class.java))

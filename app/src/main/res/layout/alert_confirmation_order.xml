@@ -14,13 +14,15 @@
             android:layout_height="match_parent">
 
             <com.airbnb.lottie.LottieAnimationView
-                android:id="@+id/animationconfirmation"
+                android:id="@+id/animationConfirmation"
                 android:layout_width="150dp"
                 android:layout_height="150dp"
                 android:layout_marginTop="32dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
+                app:lottie_autoPlay="true"
+                app:lottie_loop="true"
                 app:lottie_rawRes="@raw/animation_lmf1utsd" />
 
             <TextView
@@ -31,9 +33,9 @@
                 android:fontFamily="@font/poppins_bold"
                 android:text="Layanan berhasil dipesan"
                 android:textSize="20dp"
-                app:layout_constraintEnd_toEndOf="@+id/animationconfirmation"
-                app:layout_constraintStart_toStartOf="@+id/animationconfirmation"
-                app:layout_constraintTop_toBottomOf="@+id/animationconfirmation" />
+                app:layout_constraintEnd_toEndOf="@+id/animationConfirmation"
+                app:layout_constraintStart_toStartOf="@+id/animationConfirmation"
+                app:layout_constraintTop_toBottomOf="@+id/animationConfirmation" />
 
             <TextView
                 android:id="@+id/textView139"

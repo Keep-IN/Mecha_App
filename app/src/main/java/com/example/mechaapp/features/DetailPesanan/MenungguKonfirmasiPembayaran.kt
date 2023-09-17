@@ -6,7 +6,6 @@ import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
 import android.util.Log
-import com.example.mechaapp.R
 import com.example.mechaapp.data.Api.OrderAPI
 import com.example.mechaapp.data.Model.DataToken
 import com.example.mechaapp.data.Model.HistoryGetResponse
@@ -14,9 +13,7 @@ import com.example.mechaapp.data.Model.OrderModel
 import com.example.mechaapp.data.Model.PriceGetResponse
 import com.example.mechaapp.databinding.ActivityMenungguKonfirmasiPembayaranBinding
 import com.example.mechaapp.features.Dashboard.NavbarContainer
-import com.example.mechaapp.features.History.HistoryPresenter
 import com.example.mechaapp.partner.features2.history2.detailpembayaran.AlertBayarSukses
-import com.example.mechaapp.partner.home2.NavbarContainer2
 
 class MenungguKonfirmasiPembayaran : AppCompatActivity(), DetailPesananContract {
     private lateinit var binding: ActivityMenungguKonfirmasiPembayaranBinding

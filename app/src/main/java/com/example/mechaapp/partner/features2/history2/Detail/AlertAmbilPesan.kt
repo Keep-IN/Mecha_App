@@ -1,4 +1,4 @@
-package com.example.mechaapp.partner.features2.History2.Detail
+package com.example.mechaapp.partner.features2.history2.Detail
 
 import android.app.Dialog
 import android.graphics.Color
@@ -10,7 +10,6 @@ import android.view.ViewGroup
 import android.view.Window
 import androidx.fragment.app.DialogFragment
 import com.example.mechaapp.databinding.AlertAmbilPesanBinding
-import com.example.mechaapp.databinding.AlertConfirmationOrderBinding
 
 class AlertAmbilPesan: DialogFragment() {
     lateinit var binding: AlertAmbilPesanBinding

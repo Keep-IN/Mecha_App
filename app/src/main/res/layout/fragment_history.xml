@@ -7,7 +7,7 @@
     android:layout_height="match_parent"
     tools:context=".features.History.HistoryFragment">
 
-    <androidx.cardview.widget.CardView
+    <com.google.android.material.card.MaterialCardView
         android:id="@+id/cvRefresh"
         android:layout_width="40dp"
         android:layout_height="40dp"
@@ -16,6 +16,7 @@
         android:background="@color/backgroundcard"
         app:cardBackgroundColor="@color/backgroundcard"
         app:cardCornerRadius="8dp"
+        app:cardElevation="3dp"
         app:layout_constraintBottom_toBottomOf="@+id/rvHistory"
         app:layout_constraintEnd_toEndOf="parent">
 
@@ -25,7 +26,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:src="@drawable/ic_refresh" />
-    </androidx.cardview.widget.CardView>
+    </com.google.android.material.card.MaterialCardView>
 
     <HorizontalScrollView
         android:id="@+id/ScrollViewHistory"
@@ -46,6 +47,7 @@
                 android:layout_width="80dp"
                 android:layout_height="0dp"
                 android:layout_marginStart="15dp"
+                android:layout_marginEnd="20dp"
                 app:cardCornerRadius="8dp"
                 app:layout_constraintBottom_toBottomOf="@+id/cvDibatalkanHistory"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -106,7 +108,7 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:fontFamily="@font/poppins_medium"
-                    android:text="Proses"
+                    android:text="Diterima"
                     android:textColor="#000000"
                     android:textSize="12dp" />
             </com.google.android.material.card.MaterialCardView>
@@ -143,6 +145,8 @@
                 android:layout_marginBottom="20dp"
                 app:cardBackgroundColor="#1BCABB"
                 app:cardCornerRadius="8dp"
+                app:strokeColor="#1BCABB"
+                app:strokeWidth="2dp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
@@ -204,11 +208,11 @@
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rvHistory"
-        android:layout_width="409dp"
-        android:layout_height="755dp"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
         android:layout_marginStart="1dp"
-        android:layout_marginTop="1dp"
         android:layout_marginEnd="1dp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/ScrollViewHistory" />

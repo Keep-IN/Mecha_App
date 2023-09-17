@@ -147,17 +147,6 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
-            <TextView
-                android:id="@+id/textView59"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/poppins_light"
-                android:text="Waktu Selesai: 15 Agustus 2023 15.20"
-                android:textColor="#666666"
-                android:textSize="10dp"
-                tools:layout_editor_absoluteX="12dp"
-                tools:layout_editor_absoluteY="123dp" />
-
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.cardview.widget.CardView>
 
@@ -244,7 +233,7 @@
                 android:layout_gravity="center_horizontal"
                 android:layout_marginStart="27dp"
                 android:layout_marginTop="27dp"
-                android:layout_marginEnd="11dp"
+                android:layout_marginEnd="27dp"
                 android:background="@android:color/black"
                 app:layout_constraintEnd_toStartOf="@+id/imageView27"
                 app:layout_constraintStart_toEndOf="@+id/imageView25"
@@ -256,7 +245,7 @@
                 android:layout_width="0dp"
                 android:layout_height="1dp"
                 android:layout_gravity="center_horizontal"
-                android:layout_marginStart="11dp"
+                android:layout_marginStart="27dp"
                 android:layout_marginTop="27dp"
                 android:layout_marginEnd="27dp"
                 android:background="@android:color/black"
@@ -294,14 +283,14 @@
                 android:id="@+id/textView47"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="15dp"
                 android:layout_marginTop="4dp"
                 android:fontFamily="@font/poppins_light"
                 android:rotationX="0"
-                android:text="Pesanan Diterima"
+                android:text="Menunggu"
                 android:textColor="@color/black"
                 android:textSize="10dp"
-                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="@+id/imageView23"
+                app:layout_constraintStart_toStartOf="@+id/imageView23"
                 app:layout_constraintTop_toBottomOf="@+id/imageView23" />
 
             <ImageView
@@ -378,12 +367,12 @@
         android:id="@+id/cvPayService"
         android:layout_width="200dp"
         android:layout_height="41dp"
-        android:layout_marginTop="84dp"
+        android:layout_marginBottom="20dp"
         app:cardBackgroundColor="@color/purple_200"
         app:cardCornerRadius="8dp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@+id/cardView12"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/cardView12">
+        app:layout_constraintStart_toStartOf="@+id/cardView12">
 
         <TextView
             android:id="@+id/textView74"

@@ -8,9 +8,7 @@ import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
 import android.view.View
-import android.widget.TextView
 import android.widget.Toast
-import com.example.mechaapp.R
 import com.example.mechaapp.databinding.ActivityBayarTagihanBinding
 import com.example.mechaapp.partner.features2.history2.detailpembayaran.AlertBayarSukses
 

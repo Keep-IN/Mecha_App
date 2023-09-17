@@ -4,6 +4,8 @@ import android.content.Intent
 import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.os.Handler
+import android.os.Looper
 import android.util.Log
 import android.widget.Toast
 import com.bumptech.glide.Glide
@@ -15,11 +17,7 @@ import com.example.mechaapp.data.Model.PriceGetResponse
 import com.example.mechaapp.data.Model.PriceResponse
 import com.example.mechaapp.data.Model.StatusResponse
 import com.example.mechaapp.databinding.ActivityDetailPesananMontirBinding
-import com.example.mechaapp.features.Map.AlertConfirmationOrder
-import com.example.mechaapp.partner.features2.History2.Detail.AlertAmbilPesan
 import com.example.mechaapp.partner.home2.NavbarContainer2
-import java.math.BigDecimal
-import java.math.RoundingMode
 
 
 class DetailPesanan : AppCompatActivity(), DetailContract {
@@ -64,22 +62,21 @@ class DetailPesanan : AppCompatActivity(), DetailContract {
 
                 }
             }
-
-            btnAccept.setOnClickListener {
-                AlertAmbilPesan().show(supportFragmentManager,"test")
-            }
         }
     }
 
     override fun onSuccesHistory(order: OrderResponse?) {
-        Toast.makeText(this, "Berhasil", Toast.LENGTH_SHORT).show()
+        Log.d("Sukses", "Berhasil")
+        AlertAmbilPesan().show(supportFragmentManager,"test")
         dataOrder.prices.forEach {
             if (order != null) {
                 presenter.postPriceById("by/id/${order.order?.id.toString()}", it.description_service, it.price)
             }
         }
-        startActivity(Intent(this, NavbarContainer2::class.java))
-        finishAffinity()
+        Handler(Looper.getMainLooper()).postDelayed({
+            startActivity(Intent(this, NavbarContainer2::class.java))
+            finishAffinity()
+        }, 2000)
 //        DataPrice.priceList.forEach {
 //            runOnUiThread {
 //                if (order != null) {
@@ -94,7 +91,7 @@ class DetailPesanan : AppCompatActivity(), DetailContract {
     }
 
     override fun onSucceUpdate(data: StatusResponse?) {
-        Toast.makeText(this, "Berhasil Update", Toast.LENGTH_SHORT).show()
+        Log.d("Sukses", "Sukses")
     }
 
     override fun onSuccessDelete(order: OrderResponse?) {
@@ -109,22 +106,23 @@ class DetailPesanan : AppCompatActivity(), DetailContract {
     }
 
     override fun onErrorUpdate(msg: String) {
-        Toast.makeText(this, "gagal update", Toast.LENGTH_SHORT).show()
+        Log.d("Gagal", "Gagal update")
     }
 
     override fun onErrorDelete(msg: String) {
-        Toast.makeText(this, "gagal delete", Toast.LENGTH_SHORT).show()
+        Log.d("Gagal", "Gagal delete")
     }
 
     override fun onSuccesPrice(price: PriceResponse?) {
-        Toast.makeText(this, "Sukses Price", Toast.LENGTH_SHORT).show()
+        Log.d("Sukses", "Sukses")
     }
 
     override fun onErrorPrice(msg: String) {
-        Toast.makeText(this, "Gagal Price", Toast.LENGTH_SHORT).show()
+        Log.d("Gagal", "Gagal price")
     }
 
     override fun onSuccesGetPrice(price: PriceGetResponse?) {
+        Log.d("Sukses", "Sukses")
 //        presenter.updateName(DataUser.nama, dataOrder.user_id.toString(), dataOrder.id_service)
 //        if (price != null) {
 //            DataPrice.priceList = price.price.toMutableList()

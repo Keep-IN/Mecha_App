@@ -23,7 +23,7 @@
             android:layout_height="match_parent">
 
             <com.airbnb.lottie.LottieAnimationView
-                android:id="@+id/animationConfirm"
+                android:id="@+id/animationAmbil"
                 android:layout_width="150dp"
                 android:layout_height="150dp"
                 android:layout_marginStart="81dp"
@@ -45,9 +45,9 @@
                 android:text="Pembayaran Berhasil"
                 android:textColor="@color/black"
                 android:textSize="20dp"
-                app:layout_constraintEnd_toEndOf="@+id/animationConfirm"
-                app:layout_constraintStart_toStartOf="@+id/animationConfirm"
-                app:layout_constraintTop_toBottomOf="@+id/animationConfirm" />
+                app:layout_constraintEnd_toEndOf="@+id/animationAmbil"
+                app:layout_constraintStart_toStartOf="@+id/animationAmbil"
+                app:layout_constraintTop_toBottomOf="@+id/animationAmbil" />
 
             <TextView
                 android:id="@+id/textView69"
