@@ -44,8 +44,31 @@ class DetailPesanan : AppCompatActivity(), DetailContract {
             }
         }
         val intent = Intent(Intent.ACTION_VIEW, Uri.parse(dataOrder.map_url))
+        intent.setPackage("com.google.android.apps.maps")
+        binding.cvLokasiuser.setOnClickListener {
+            if (intent.resolveActivity(packageManager) != null) {
+                startActivity(intent)
+            } else {
+                val webIntent = Intent(Intent.ACTION_VIEW, Uri.parse(dataOrder.map_url))
+                startActivity(webIntent)
+            }
+
+        }
         binding.apply {
             if (order != null) {
+                var harga = 0
+                when(order.name_service){
+                    "Ganti Ban" -> harga = 15000
+                    "Ganti Velg" -> harga = 15000
+                    "Ganti Oli" -> harga = 30000
+                    "Kendaraan Mogok" -> harga = 30000
+                    "Tambal Ban" ->harga = 15000
+                    "Injeksi Motor" -> harga = 110000
+                    "Karburator Motor" ->harga = 110000
+                }
+                binding.tvHargam.text = "Rp ${harga.formatDecimalSeparator()}"
+                binding.tvBiayam.text = "Rp ${(harga*20/100).formatDecimalSeparator()}"
+                binding.tvProfitm.text = "Rp ${(harga - (harga*20/100)).formatDecimalSeparator()}"
                 tvidPmontir.text = order.id_service
                 tvnamaPmontir.text = order.name
                 tvAlamatuserm.text = order.address
@@ -55,12 +78,6 @@ class DetailPesanan : AppCompatActivity(), DetailContract {
                     .with(binding.root.context)
                     .load(order.img_url)
                     .into(binding.ivpMontir)
-                cvLokasiuser.setOnClickListener {
-                    if (intent.resolveActivity(packageManager) != null) {
-                        startActivity(intent)
-                    }
-
-                }
             }
         }
     }
@@ -127,5 +144,12 @@ class DetailPesanan : AppCompatActivity(), DetailContract {
 //        if (price != null) {
 //            DataPrice.priceList = price.price.toMutableList()
 //        }
+    }
+    fun Int.formatDecimalSeparator(): String {
+        return toString()
+            .reversed()
+            .chunked(3)
+            .joinToString(".")
+            .reversed()
     }
 }

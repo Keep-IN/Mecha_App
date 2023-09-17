@@ -4,6 +4,7 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.bumptech.glide.Glide
 import com.example.mechaapp.R
@@ -65,6 +66,11 @@ class DetailPesanan : AppCompatActivity(), DetailPesananContract {
                     .with(binding.root.context)
                     .load(order.img_url)
                     .into(binding.ivGambardetail)
+                when(order.status){
+                    "Menunggu" -> binding.ivMenunggu.setImageDrawable(ContextCompat.getDrawable(this@DetailPesanan, R.drawable.ic_progress_indicator))
+                    "Diterima" -> binding.ivDiterima.setImageDrawable(ContextCompat.getDrawable(this@DetailPesanan, R.drawable.ic_progress_indicator))
+                    "Selesai" -> binding.ivSelesai.setImageDrawable(ContextCompat.getDrawable(this@DetailPesanan, R.drawable.ic_progress_indicator))
+                }
             }
         }
     }

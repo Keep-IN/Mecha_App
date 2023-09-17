@@ -156,10 +156,9 @@ class MapAddress : AppCompatActivity(), OnMapReadyCallback {
     }
     private fun createMapUrl(latitude: Double, longitude: Double,mapType: String = "roadmap"): String{
         //Create map URL
-        val urlBuilder = StringBuilder("https://www.google.com/maps?q=")
-        urlBuilder.append("$longitude, $latitude")
+        val urlBuilder = StringBuilder("geo:")
         if (DataAddress.address.isNotBlank()) {
-            urlBuilder.append("&q=$longitude,$latitude(${DataAddress.address})")
+            urlBuilder.append("$longitude, $latitude?q=(${DataAddress.address})")
         }
         if (mapType.isNotBlank()) {
             urlBuilder.append("&t=$mapType")

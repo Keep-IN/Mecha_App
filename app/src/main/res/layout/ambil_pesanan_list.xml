@@ -73,18 +73,6 @@
                 app:layout_constraintTop_toBottomOf="@+id/cardView26" />
 
             <TextView
-                android:id="@+id/textView43"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="112dp"
-                android:layout_marginEnd="20dp"
-                android:fontFamily="@font/poppins"
-                android:text="Harga"
-                android:textSize="10dp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-
-            <TextView
                 android:id="@+id/tvJenisLayanan"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -96,25 +84,14 @@
                 app:layout_constraintStart_toStartOf="@+id/textView42"
                 app:layout_constraintTop_toBottomOf="@+id/textView42" />
 
-            <TextView
-                android:id="@+id/tvHargaLayanan"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="5dp"
-                android:fontFamily="@font/poppins"
-                android:text="Rp 50.000"
-                android:textColor="#000000"
-                android:textSize="10dp"
-                app:layout_constraintEnd_toEndOf="@+id/textView43"
-                app:layout_constraintTop_toBottomOf="@+id/textView43" />
-
             <View
                 android:id="@+id/view"
                 android:layout_width="0dp"
                 android:layout_height="0.5dp"
                 android:layout_marginTop="154dp"
+                android:layout_marginEnd="20dp"
                 android:background="@android:color/black"
-                app:layout_constraintEnd_toEndOf="@+id/tvHargaLayanan"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="@+id/tvJenisLayanan"
                 app:layout_constraintTop_toTopOf="parent" />
 

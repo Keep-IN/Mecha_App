@@ -265,7 +265,7 @@
                 app:layout_constraintTop_toBottomOf="@+id/tvHargam" />
 
             <TextView
-                android:id="@+id/textView138"
+                android:id="@+id/tvProfitm"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="12dp"
@@ -281,7 +281,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="12dp"
-                android:text="TextView"
+                android:text="Alamat"
                 app:layout_constraintStart_toStartOf="@+id/textView132"
                 app:layout_constraintTop_toBottomOf="@+id/textView132" />
 

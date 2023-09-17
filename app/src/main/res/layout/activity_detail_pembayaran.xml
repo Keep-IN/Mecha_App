@@ -131,9 +131,9 @@
                 android:text="Selesai"
                 android:textColor="@color/black"
                 android:textSize="10dp"
-                app:layout_constraintEnd_toEndOf="@+id/imageView27"
-                app:layout_constraintStart_toStartOf="@+id/imageView27"
-                app:layout_constraintTop_toBottomOf="@+id/imageView27" />
+                app:layout_constraintEnd_toEndOf="@+id/ivSelesaim"
+                app:layout_constraintStart_toStartOf="@+id/ivSelesaim"
+                app:layout_constraintTop_toBottomOf="@+id/ivSelesaim" />
 
             <TextView
                 android:id="@+id/textView49"
@@ -144,9 +144,9 @@
                 android:text="Perbaikan"
                 android:textColor="@color/black"
                 android:textSize="10dp"
-                app:layout_constraintEnd_toEndOf="@+id/imageView25"
-                app:layout_constraintStart_toStartOf="@+id/imageView25"
-                app:layout_constraintTop_toBottomOf="@+id/imageView25" />
+                app:layout_constraintEnd_toEndOf="@+id/ivDiterimam"
+                app:layout_constraintStart_toStartOf="@+id/ivDiterimam"
+                app:layout_constraintTop_toBottomOf="@+id/ivDiterimam" />
 
             <TextView
                 android:id="@+id/textView48"
@@ -157,9 +157,9 @@
                 android:text="Menunggu"
                 android:textColor="@color/black"
                 android:textSize="10dp"
-                app:layout_constraintEnd_toEndOf="@+id/imageView23"
-                app:layout_constraintStart_toStartOf="@+id/imageView23"
-                app:layout_constraintTop_toBottomOf="@+id/imageView23" />
+                app:layout_constraintEnd_toEndOf="@+id/ivMenunggum"
+                app:layout_constraintStart_toStartOf="@+id/ivMenunggum"
+                app:layout_constraintTop_toBottomOf="@+id/ivMenunggum" />
 
             <View
                 android:id="@+id/view"
@@ -169,8 +169,8 @@
                 android:layout_marginTop="27dp"
                 android:layout_marginEnd="27dp"
                 android:background="#000000"
-                app:layout_constraintEnd_toStartOf="@+id/imageView25"
-                app:layout_constraintStart_toEndOf="@+id/imageView23"
+                app:layout_constraintEnd_toStartOf="@+id/ivDiterimam"
+                app:layout_constraintStart_toEndOf="@+id/ivMenunggum"
                 app:layout_constraintTop_toTopOf="parent" />
 
             <View
@@ -180,11 +180,11 @@
                 android:layout_marginTop="27dp"
                 android:layout_marginEnd="27dp"
                 android:background="#000000"
-                app:layout_constraintEnd_toStartOf="@+id/imageView27"
-                app:layout_constraintStart_toEndOf="@+id/imageView25"
+                app:layout_constraintEnd_toStartOf="@+id/ivSelesaim"
+                app:layout_constraintStart_toEndOf="@+id/ivDiterimam"
                 app:layout_constraintTop_toTopOf="parent" />
             <ImageView
-                android:id="@+id/imageView23"
+                android:id="@+id/ivMenunggum"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="56dp"
@@ -194,7 +194,7 @@
                 android:src="@drawable/ic_ellipse" />
 
             <ImageView
-                android:id="@+id/imageView25"
+                android:id="@+id/ivDiterimam"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="24dp"
@@ -204,7 +204,7 @@
                 android:src="@drawable/ic_ellipse" />
 
             <ImageView
-                android:id="@+id/imageView27"
+                android:id="@+id/ivSelesaim"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="24dp"

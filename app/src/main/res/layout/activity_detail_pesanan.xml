@@ -235,8 +235,8 @@
                 android:layout_marginTop="27dp"
                 android:layout_marginEnd="27dp"
                 android:background="@android:color/black"
-                app:layout_constraintEnd_toStartOf="@+id/imageView27"
-                app:layout_constraintStart_toEndOf="@+id/imageView25"
+                app:layout_constraintEnd_toStartOf="@+id/ivSelesai"
+                app:layout_constraintStart_toEndOf="@+id/ivDiterima"
                 app:layout_constraintTop_toTopOf="parent" />
 
 
@@ -249,8 +249,8 @@
                 android:layout_marginTop="27dp"
                 android:layout_marginEnd="27dp"
                 android:background="@android:color/black"
-                app:layout_constraintEnd_toStartOf="@+id/imageView25"
-                app:layout_constraintStart_toEndOf="@+id/imageView23"
+                app:layout_constraintEnd_toStartOf="@+id/ivDiterima"
+                app:layout_constraintStart_toEndOf="@+id/ivMenunggu"
                 app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
@@ -262,9 +262,9 @@
                 android:text="Selesai"
                 android:textColor="@color/black"
                 android:textSize="10dp"
-                app:layout_constraintEnd_toEndOf="@+id/imageView27"
-                app:layout_constraintStart_toStartOf="@+id/imageView27"
-                app:layout_constraintTop_toBottomOf="@+id/imageView27" />
+                app:layout_constraintEnd_toEndOf="@+id/ivSelesai"
+                app:layout_constraintStart_toStartOf="@+id/ivSelesai"
+                app:layout_constraintTop_toBottomOf="@+id/ivSelesai" />
 
             <TextView
                 android:id="@+id/textView48"
@@ -275,9 +275,9 @@
                 android:text="Perbaikan"
                 android:textColor="@color/black"
                 android:textSize="10dp"
-                app:layout_constraintEnd_toEndOf="@+id/imageView25"
-                app:layout_constraintStart_toStartOf="@+id/imageView25"
-                app:layout_constraintTop_toBottomOf="@+id/imageView25" />
+                app:layout_constraintEnd_toEndOf="@+id/ivDiterima"
+                app:layout_constraintStart_toStartOf="@+id/ivDiterima"
+                app:layout_constraintTop_toBottomOf="@+id/ivDiterima" />
 
             <TextView
                 android:id="@+id/textView47"
@@ -289,39 +289,39 @@
                 android:text="Menunggu"
                 android:textColor="@color/black"
                 android:textSize="10dp"
-                app:layout_constraintEnd_toEndOf="@+id/imageView23"
-                app:layout_constraintStart_toStartOf="@+id/imageView23"
-                app:layout_constraintTop_toBottomOf="@+id/imageView23" />
+                app:layout_constraintEnd_toEndOf="@+id/ivMenunggu"
+                app:layout_constraintStart_toStartOf="@+id/ivMenunggu"
+                app:layout_constraintTop_toBottomOf="@+id/ivMenunggu" />
 
             <ImageView
-                android:id="@+id/imageView23"
-                android:layout_width="5dp"
-                android:layout_height="5dp"
+                android:id="@+id/ivMenunggu"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:layout_marginStart="56dp"
                 android:layout_marginTop="24dp"
+                android:src="@drawable/ic_ellipse"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                android:src="@drawable/ic_ellipse" />
+                app:layout_constraintTop_toTopOf="parent" />
 
             <ImageView
-                android:id="@+id/imageView25"
-                android:layout_width="5dp"
-                android:layout_height="5dp"
+                android:id="@+id/ivDiterima"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:layout_marginTop="24dp"
+                android:src="@drawable/ic_ellipse"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                android:src="@drawable/ic_ellipse" />
+                app:layout_constraintTop_toTopOf="parent" />
 
             <ImageView
-                android:id="@+id/imageView27"
-                android:layout_width="5dp"
-                android:layout_height="5dp"
+                android:id="@+id/ivSelesai"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:layout_marginTop="24dp"
                 android:layout_marginEnd="56dp"
+                android:src="@drawable/ic_ellipse"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                android:src="@drawable/ic_ellipse" />
+                app:layout_constraintTop_toTopOf="parent" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.cardview.widget.CardView>

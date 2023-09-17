@@ -41,7 +41,6 @@ class AmbilListAdapter : RecyclerView.Adapter<AmbilListAdapter.ViewHolder>() {
                 tvNamaPemesan.text = item.name
                 tvJenisLayanan.text = item.name_service
                 tvAddress.text = item.address
-                tvHargaLayanan.text = item.sum
             }
             Glide
                 .with(binding.root.context)

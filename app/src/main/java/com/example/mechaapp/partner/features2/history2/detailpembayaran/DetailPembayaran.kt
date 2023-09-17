@@ -6,8 +6,10 @@ import android.os.Bundle
 import android.util.Log
 import android.view.View
 import android.widget.Toast
+import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.bumptech.glide.Glide
+import com.example.mechaapp.R
 import com.example.mechaapp.data.Api.OrderAPI
 import com.example.mechaapp.data.Api.UserAPI
 import com.example.mechaapp.data.Model.DataPelanggan
@@ -74,6 +76,11 @@ class DetailPembayaran : AppCompatActivity(),BayarContract {
                     .with(binding.root.context)
                     .load(order.img_url)
                     .into(binding.ivGambarpembayaran)
+                when(order.status){
+                    "Menunggu" -> binding.ivMenunggum.setImageDrawable(ContextCompat.getDrawable(this@DetailPembayaran, R.drawable.ic_progress_indicator))
+                    "Diterima" -> binding.ivDiterimam.setImageDrawable(ContextCompat.getDrawable(this@DetailPembayaran, R.drawable.ic_progress_indicator))
+                    "Selesai" -> binding.ivSelesaim.setImageDrawable(ContextCompat.getDrawable(this@DetailPembayaran, R.drawable.ic_progress_indicator))
+                }
             }
         }
     }

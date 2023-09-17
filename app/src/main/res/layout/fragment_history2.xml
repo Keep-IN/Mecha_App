@@ -56,7 +56,7 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:fontFamily="@font/poppins_medium"
-                    android:text="Proses"
+                    android:text="Diterima"
                     android:textColor="#000000"
                     android:textSize="12dp" />
             </com.google.android.material.card.MaterialCardView>
@@ -192,13 +192,6 @@
             android:textColor="#FFFFFF"
             android:textSize="16dp" />
 
-        <ImageView
-            android:id="@+id/imageView14"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center|left"
-            android:paddingLeft="30dp"
-            android:src="@drawable/ic_btnback" />
     </androidx.cardview.widget.CardView>
 
 
