@@ -32,10 +32,10 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:scrollbars="none"
-        app:layout_constraintEnd_toEndOf="@+id/cardView3"
+        app:layout_constraintEnd_toEndOf="@+id/cvLayananDarurat"
         app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="@+id/cardView3"
-        app:layout_constraintTop_toBottomOf="@+id/cardView3">
+        app:layout_constraintStart_toStartOf="@+id/cvLayananDarurat"
+        app:layout_constraintTop_toBottomOf="@+id/cvLayananDarurat">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="wrap_content"
@@ -162,7 +162,7 @@
     </HorizontalScrollView>
 
     <androidx.cardview.widget.CardView
-        android:id="@+id/cardView3"
+        android:id="@+id/cvLayananDarurat"
         android:layout_width="match_parent"
         android:layout_height="60dp"
         app:cardBackgroundColor="#1BCABB"

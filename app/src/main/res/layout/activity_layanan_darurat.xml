@@ -72,7 +72,7 @@
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:srcCompat="@drawable/ic_montor" />
+                android:src="@drawable/ic_montor" />
 
             <TextView
                 android:id="@+id/txtPiw7"
@@ -148,7 +148,7 @@
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:srcCompat="@drawable/ic_montor" />
+                android:src="@drawable/ic_montor" />
 
             <TextView
                 android:id="@+id/textView7"

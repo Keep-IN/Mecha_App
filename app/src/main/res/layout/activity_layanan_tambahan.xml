@@ -62,7 +62,7 @@
             android:layout_height="match_parent">
 
             <ImageView
-                android:id="@+id/imageView28"
+                android:id="@+id/ivGambardetail"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="17dp"
@@ -81,7 +81,7 @@
                 android:text="Hapus Biaya"
                 android:textColor="#B71C16"
                 android:textSize="12dp"
-                app:layout_constraintStart_toEndOf="@+id/imageView28"
+                app:layout_constraintStart_toEndOf="@+id/ivGambardetail"
                 app:layout_constraintTop_toTopOf="parent" />
         </androidx.constraintlayout.widget.ConstraintLayout>
     </com.google.android.material.card.MaterialCardView>

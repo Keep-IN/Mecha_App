@@ -34,7 +34,7 @@
                 app:srcCompat="@drawable/ic_keluar_akun" />
 
             <TextView
-                android:id="@+id/textView54"
+                android:id="@+id/tvNamauser"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
@@ -55,9 +55,9 @@
                 android:text="Apakah anda yakin ingin keluar?"
                 android:textColor="@color/black"
                 android:textSize="14dp"
-                app:layout_constraintEnd_toEndOf="@+id/textView54"
-                app:layout_constraintStart_toStartOf="@+id/textView54"
-                app:layout_constraintTop_toBottomOf="@+id/textView54" />
+                app:layout_constraintEnd_toEndOf="@+id/tvNamauser"
+                app:layout_constraintStart_toStartOf="@+id/tvNamauser"
+                app:layout_constraintTop_toBottomOf="@+id/tvNamauser" />
 
             <com.google.android.material.card.MaterialCardView
                 android:id="@+id/cvoutAkun"
@@ -95,7 +95,7 @@
                 app:layout_constraintTop_toBottomOf="@+id/textView55">
 
                 <TextView
-                    android:id="@+id/textView56"
+                    android:id="@+id/tvAlamatpembayaran"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"

@@ -80,27 +80,15 @@
                     app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
-                android:id="@+id/textView54"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="20dp"
-                android:fontFamily="@font/poppins"
-                android:text="Alamat Utama"
-                android:textColor="#666666"
-                android:textSize="12dp"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/rvDetailmontir" />
-
-            <TextView
-                    android:id="@+id/textView62"
-                    android:layout_width="272dp"
-                    android:layout_height="42dp"
-                    android:layout_marginTop="16dp"
-                    android:fontFamily="@font/poppins_light"
-                    android:text="Jl. Kaliurang km.13 No.27, Candi Karang, Sardonoharjo, Kec. Ngaglik, Kabupaten Sleman, Daerah Istimewa Yogyakarta 55581"
-                    android:textSize="10dp"
-                    app:layout_constraintStart_toStartOf="@+id/textView54"
-                    app:layout_constraintTop_toBottomOf="@+id/textView54" />
+                android:id="@+id/tvAlamatuserm"
+                android:layout_width="272dp"
+                android:layout_height="42dp"
+                android:layout_marginTop="12dp"
+                android:fontFamily="@font/poppins_light"
+                android:text="Jl. Kaliurang km.13 No.27, Candi Karang, Sardonoharjo, Kec. Ngaglik, Kabupaten Sleman, Daerah Istimewa Yogyakarta 55581"
+                android:textSize="10dp"
+                app:layout_constraintStart_toStartOf="@+id/tvAddressdetail"
+                app:layout_constraintTop_toBottomOf="@+id/tvAddressdetail" />
 
             <androidx.cardview.widget.CardView
                 android:id="@+id/cardView23"
@@ -119,14 +107,15 @@
                     app:cardCornerRadius="80dp">
 
                     <ImageView
-                        android:id="@+id/imageView41"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        tools:srcCompat="@tools:sample/avatars" />
+                        android:id="@+id/ivpMontir"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:src="@drawable/ic_send" />
                 </androidx.cardview.widget.CardView>
             </androidx.cardview.widget.CardView>
 
-            <androidx.cardview.widget.CardView
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/cvLokasiuser"
                 android:layout_width="0dp"
                 android:layout_height="30dp"
                 android:layout_marginStart="62dp"
@@ -135,8 +124,8 @@
                 app:cardBackgroundColor="@color/purple_200"
                 app:cardCornerRadius="8dp"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="@+id/textView62"
-                app:layout_constraintTop_toBottomOf="@+id/textView62">
+                app:layout_constraintStart_toStartOf="@+id/tvAlamatuserm"
+                app:layout_constraintTop_toBottomOf="@+id/tvAlamatuserm">
 
                 <TextView
                     android:id="@+id/textView108"
@@ -147,18 +136,155 @@
                     android:text="Lihat Lokasi"
                     android:textColor="@color/white"
                     android:textSize="14dp" />
-            </androidx.cardview.widget.CardView>
+            </com.google.android.material.card.MaterialCardView>
 
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/rvDetailmontir"
-                android:layout_width="369dp"
-                android:layout_height="227dp"
-                android:layout_marginStart="1dp"
-                android:layout_marginTop="1dp"
-                android:layout_marginEnd="1dp"
-                app:layout_constraintEnd_toEndOf="parent"
+            <TextView
+                android:id="@+id/textView54"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="32dp"
+                android:fontFamily="@font/poppins"
+                android:text="Id Pesanan"
+                android:textSize="12dp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/cardView23" />
+
+            <TextView
+                android:id="@+id/textView56"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:fontFamily="@font/poppins"
+                android:text="Nama"
+                app:layout_constraintStart_toStartOf="@+id/textView54"
+                app:layout_constraintTop_toBottomOf="@+id/textView54" />
+
+            <TextView
+                android:id="@+id/textView129"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:fontFamily="@font/poppins"
+                android:text="Layanan"
+                android:textSize="12dp"
+                app:layout_constraintStart_toStartOf="@+id/textView56"
+                app:layout_constraintTop_toBottomOf="@+id/textView56" />
+
+            <TextView
+                android:id="@+id/textView130"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:fontFamily="@font/poppins"
+                android:text="Estimasi Harga"
+                android:textSize="12dp"
+                app:layout_constraintStart_toStartOf="@+id/textView129"
+                app:layout_constraintTop_toBottomOf="@+id/textView129" />
+
+            <TextView
+                android:id="@+id/textView131"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:fontFamily="@font/poppins"
+                android:text="Biaya Layanan"
+                android:textSize="12dp"
+                app:layout_constraintStart_toStartOf="@+id/textView130"
+                app:layout_constraintTop_toBottomOf="@+id/textView130" />
+
+            <TextView
+                android:id="@+id/textView132"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:fontFamily="@font/poppins"
+                android:text="Estimasi Pendapatan"
+                android:textSize="12dp"
+                app:layout_constraintStart_toStartOf="@+id/textView131"
+                app:layout_constraintTop_toBottomOf="@+id/textView131" />
+
+            <TextView
+                android:id="@+id/tvidPmontir"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="32dp"
+                android:layout_marginEnd="20dp"
+                android:fontFamily="@font/poppins_medium"
+                android:text="TB 06969"
+                android:textColor="@color/black"
+                android:textSize="12dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/cardView23" />
+
+            <TextView
+                android:id="@+id/tvnamaPmontir"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:fontFamily="@font/poppins_medium"
+                android:text="Abel Cool"
+                android:textColor="@color/black"
+                android:textSize="12dp"
+                app:layout_constraintEnd_toEndOf="@+id/tvidPmontir"
+                app:layout_constraintTop_toBottomOf="@+id/tvidPmontir" />
+
+            <TextView
+                android:id="@+id/tvLayananm"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:text="Tambal Ban"
+                android:textColor="@color/black"
+                android:textSize="12dp"
+                app:layout_constraintEnd_toEndOf="@+id/tvnamaPmontir"
+                app:layout_constraintTop_toBottomOf="@+id/tvnamaPmontir" />
+
+            <TextView
+                android:id="@+id/tvHargam"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:fontFamily="@font/poppins_medium"
+                android:text="Rp 50.000"
+                android:textColor="@color/black"
+                android:textSize="12dp"
+                app:layout_constraintEnd_toEndOf="@+id/tvLayananm"
+                app:layout_constraintTop_toBottomOf="@+id/tvLayananm" />
+
+            <TextView
+                android:id="@+id/tvBiayam"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:fontFamily="@font/poppins_medium"
+                android:text="Rp 5.000"
+                android:textColor="@color/black"
+                android:textSize="12dp"
+                app:layout_constraintEnd_toEndOf="@+id/tvHargam"
+                app:layout_constraintTop_toBottomOf="@+id/tvHargam" />
+
+            <TextView
+                android:id="@+id/textView138"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:fontFamily="@font/poppins_medium"
+                android:text="Rp 45.000"
+                android:textColor="@color/black"
+                android:textSize="12dp"
+                app:layout_constraintEnd_toEndOf="@+id/tvBiayam"
+                app:layout_constraintTop_toBottomOf="@+id/tvBiayam" />
+
+            <TextView
+                android:id="@+id/tvAddressdetail"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:text="TextView"
+                app:layout_constraintStart_toStartOf="@+id/textView132"
+                app:layout_constraintTop_toBottomOf="@+id/textView132" />
+
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.cardview.widget.CardView>
 

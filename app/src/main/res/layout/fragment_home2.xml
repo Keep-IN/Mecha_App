@@ -26,14 +26,13 @@
                 app:layout_constraintStart_toStartOf="@+id/cardView6"
                 app:layout_constraintTop_toBottomOf="@+id/cardView6" />
 
-            <androidx.cardview.widget.CardView
+            <com.google.android.material.card.MaterialCardView
                 android:id="@+id/cvambilPesan"
                 android:layout_width="0dp"
                 android:layout_height="60dp"
                 android:layout_marginTop="37dp"
                 android:backgroundTint="#00A496"
-                app:cardCornerRadius="8dp
-        "
+                app:cardCornerRadius="8dp"
                 app:layout_constraintEnd_toEndOf="@+id/cardView6"
                 app:layout_constraintStart_toStartOf="@+id/cardView6"
                 app:layout_constraintTop_toBottomOf="@+id/cardView6">
@@ -67,7 +66,7 @@
                     android:paddingLeft="24dp"
                     android:paddingTop="12dp"
                     app:srcCompat="@drawable/ic_gears_meka" />
-            </androidx.cardview.widget.CardView>
+            </com.google.android.material.card.MaterialCardView>
 
             <androidx.cardview.widget.CardView
                 android:id="@+id/cvUang"
@@ -112,7 +111,7 @@
                 </androidx.constraintlayout.widget.ConstraintLayout>
             </androidx.cardview.widget.CardView>
 
-            <androidx.cardview.widget.CardView
+            <com.google.android.material.card.MaterialCardView
                 android:id="@+id/cardView6"
                 android:layout_width="0dp"
                 android:layout_height="60dp"
@@ -154,7 +153,7 @@
                     android:text=" Gunakan saldo untuk ambil pesanan"
                     android:textColor="#F8F7F7"
                     android:textSize="12dp" />
-            </androidx.cardview.widget.CardView>
+            </com.google.android.material.card.MaterialCardView>
 
             <androidx.cardview.widget.CardView
                 android:id="@+id/cardView5"

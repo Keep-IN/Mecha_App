@@ -114,8 +114,8 @@
                 </androidx.cardview.widget.CardView>
             </com.google.android.material.card.MaterialCardView>
 
-            <androidx.cardview.widget.CardView
-                android:id="@+id/cardView3"
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/cvLayananDarurat"
                 android:layout_width="355dp"
                 android:layout_height="112dp"
                 android:backgroundTint="#1BCABB"
@@ -154,18 +154,18 @@
                     android:text="Layanan Darurat"
                     android:textColor="#FFFFFF"
                     android:textSize="20sp" />
-            </androidx.cardview.widget.CardView>
+            </com.google.android.material.card.MaterialCardView>
 
-            <androidx.cardview.widget.CardView
+            <com.google.android.material.card.MaterialCardView
                 android:id="@+id/cvTireFix"
                 android:layout_width="355dp"
                 android:layout_height="112dp"
                 android:layout_marginTop="9dp"
                 android:backgroundTint="#1BCABB"
                 app:cardCornerRadius="8dp"
-                app:layout_constraintEnd_toEndOf="@+id/cardView3"
-                app:layout_constraintStart_toStartOf="@+id/cardView3"
-                app:layout_constraintTop_toBottomOf="@+id/cardView3">
+                app:layout_constraintEnd_toEndOf="@+id/cvLayananDarurat"
+                app:layout_constraintStart_toStartOf="@+id/cvLayananDarurat"
+                app:layout_constraintTop_toBottomOf="@+id/cvLayananDarurat">
 
                 <TextView
                     android:id="@+id/textView28"
@@ -197,9 +197,10 @@
                     android:text="Panggil montir terdekat untuk memperbaiki ban anda"
                     android:textColor="#FFFFFF"
                     android:textSize="10sp" />
-            </androidx.cardview.widget.CardView>
+            </com.google.android.material.card.MaterialCardView>
 
-            <androidx.cardview.widget.CardView
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/cvRawatKendaraan"
                 android:layout_width="355dp"
                 android:layout_height="112dp"
                 android:layout_marginTop="12dp"
@@ -241,7 +242,7 @@
                     android:text="Rawat Kendaraan"
                     android:textColor="#FFFFFF"
                     android:textSize="20sp" />
-            </androidx.cardview.widget.CardView>
+            </com.google.android.material.card.MaterialCardView>
         </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>
 

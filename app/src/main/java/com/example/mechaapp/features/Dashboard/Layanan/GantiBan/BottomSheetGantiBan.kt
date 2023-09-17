@@ -25,7 +25,9 @@ class BottomSheetGantiBan: SuperBottomSheetFragment() {
         super.onViewCreated(view, savedInstanceState)
 
         binding.btnPesan.setOnClickListener {
-            startActivity(Intent(activity, MapAddress::class.java))
+            startActivity(Intent(activity, MapAddress::class.java).apply {
+                putExtra("layanan", "Ganti Ban")
+            })
         }
     }
     override fun isSheetAlwaysExpanded() = true

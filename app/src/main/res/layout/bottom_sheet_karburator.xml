@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <TextView
+        android:id="@+id/textView0001"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="54dp"
+        android:fontFamily="@font/poppins_medium"
+        android:text="Karburator Motor"
+        android:textColor="#000000"
+        android:textSize="20sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView0002"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:fontFamily="@font/poppins"
+        android:text="Layanan Perawatan Motor Bermesin Karburator "
+        android:textColor="#000000"
+        app:layout_constraintStart_toStartOf="@+id/textView0001"
+        app:layout_constraintTop_toBottomOf="@+id/textView0001" />
+
+    <TextView
+        android:id="@+id/textView0003"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:fontFamily="@font/poppins_medium"
+        android:text="Lihat Detail"
+        android:textColor="#000000"
+        android:textSize="16sp"
+        app:layout_constraintStart_toStartOf="@+id/textView0002"
+        app:layout_constraintTop_toBottomOf="@+id/textView0002" />
+
+    <TextView
+        android:id="@+id/textView0004"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="24dp"
+        android:drawableStart="@drawable/baseline_circle_24"
+        android:drawablePadding="10dp"
+        android:fontFamily="@font/poppins"
+        android:gravity="top|left"
+        android:text="Layanan Perawatan Motor bermesin karburator di lokasi pelanggan"
+        android:textColor="#000000"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/textView0003"
+        app:layout_constraintTop_toBottomOf="@+id/textView0003" />
+
+    <TextView
+        android:id="@+id/textView0005"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:drawableStart="@drawable/baseline_circle_24"
+        android:drawablePadding="10dp"
+        android:fontFamily="@font/poppins"
+        android:text="Pengecekan kualitas mesin Motor Karburator"
+        android:textColor="#000000"
+        app:layout_constraintEnd_toEndOf="@+id/textView0004"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/textView0004"
+        app:layout_constraintTop_toBottomOf="@+id/textView0004" />
+
+    <TextView
+        android:id="@+id/textView0006"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:drawableStart="@drawable/baseline_circle_24"
+        android:drawablePadding="10dp"
+        android:fontFamily="@font/poppins"
+        android:text="Perbaikan kerusakan yang ada pada mesin motor karburator"
+        android:textColor="#000000"
+        app:layout_constraintEnd_toEndOf="@+id/textView0005"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/textView0005"
+        app:layout_constraintTop_toBottomOf="@+id/textView0005" />
+
+    <TextView
+        android:id="@+id/textView0007"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:drawableStart="@drawable/baseline_circle_24"
+        android:drawablePadding="10dp"
+        android:fontFamily="@font/poppins"
+        android:text="Harga order belum termasuk ongkir"
+        android:textColor="#000000"
+        app:layout_constraintEnd_toEndOf="@+id/textView0006"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/textView0006"
+        app:layout_constraintTop_toBottomOf="@+id/textView0006" />
+
+    <TextView
+        android:id="@+id/textView0008"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="75dp"
+        android:fontFamily="@font/poppins_medium"
+        android:text="Estimasi Harga"
+        android:textColor="#000000"
+        android:textSize="16sp"
+        app:layout_constraintStart_toStartOf="@+id/textView0007"
+        app:layout_constraintTop_toBottomOf="@+id/textView0007" />
+
+    <TextView
+        android:id="@+id/textView0009"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:fontFamily="@font/poppins"
+        android:text="Mulai dari Rp. 50.000"
+        android:textColor="#000000"
+        app:layout_constraintStart_toStartOf="@+id/textView0008"
+        app:layout_constraintTop_toBottomOf="@+id/textView0008" />
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/btnPesan"
+        android:layout_width="0dp"
+        android:layout_height="41dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="50dp"
+        android:layout_marginEnd="24dp"
+        android:layout_marginBottom="30dp"
+        app:cardBackgroundColor="#1BCABB"
+        app:cardCornerRadius="8dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView0009">
+
+        <TextView
+            android:id="@+id/textView38"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:fontFamily="@font/poppins_bold"
+            android:gravity="center"
+            android:text="Pesan layanan ini"
+            android:textColor="#FFFFFF" />
+    </com.google.android.material.card.MaterialCardView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

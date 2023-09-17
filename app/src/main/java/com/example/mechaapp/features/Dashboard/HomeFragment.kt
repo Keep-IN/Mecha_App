@@ -11,7 +11,9 @@ import com.example.mechaapp.databinding.FragmentHomeBinding
 import com.example.mechaapp.data.adapter.SpotlightListAdapter
 import com.example.mechaapp.data.Model.DataSpotlight
 import com.example.mechaapp.data.Model.DataUser
+import com.example.mechaapp.features.Dashboard.Layanan.Emergency.LayananDarurat
 import com.example.mechaapp.features.Dashboard.Layanan.GantiBan.LayananBan
+import com.example.mechaapp.features.Dashboard.Layanan.Service.LayananPerbaikan
 
 class HomeFragment : Fragment() {
     private  lateinit var binding: FragmentHomeBinding
@@ -37,6 +39,12 @@ class HomeFragment : Fragment() {
 
         binding.cvTireFix.setOnClickListener {
             startActivity(Intent(activity, LayananBan::class.java))
+        }
+        binding.cvLayananDarurat.setOnClickListener {
+            startActivity(Intent(activity, LayananDarurat::class.java))
+        }
+        binding.cvRawatKendaraan.setOnClickListener {
+            startActivity(Intent(activity, LayananPerbaikan::class.java))
         }
     }
 
