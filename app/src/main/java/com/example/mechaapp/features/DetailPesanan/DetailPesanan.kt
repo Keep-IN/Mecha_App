@@ -4,6 +4,7 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.view.View
 import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.bumptech.glide.Glide
@@ -56,6 +57,9 @@ class DetailPesanan : AppCompatActivity(), DetailPesananContract {
                 putExtra("order", order)
             })
         }
+        if(dataOrder.status == "Selesai"){
+            binding.cvPayService.visibility = View.GONE
+        }
 
         binding.apply {
             if (order != null) {
@@ -81,7 +85,7 @@ class DetailPesanan : AppCompatActivity(), DetailPesananContract {
         if (price != null) {
             runOnUiThread {
                 adapterDetailuser.submitList(price.price.distinct())
-                price.price.forEach {
+                price.price.distinct().forEach {
                     sumPrice.add(it.price.toInt())
                 }
                 binding.tvSumPrice.text = "Rp ${sumPrice.sum().formatDecimalSeparator()}"

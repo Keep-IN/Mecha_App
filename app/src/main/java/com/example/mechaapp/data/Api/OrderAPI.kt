@@ -1,5 +1,6 @@
 package com.example.mechaapp.data.Api
 
+import android.content.Context
 import android.util.Log
 import com.example.mechaapp.data.Model.DataToken
 import com.example.mechaapp.data.Model.HistoryGetResponse
@@ -599,5 +600,9 @@ class OrderAPI {
                 }
 
             })
+    }
+    fun getToken(context: Context): String? {
+        val sharedPreferences = context.getSharedPreferences("MyAppPreferences", Context.MODE_PRIVATE)
+        return sharedPreferences.getString("token", null)
     }
 }

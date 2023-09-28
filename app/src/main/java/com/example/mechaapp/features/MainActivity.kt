@@ -1,5 +1,6 @@
 package com.example.mechaapp.features
 
+import android.content.Context
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -100,6 +101,7 @@ class MainActivity : AppCompatActivity(), MainActivityContract {
     }
 
     override fun onSuccesLogin(user: LoginResponse?) {
+//        saveToken(this, user?.token.toString())
         DataToken.token = user?.token.toString()
         DataToken.idUser = user?.id.toString()
         DataUser.nama = user?.nama.toString()
@@ -134,5 +136,11 @@ class MainActivity : AppCompatActivity(), MainActivityContract {
             5 -> binding.tilemailLogin.error=message
             6 -> binding.tilpwLogin.error=message
         }
+    }
+    private fun saveToken(context: Context, token: String){
+        val sharedPreferences = context.getSharedPreferences("MyAppPreferences", Context.MODE_PRIVATE)
+        val editor = sharedPreferences.edit()
+        editor.putString("token", token)
+        editor.apply()
     }
 }

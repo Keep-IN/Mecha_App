@@ -56,12 +56,12 @@ class HomeFragment2 : Fragment(), HomeContract2 {
     }
 
     override fun onSucces(history: HistoryGetResponse?) {
-        history?.history?.forEach { it ->
-            if (it.status == "Selesai"){
-                it.prices.forEach {price ->
+        history?.history?.forEach { history ->
+            if (history.status == "Selesai"){
+                history.prices.forEach {price ->
                     if (price.description_service == "Biaya Pemakaian Aplikasi"){
                         sum += price.price.toInt()
-                        DataRiwayatMontir.riwayathomeList.add(0, PriceModel(price.price.toInt().formatDecimalSeparator(),"", "Tagihan Layanan"))
+                        DataRiwayatMontir.riwayathomeList.add(0, PriceModel(price.price.toInt().formatDecimalSeparator(), history.id_service,"Tagihan Layanan" ))
                         presenter.updateTagihan(DataToken.userId, sum.toString())
                     }
                 }
@@ -77,7 +77,7 @@ class HomeFragment2 : Fragment(), HomeContract2 {
         if (tagihan != null) {
             Handler(requireActivity().mainLooper).post{
                 binding.tvtagihan.text = "Rp ${sum.formatDecimalSeparator()}"
-                adapterHistory.submitList(DataRiwayatMontir.riwayathomeList.toMutableList())
+                adapterHistory.submitList(DataRiwayatMontir.riwayathomeList.toMutableList().distinct())
             }
         }
     }

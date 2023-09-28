@@ -1,6 +1,7 @@
 package com.example.mechaapp.partner.features2.history2.detailpembayaran
 
 import android.content.Intent
+import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
@@ -66,6 +67,17 @@ class DetailPembayaran : AppCompatActivity(),BayarContract {
             presenter.updateStatus("Diterima", dataOrder.id_service)
         }
         presenter.getPriceById(dataOrder.id.toString(),dataOrder.id_service)
+        val intent = Intent(Intent.ACTION_VIEW, Uri.parse(dataOrder.map_url))
+        intent.setPackage("com.google.android.apps.maps")
+        binding.cvSeeAlamat.setOnClickListener {
+            if (intent.resolveActivity(packageManager) != null) {
+                startActivity(intent)
+            } else {
+                val webIntent = Intent(Intent.ACTION_VIEW, Uri.parse(dataOrder.map_url))
+                startActivity(webIntent)
+            }
+
+        }
 
         binding.apply {
             if (order != null) {
