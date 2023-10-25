@@ -2,8 +2,8 @@ package com.example.mechaapp.data.Model
 
 object DataSpotlight {
     val spotlightList = mutableListOf(
-        SpotlightItemModel("https://i.ibb.co/dfwJpPv/Frame-1000000795.png"),
-        SpotlightItemModel("https://i.ibb.co/cyVbfcX/Frame-1347.png"),
-        SpotlightItemModel("https://i.ibb.co/2s312d7/Frame-1348.png")
+        SpotlightItemModel("https://i.ibb.co/198cfhF/spotlight11.png"),
+        SpotlightItemModel("https://i.ibb.co/jfYGsLZ/spotlight-A.png"),
+        SpotlightItemModel("https://i.ibb.co/n309FcZ/spotlight-B.png")
     )
 }

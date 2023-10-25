@@ -1,11 +1,13 @@
 package com.example.mechaapp.data.adapter
 
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.mechaapp.databinding.ChatListViewBinding
 import com.example.mechaapp.data.Model.ChatItemModel
+import com.example.mechaapp.features.chat.IsiChat
 
 class ChatAdapter: RecyclerView.Adapter<ChatAdapter.ViewHolder>() {
 
@@ -36,6 +38,10 @@ class ChatAdapter: RecyclerView.Adapter<ChatAdapter.ViewHolder>() {
 
             binding.root.setOnClickListener{
                 listener?.invoke(item)
+
+                val context = binding.root.context
+                val intent = Intent(context, IsiChat::class.java)
+                context.startActivity(intent)
             }
             with(binding){
                 Glide

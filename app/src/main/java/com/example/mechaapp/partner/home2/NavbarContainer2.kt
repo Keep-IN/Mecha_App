@@ -7,6 +7,8 @@ import com.example.mechaapp.R
 import com.example.mechaapp.databinding.ActivityNavbarContainer2Binding
 import com.example.mechaapp.features.BottomSheetforAll.BottomSheetKeluar
 import com.example.mechaapp.partner.features2.history2.history.HistoryFragment2
+import com.example.mechaapp.partner.features2.profile2.EditProfilem
+import com.example.mechaapp.partner.features2.profile2.ProfilemFragment
 
 
 class NavbarContainer2 : AppCompatActivity() {
@@ -24,7 +26,7 @@ class NavbarContainer2 : AppCompatActivity() {
                 R.id.nav_home -> replaceFragment(HomeFragment2())
                 //    R.id.nav_chat -> replaceFragment(ChatFragment())
                   R.id.nav_history -> replaceFragment(HistoryFragment2())
-                //R.id.nav_profile -> replaceFragment(ProfileFragment())
+                    R.id.nav_profile -> replaceFragment(ProfilemFragment())
             }
             true
         }

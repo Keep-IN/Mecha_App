@@ -69,7 +69,7 @@
             </androidx.cardview.widget.CardView>
 
             <ImageView
-                android:id="@+id/imageView26"
+                android:id="@+id/ivEditm"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="11dp"
@@ -99,7 +99,7 @@
                 app:cardElevation="0dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/materialCardView8">
+                app:layout_constraintTop_toBottomOf="@+id/cvOutm">
 
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
@@ -211,7 +211,7 @@
             </com.google.android.material.card.MaterialCardView>
 
             <com.google.android.material.card.MaterialCardView
-                android:id="@+id/materialCardView8"
+                android:id="@+id/cvOutm"
                 android:layout_width="0dp"
                 android:layout_height="80dp"
                 app:layout_constraintEnd_toEndOf="parent"

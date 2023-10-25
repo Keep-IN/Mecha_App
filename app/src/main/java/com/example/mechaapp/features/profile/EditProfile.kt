@@ -6,6 +6,7 @@ import android.os.Bundle
 import com.example.mechaapp.R
 import com.example.mechaapp.databinding.ActivityEditProfileBinding
 import com.example.mechaapp.databinding.ActivityMainBinding
+import com.example.mechaapp.features.Dashboard.HomeFragment
 import com.example.mechaapp.features.Login.ForgetPassword
 
 class EditProfile : AppCompatActivity() {
@@ -16,6 +17,11 @@ class EditProfile : AppCompatActivity() {
         binding = ActivityEditProfileBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        binding.apply {
+            ivbackEditprofile.setOnClickListener {
+                startActivity(Intent(this@EditProfile, HomeFragment::class.java))
+            }
+        }
 
     }
 }
